@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payroll_system__c</fullName>
+    <externalId>false</externalId>
+    <label>Payroll system</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Country2__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Aditro</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Aditro</label>
+            </value>
+            <value>
+                <fullName>Fortnox</fullName>
+                <default>false</default>
+                <label>Fortnox</label>
+            </value>
+            <value>
+                <fullName>Hogia</fullName>
+                <default>false</default>
+                <label>Hogia</label>
+            </value>
+            <value>
+                <fullName>Integrated in ERP system</fullName>
+                <default>false</default>
+                <label>Integrated in ERP system</label>
+            </value>
+            <value>
+                <fullName>SD Worx</fullName>
+                <default>false</default>
+                <label>SD Worx</label>
+            </value>
+            <value>
+                <fullName>Tripletex</fullName>
+                <default>false</default>
+                <label>Tripletex</label>
+            </value>
+            <value>
+                <fullName>Xledger</fullName>
+                <default>false</default>
+                <label>Xledger</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>Tripletex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>Xledger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Fortnox</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Hogia</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

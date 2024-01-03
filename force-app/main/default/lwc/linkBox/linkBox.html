@@ -1,0 +1,430 @@
+<!-- get link -->
+<template>
+    <lightning-card class="component_title">
+        <!--card heading-->
+        <div class="slds-grid slds-gutters heading_grid">
+            <div class="slds-form-element slds-p-horizontal_large slds-size_1-of-2">
+                <div class="slds-grid heading_grid">
+                    <div class="slds-col icon slds-size_1-of-10">
+                        <lightning-icon icon-name="standard:link" alternative-text="" ></lightning-icon>
+                    </div>
+                    <div class="slds-col slds-size_9-of-10 card_title">
+                        <div class="slds-text-heading--small "> Links </div></br>
+                    </div>
+                </div>
+            </div>
+            <!-- search bar -->
+            <div class="slds-form-element slds-p-horizontal_large slds-size_1-of-2">
+                <div class="slds-grid heading_grid slds-align_absolute-center slds-has-flexi-truncate">
+                    <div class="slds-form-element__control slds-size_9-of-10" onkeyup={handleKeyUp}>
+                        <lightning-input
+                            label=""
+                            placeholder="Press Enter to search"
+                            type="search"
+                            id="input-01"
+                            is-loading={loading}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-size_1-of-10 slds-p-top_medium slds-p-left_x-small">
+                        <lightning-helptext content="Search for a Name or Description. Press 'Enter' to search."></lightning-helptext>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--start table-->
+        <div class="slds-table--header-fixed_container" style="height:45rem;">
+            <div class="slds-scrollable_y" style="height:45rem;">
+                
+                <table class="slds-table slds-table--header-fixed slds-table_fixed-layout" role="grid">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <!-- Name column -->
+                            <th class="slds-cell-wrap tName" style="width: 23%;" scope="col" >
+                                <div class="slds-grid slds-grid_vertical-align-center slds-cell-fixed">
+                                    <div class="slds-truncate slds-col" title="Name">
+                                        <a data-id="Name" class="slds-text-color_default" onclick={sort}>Name</a>
+                                    </div>
+                                    <div class="slds-col" title="Icons">
+                                        <div class="icons slds-float_left" if:true={iconName}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <div class="icons slds-hidden slds-float_left" if:false={iconName}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </th>
+                            <!-- Links column -->
+                            <th class="slds-cell-wrap" style="width: 8%;" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-cell-fixed">
+                                    <div class="slds-truncate slds-col" title="Link">
+                                        <a data-id="Link_url__c" class="slds-text-color_default" onclick={sort}>Link</a>
+                                    </div>
+                                    <div class="slds-col" title="Icons">
+                                        <div class="icons slds-float_left" if:true={iconLink}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <div class="icons slds-hidden slds-float_left" if:false={iconLink}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </th>
+                            <!-- Description column -->
+                            <th class="slds-cell-wrap" style="width: 28%;" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-cell-fixed">
+                                    <div class="slds-truncate slds-col" title="Description">
+                                        <a data-id="Description__c" class="slds-text-color_default" onclick={sort}>Description</a>
+                                    </div>
+                                    <div class="slds-col" title="Icons">
+                                        <div class="icons slds-float_left" if:true={iconDescription}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <div class="icons slds-hidden slds-float_left" if:false={iconDescription}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </th>
+                            <!-- Type Column -->
+                            <th class="slds-cell-wrap" style="width: 10%;" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-cell-fixed">
+                                    <div class="slds-truncate slds-col" title="Type">
+                                        <a data-id="Type__c" class="slds-text-color_default" onclick={sort}>Type</a>
+                                    </div>
+                                    <div class="slds-col" title="Icons">
+                                        <div class="icons slds-float_left" if:true={iconType}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <div class="icons slds-hidden slds-float_left" if:false={iconType}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <!-- filter button for Type column-->
+                                        <div class="slds-col slds-float_right slds-is-open">
+                                            <lightning-button-menu
+                                                alternative-text="filter" 
+                                                icon-size="xx-small" 
+                                                onselect={handleTypeFilter}
+                                                menu-alignment="bottom">
+                                                <div class="slds-grid clearSelectAll slds-scrollable_none">
+                                                    <div class="slds-size_2-of-2 slds-p-left_medium">
+                                                        <a label="Select all" 
+                                                            title="Select all" 
+                                                            onclick={handleSelectAllType}>
+                                                            Select all
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <lightning-menu-divider variant="compact">
+                                                </lightning-menu-divider>
+                                                <template for:each={privateMenuItemsType} for:item="action">
+                                                    <lightning-menu-item
+                                                        id={action.id}
+                                                        label={action.label}
+                                                        value={action.value}
+                                                        key={action.label}
+                                                        checked={action.checked}
+                                                        disabled={action.disabled}>
+                                                    </lightning-menu-item>
+                                                </template>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </th>
+                            <!-- Country column -->
+                            <th class="slds-cell-wrap" style="width: 10.5%;" scope="col">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-cell-fixed">
+                                    <div class="slds-truncate slds-col" title="Country">
+                                        <a data-id="Country__c" class="slds-text-color_default" onclick={sort}>Country</a>
+                                    </div>
+                                    <div class="slds-col" title="Icons">
+                                        <div class="icons slds-float_left" if:true={iconCountry}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <div class="icons slds-hidden slds-float_left" if:false={iconCountry}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <!-- filter button for Country column-->
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-button-menu
+                                                alternative-text="filter" 
+                                                icon-size="xx-small" 
+                                                onselect={handleCountryFilter}
+                                                menu-alignment="bottom">
+                                                <div class="slds-grid clearSelectAll slds-scrollable_none">
+                                                    <div class="slds-size_2-of-2 slds-p-left_medium">
+                                                        <a label="Select all" 
+                                                            title="Select all" 
+                                                            onclick={handleSelectAllCountry}>
+                                                            Select all
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <lightning-menu-divider variant="compact">
+                                                </lightning-menu-divider>
+                                                <template for:each={privateMenuItemsCountry} for:item="action">
+                                                    <lightning-menu-item
+                                                        id={action.id}
+                                                        label={action.label}
+                                                        value={action.value}
+                                                        key={action.label}
+                                                        checked={action.checked}
+                                                        disabled={action.disabled}>
+                                                    </lightning-menu-item>
+                                                </template>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </th>
+                            <!-- Modified column -->
+                            <th class="slds-cell-wrap" scope="col" style="padding-left: 0.5rem;">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-cell-fixed">
+                                    <div class="slds-truncate slds-col" title="Modified">
+                                        <a data-id="LastModifiedDate" class="slds-text-color_default" onclick={sort}>Modified</a>
+                                    </div>
+                                    <div class="slds-truncate slds-col" title="Icons">
+                                        <div class="icons slds-float_left" if:true={iconDate}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                        <div class="icons slds-hidden slds-float_left" if:false={iconDate}>
+                                            <lightning-icon class="" icon-name={arrow} alternative-text="sort direction" size="xx-small"></lightning-icon>
+                                        </div>
+                                    </div> 
+                                </div>                             
+                            </th>
+                            <th class="slds-cell-wrap" scope="col">
+                                <div class="slds-hidden"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template if:false={data}> 
+                            <template for:each={links} for:item="link">
+                                <tr key={link.Id} class="slds-hidden">
+                                    <!--Name column-->
+                                    <td key={link.Id} class="slds-cell-wrap tName" style="width: 2.9vw;">
+                                        <div class="" title="Name">{link.Name}</div>
+                                    </td>
+                                    <!--Link column-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="width: 0.05vw;">
+                                        <div class="openLinkButton">
+                                            <lightning-formatted-url label="Link" value={link.Link_url__c}>
+                                            </lightning-formatted-url>
+                                        </div>
+                                    </td>
+                                    <!--Description column-->
+                                    <td key={link.Id} class="slds-cell-wrap slds-truncate" style="width: 3.3vw;">
+                                        <div class="" title="Description">{link.Description__c}</div>
+                                    </td>
+                                    <!--Type column-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="width: 1.2vw;">
+                                        <div class="" title="Type">{link.Type__c}</div>
+                                    </td>
+                                    <!--Country column-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="width: 1.2vw;">
+                                        <div class="" title="Country">{link.Country__c}</div>
+                                    </td>
+                                    <!--Modified date-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="width:  1.35vw;">
+                                        <div class="" title="Modified">
+                                            <lightning-formatted-date-time 
+                                                value={link.LastModifiedDate}
+                                                month="2-digit"
+                                                year="numeric"
+                                                day="numeric">
+                                            </lightning-formatted-date-time>
+                                        </div>
+                                    </td>
+                                    <!--Action down arrow for each row-->
+                                    <td key={link.Id} class="slds-cell-wrap tButtons" style="width:  0.1vw;">
+                                        <template if:true={hasPermissions}>
+                                            <div class="slds-truncate" title="Action">
+                                                <lightning-button-icon
+                                                    icon-name="utility:edit"
+                                                    onclick={handleEditLink}
+                                                    alternative-text="Edit"
+                                                    data-key={link.Id}
+                                                    size="small"
+                                                    class="slds-m-left_xxx-small">
+                                                </lightning-button-icon>
+        
+                                                <lightning-button-icon
+                                                    icon-name="utility:delete" 
+                                                    onclick={handleDeleteLink}
+                                                    alternative-text="Edit"
+                                                    data-key={link.Id}
+                                                    size="small"
+                                                    class="slds-m-left_xxx-small">
+                                                </lightning-button-icon>
+                                            </div>
+                                        </template>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                        <template if:true={data}>
+                            <template for:each={links} for:item="link">
+                                <tr key={link.Id}>
+                                    <!--Name column-->
+                                    <td key={link.Id} class="slds-cell-wrap tName" style="max-width: 2.9vw;">
+                                        <div class="" title="Name">{link.Name}</div>
+                                    </td>
+                                    <!--Link column-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="max-width: 0.05vw;">
+                                        <div class="openLinkButton">
+                                            <lightning-formatted-url label="Link" value={link.Link_url__c}>
+                                            </lightning-formatted-url>
+                                        </div>
+                                    </td>
+                                    <!--Description column-->
+                                    <td key={link.Id} class="slds-cell-wrap slds-truncate" style="max-width: 3.3vw;">
+                                        <div class="" title="Description">{link.Description__c}</div>
+                                    </td>
+                                    
+                                    <!--Type column-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="max-width: 1.2vw;">
+                                        <div class="" title="Type">{link.Type__c}</div>
+                                    </td>
+                                    <!--Country column-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="max-width: 1.2vw;">
+                                        <div class="" title="Country">{link.Country__c}</div>
+                                    </td>
+                                    <!--Modified date-->
+                                    <td key={link.Id} class="slds-cell-wrap" style="max-width:  1.35vw;">
+                                        <div class="" title="Modified">
+                                            <lightning-formatted-date-time 
+                                                value={link.LastModifiedDate}
+                                                month="2-digit"
+                                                year="numeric"
+                                                day="numeric">
+                                            </lightning-formatted-date-time>
+                                        </div>
+                                    </td>
+                                    <!--Action down arrow for each row-->
+                                    <td key={link.Id} class="slds-cell-wrap tButtons" style="max-width:  0.1vw;">
+                                        <template if:true={hasPermissions}>
+                                            <div class="slds-truncate" title="Action">
+                                                <lightning-button-icon
+                                                    icon-name="utility:edit"
+                                                    onclick={handleEditLink}
+                                                    alternative-text="Edit"
+                                                    data-key={link.Id}
+                                                    size="small"
+                                                    class="slds-m-left_xxx-small">
+                                                </lightning-button-icon>
+        
+                                                <lightning-button-icon
+                                                    icon-name="utility:delete" 
+                                                    onclick={handleDeleteLink}
+                                                    alternative-text="Edit"
+                                                    data-key={link.Id}
+                                                    size="small"
+                                                    class="slds-m-left_xxx-small">
+                                                </lightning-button-icon>
+                                            </div>
+                                        </template>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Add button at bottom-->
+        <template if:true={hasPermissions}>
+            <div class="slds-clearfix">
+                <div class="slds-float_right">
+                    <div class="slds-p-around_xx-small">
+                    <lightning-button variant="brand" label="Add" title="newLink" onclick={openModal} ></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!--Action for edit row-->
+        <template if:true={openRecordEditForm}>
+            <div class="demo-only">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeEditModal}>
+                                <lightning-icon icon-name="utility:close" variant="inverse" size="medium">
+                                </lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Link</h2>
+                        </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-4">
+                                <lightning-record-edit-form record-id={targetRecordId}
+                                                            object-api-name="Links__c"
+                                                            onsuccess={handleSuccess}
+                                                            onerror={handleError}>
+                                    <lightning-messages></lightning-messages>
+                                    <lightning-input-field field-name="Name" required></lightning-input-field>
+                                    <lightning-input-field field-name="Type__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Country__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Link_url__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Description__c" required></lightning-input-field>
+                                    <div>
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="slds-float_right">
+                                        <lightning-button
+                                            class="slds-m-top_small"
+                                            variant="brand"
+                                            type="submit"
+                                            name="update"
+                                            label="Update">
+                                        </lightning-button>
+                                    </div>
+                                </lightning-record-edit-form>
+                            </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </template>
+    
+        <!--action for Add row button at bottom-->
+        <template if:true={openmodel}>
+            <div class="demo-only">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-001" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                    <lightning-icon icon-name="utility:close" variant="inverse" size="medium">
+                                    </lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 id="modal-heading-001" class="slds-text-heading_medium slds-hyphenate">Add Link</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                                <lightning-record-edit-form object-api-name="Links__c" 
+                                    onsuccess={handleSuccess}
+                                    onerror={handleError}>
+                                    <lightning-input-field field-name="Name" required></lightning-input-field>
+                                    <lightning-input-field field-name="Type__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Country__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Link_url__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Description__c" required></lightning-input-field>
+                                    <div>
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="slds-float_right">
+                                        <lightning-button label="Cancel" variant="brand" onclick={closeModal}></lightning-button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <lightning-button label="Save" variant="brand" class="slds-m-top_small" type="submit"></lightning-button>
+                                    </div>
+                                </lightning-record-edit-form>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </div>
+        </template>
+    </lightning-card> 
+</template>

@@ -1,0 +1,18 @@
+<!--
+ - Created by jozef on 4. 4. 2023.
+ -->
+
+<aura:component description="AptEditPeriodsButton">
+    <aura:attribute name="taskIndex" type="Integer" />
+    <aura:attribute name="apTask" type="APTaskTemplate__c" default="null"/>
+    <aura:attribute name="editClass" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:registerEvent name="editPeriodsEvent" type="c:AptEditPeriodsPressedEvt"/>
+
+    <aura:method name="recalculateButtonColor" action="{!c.recalculateButtonColor}" access="PUBLIC">
+    </aura:method>
+
+    <lightning:buttonIcon tabindex="{!v.apTask.taskIndex__c}" iconName="utility:edit" variant="bare"
+                          onclick="{!c.editPeriods}" alternativeText="Edit"
+                          class="{!v.editClass}"/>
+</aura:component>

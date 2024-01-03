@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Status__c, &quot;Invoiced&quot;), Department_Invoiced__c, Incurred_By__r.Department)</formula>
+    <inlineHelpText>From The Incurred by user</inlineHelpText>
+    <label>Department</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

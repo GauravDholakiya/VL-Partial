@@ -1,0 +1,16 @@
+<!--
+ - Created by Jozef on 18.2.2019.
+ -->
+
+<aura:component description="AptPlanSearch">
+    <div class="slds-form-element">
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+            <c:SvgIcon class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default"
+                       svgPath="/resource/sldsi/utility-sprite/svg/symbols.svg#search" category="standard"
+                       size="small"
+                       name="search" />
+            <input id="text-input-id-1" placeholder="{!$Label.c.AptSearch}" class="slds-input" type="text"
+                   value="" oninput="{!c.searchKeyChange}"/>
+        </div>
+    </div>
+</aura:component>

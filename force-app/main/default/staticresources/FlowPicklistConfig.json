@@ -1,0 +1,17 @@
+[ {
+  "picklistValues" : [ {
+    "useIcon" : "false",
+    "optionValue" : "Female",
+    "optionLabel" : "Female",
+    "imageUrl" : "https://flagicons.lipis.dev/flags/4x3/no.svg",
+    "iconName" : "standard:default"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "Male",
+    "optionLabel" : "Male",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "standard:default"
+  } ],
+  "objectName" : "User",
+  "fieldName" : "Gender__c"
+} ]

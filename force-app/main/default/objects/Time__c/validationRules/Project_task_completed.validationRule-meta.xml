@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_task_completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW(),TEXT(Project_Task__r.Status__c) = &apos;Completed&apos;)</errorConditionFormula>
+    <errorMessage>You cannot log hours on a Completed Project Task!</errorMessage>
+</ValidationRule>

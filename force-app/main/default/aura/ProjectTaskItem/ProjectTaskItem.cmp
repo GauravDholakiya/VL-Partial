@@ -1,0 +1,43 @@
+<!-- c:ProjectTaskItem -->
+<aura:component>
+    <!-- This represents a single project task -->
+    <aura:attribute name="projectTaskName" type="String" default="-=Invalid=-" />  
+    <aura:attribute name="projectTaskId" type="String" /> 
+    <aura:attribute name="isSelected" type="Boolean" default="false" />
+    <aura:attribute name="deactivated" type="Boolean" />
+    <aura:attribute name="accountStatus" type="String" />
+    <aura:attribute name="reasonForDeactivation" type="String" />
+    <aura:attribute name="defaultTimeType" type="String" />
+    <aura:attribute name="lockTimeType" type="Boolean" />
+    
+    <aura:registerEvent name="projectTaskSelected" type="c:projectTaskSelected"/>
+    <aura:registerEvent name="projectTaskDeselected" type="c:projectTaskDeselected"/>
+    <lightning:layout>            
+        <lightning:layoutItem size="1"  class="overwritePaddingLI">
+
+            <aura:if isTrue="{!v.accountStatus == 'green'}">
+                <lightning:icon iconName="action:approval" alternativeText="Activate" title="Activate"
+                                size="xx-small" class="slds-float_left slds-m-right_xx-small iconRedGreen"/>
+            </aura:if>
+            <aura:if isTrue="{!v.accountStatus == 'yellow'}">
+                <lightning:icon iconName="action:priority" alternativeText="Ongoing Termination" title="Ongoing Termination" size="xx-small" class="slds-float_left slds-m-right_xx-small iconRedGreen"/>
+            </aura:if>
+            <aura:if isTrue="{!v.accountStatus == 'red'}">
+                <lightning:icon iconName="action:close" alternativeText="Terminated" title="Terminated"
+                                size="xx-small" class="slds-float_left slds-m-right_xx-small iconRedGreen"/>
+            </aura:if>
+
+        </lightning:layoutItem>
+        <lightning:layoutItem size="9" padding="around-small"  class="overwritePaddingLI2">
+            <div>{!v.projectTaskName}<i>&nbsp;{!not(empty(v.reasonForDeactivation))?'(':''}{!v.reasonForDeactivation}{!not(empty(v.reasonForDeactivation))?')':''}</i></div>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto"  class="overwritePaddingLI3">
+            <aura:if isTrue="{!v.isSelected}">            
+                <aura:set attribute="else">
+                    <lightning:buttonIcon iconName="utility:check" onclick="{! c.handleClickAdd }" />                    
+                </aura:set>
+                <lightning:buttonIcon iconName="utility:delete" onclick="{! c.handleClickDelete }" />                 
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

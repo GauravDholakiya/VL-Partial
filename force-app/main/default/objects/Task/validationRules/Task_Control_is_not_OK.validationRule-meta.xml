@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Control_is_not_OK</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Status) &amp;&amp; Task_Number__c = 535 &amp;&amp; ISPICKVAL(Status, &quot;Completed&quot;) &amp;&amp; !ISPICKVAL(Task_Control__c, &quot;OK&quot;)</errorConditionFormula>
+    <errorMessage>Task Control needs to be set to OK before setting this Task to Completed.</errorMessage>
+</ValidationRule>

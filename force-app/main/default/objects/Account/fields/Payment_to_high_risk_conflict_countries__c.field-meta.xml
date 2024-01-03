@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_to_high_risk_conflict_countries__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Has the customer made any payments to conflict areas/high-risk countries? For updated information/definition regarding conflict areas/high-risk countries, see “Hvitvaskingsrutinen” 5.1.8..</inlineHelpText>
+    <label>Payment to high risk/conflict countries?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

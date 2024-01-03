@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E_Bok_view_ledger_Lead</fullName>
+    <filterScope>Queue</filterScope>
+    <label>E-Bok VIEW Ledger</label>
+    <queue>E_Bok_view_ledger</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

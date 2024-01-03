@@ -1,0 +1,21 @@
+.THIS .overwritePaddingLI {
+    margin: auto 5px auto 0 !important;
+    padding: 0 !important;
+}
+
+.THIS .overwritePaddingLI2 {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+}
+
+.THIS .overwritePaddingLI3 {
+    padding-left: 5px !important; 
+}
+
+.THIS .iconRedGreen use, .THIS .iconRedGreen svg {
+    display: none;
+}
+
+.THIS i {
+    color: rgb(134, 1, 1);
+}

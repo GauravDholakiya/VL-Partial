@@ -1,0 +1,55 @@
+<aura:component  access="global" implements="lightning:availableForFlowScreens,force:lightningQuickAction,force:hasRecordId"
+                 controller="AptTaskUploadSelectorController">
+	<aura:attribute name="apTaskList" type="List" />
+    <aura:attribute name="taskGroup" type="Aura.Component[]" access="public" />
+    <aura:attribute name="sectionName" type="String" />
+    <aura:attribute name="selectedTasks" type="Map"/>
+    <lightning:accordion aura:id="accordion" allowMultipleSectionsOpen="true">
+            
+                <lightning:accordionSection name="{!v.sectionName}" label="{!v.sectionName}">
+                <div class="slds-m-horizontal_xxx-small">
+                	<lightning:button variant="base" label="{!$Label.c.AptSelectAll}" title="Base action" onclick="{!c.selectAll }"/>
+                    |
+                	<lightning:button variant="base" label="{!$Label.c.AptDeselectAll}" title="Base action" onclick="{!c.deselectAll }"/>
+                </div>
+                <aura:iteration items="{!v.apTaskList}" var="aptval" >
+                    <tr>
+                    	<td>
+                            <div class="slds-m-horizontal_xxx-small">
+                                <lightning:input aura:id="taskCheckbox" type="checkbox" label="{!aptval.IsMandatory__c}"
+                                                 name="{!aptval.Id}" onchange="{!c.handleChange}" variant="label-hidden"/>
+                            </div>                    		
+                        </td>
+                        <td>
+                            <aura:if isTrue="{!aptval.IsMandatory__c}">
+                        		<div class="slds-m-horizontal_xxx-small">
+                                	<lightning:icon iconName="utility:lock" alternativeText="Mandatory" size="xx-small"/>
+                           		</div>
+                                </aura:if>                            
+                        </td>
+                        <td>
+                            <div class="slds-m-horizontal_xxx-small">
+                        		{!aptval.Task_Number__c}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="slds-m-horizontal_xxx-small">
+                    			{!aptval.Subject__c}
+                            </div>
+                    	</td>
+                        <td>
+                            <div class="slds-m-horizontal_xxx-small">
+                    			{!aptval.Frequency__c}
+                            </div>
+                    	</td>
+                        <td>
+                            <div class="slds-m-horizontal_xxx-small">
+                    			{!aptval.Assigned_Role__c}
+                            </div>
+                    	</td>
+                   </tr>
+                </aura:iteration>
+                </lightning:accordionSection>
+            </lightning:accordion>
+	
+</aura:component>

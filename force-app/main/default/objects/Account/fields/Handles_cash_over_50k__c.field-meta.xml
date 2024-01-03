@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Handles_cash_over_50k__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Does the customer handle a lot of cash? “A lot of cash” must be seen in context of total turnover. 50.000 NOK/SEK or above per year is to be understood as a lot of cash at all times, regardless of total turnover.</inlineHelpText>
+    <label>Handles cash over 50k per year?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

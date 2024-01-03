@@ -1,0 +1,23 @@
+<!--
+ - Created by Jozef on 28.1.2019.
+ -->
+
+<aura:component description="AptLookup">
+    <aura:attribute name="objectAPIName" type="String" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="iconName" type="String" />
+    <aura:attribute name="searchKey" type="String" default=""/>
+    <aura:attribute name="value" type="sObject"/>
+    <aura:attribute name="recId" type="String"/>
+    <aura:attribute name="withFixedPosition" type="Boolean" default="false"/>
+    <aura:attribute name="variant" type="String" default="standard"/>
+
+    <c:CustomLookup objectAPIName="{!v.objectAPIName}"
+                    IconName="{!v.iconName}"
+                    selectedRecord="{!v.value}"
+                    SearchKeyWord="{!v.searchKey}"
+                    label="{!v.label}"
+                    selectedRecordId="{!v.recId}"
+                    withFixedPosition="{!v.withFixedPosition}"
+                    variant="{!v.variant}"/>
+</aura:component>

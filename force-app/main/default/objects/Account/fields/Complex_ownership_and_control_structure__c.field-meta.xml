@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complex_ownership_and_control_structure__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Does the customer or any related companies have a complex ownership and/or control structure? Indications for complex ownership and/or control structure could be (but is not limited to):
+•	Several different levels in ownership/control
+•	Relationship between owners and control
+•	Lack of explanatory internal routines
+•	Irregular transactions between owners
+•	Complex group transfers</inlineHelpText>
+    <label>Complex ownership and control structure?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

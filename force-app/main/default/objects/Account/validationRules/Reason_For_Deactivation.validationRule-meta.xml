@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_For_Deactivation</fullName>
+    <active>false</active>
+    <errorConditionFormula>Deactivated__c = True
+&amp;&amp;
+ISPICKVAL(Reason_For_Deactivation__c, &quot;&quot;)</errorConditionFormula>
+    <errorMessage>Reason for deactivation is mandatory</errorMessage>
+</ValidationRule>

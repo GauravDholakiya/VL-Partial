@@ -1,0 +1,77 @@
+<!--
+ - Created by Jozef on 23.1.2019.
+ -->
+
+<aura:component description="AptActionPlanInfo" controller="AptActionPlanController"
+                implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="apId" type="String" />
+
+
+    <!-- <aura:attribute name="account" type="Object"/> -->
+    <aura:attribute name="contract" type="Object"/>
+
+    <!--
+    <aura:attribute name="accountId" type="Id" />
+    <aura:attribute name="contractId" type="Id" />
+    -->
+
+
+    <aura:attribute name="fiscalYear" type="String" />
+    <aura:attribute name="actionPlan" type="Object"/>
+
+    <aura:if isTrue="{!v.apId != null }">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="1">
+                <c:AptOutputField recordId="{!v.actionPlan.Account__c}" label="{!v.actionPlan.Account__r.Name}"
+                                  sfObject="{!$Label.c.AptAccount}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1">
+                <c:AptOutputField recordId="{!v.actionPlan.Contract__c}" label="{!v.actionPlan.Contract__r.Name}"
+                                  sfObject="{!$Label.c.AptContract}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1">
+                <c:AptOutputField label="{!v.actionPlan.FiscalYear__c}" sfObject="{!$Label.c.AptFiscalYear}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1">
+                <c:AptOutputField recordId="{!v.actionPlan.OwnerId}" label="{!v.actionPlan.Owner.Name}"
+                                  sfObject="{!$Label.c.AptOwner}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1">
+                <c:AptOutputField recordId="{!v.actionPlan.CreatedById}" label="{!v.actionPlan.CreatedBy.Name}"
+                                  sfObject="{!$Label.c.AptCreatedBy}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1" >
+                <c:AptOutputField recordId="{!v.actionPlan.LastModifiedById}"
+                                  label="{!v.actionPlan.LastModifiedBy.Name}"
+                                  sfObject="{!$Label.c.AptLastModifiedBy}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1" >
+                <c:AptOutputField label="{!v.actionPlan.LastModifiedDate}" sfObject="{!$Label.c.AptLastModifiedDate}"
+                                  aType="Date"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1" >
+                <c:AptOutputField label="{!v.actionPlan.CreatedDate}" sfObject="{!$Label.c.AptCreatedDate}"
+                                  aType="Date"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+
+
+        <aura:set attribute="else">
+            <lightning:layout multipleRows="true">
+
+                <lightning:layoutItem size="1">
+                    <c:AptOutputField recordId="{!v.contract.Account__c}" label="{!v.contract.Account__r.Name}"
+                                      sfObject="{!$Label.c.AptAccount}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="1">
+                    <c:AptOutputField recordId="{!v.contract.Id}" label="{!v.contract.Name}"
+                                      sfObject="{!$Label.c.AptContract}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="1"  >
+                    <c:AptOutputField label="{!v.fiscalYear}" sfObject="{!$Label.c.AptFiscalYear}" />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+
+</aura:component>

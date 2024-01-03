@@ -1,0 +1,365 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="SharepointWidgetController" >
+    
+    <ltng:require styles="{! $Resource.Select2JS + '/select2-4.0.3/dist/css/select2.min.css'}" scripts="{!join(',', $Resource.JqueryCDN , $Resource.Select2JS + '/select2-4.0.3/dist/js/select2.js')}" afterScriptsLoaded="{!c.doInit}"/>
+    <aura:attribute name="Details" type="Boolean" default="true" />
+    <aura:attribute name="Tiles" type="Boolean" default="false" />
+    <aura:attribute name="Documents" type="List" /> 
+    <aura:attribute name="ModelPopUp" type="Boolean" default="false" />
+    <aura:attribute name="ShowContentType" type="Boolean" default="false" />
+    <aura:attribute name="ContenttypeNameList" type="List" />
+    <aura:attribute name="ContenttypeName" type="String"  />
+    <aura:attribute name="ContentTypeFieldsList" type="List" />
+    <aura:attribute name="ContenttypeId" type="String" />
+    <aura:attribute name="ContenttypesMap" type="Object" default="{}"/>
+    <aura:attribute name="selectedContentType" type="String" default=""/>
+    <aura:attribute name="ViewsList" type="List" />
+    <aura:attribute name="ShowResponseMessage" type="Boolean" default="false" />
+    <aura:attribute name="doclink" type="String" />
+    <aura:attribute name="SeeAlllink" type="String" />
+    <aura:attribute name="TimeZone" type="String" default='' />
+    <aura:attribute name="SetView" type="String" default='' />
+    <aura:attribute name="ViewId" type="String" default='' />
+    <aura:attribute name="ViewDisplayFields" type="List" />
+  
+    
+    <aura:attribute name="SaveDisabled" type="Boolean" default="false" />
+    <aura:attribute name="SearchDate" type="Boolean" default="false" />
+    <aura:attribute name="hide" type="string" default="true"/>
+    <aura:attribute name="sObjectId" type="String" />
+    <aura:attribute name="sObjectName" type="String" />
+    <aura:attribute name="dragdropClass" type="String" default='.doc-table-part' />
+    <aura:attribute name="sortColumn" type="String" default='' />
+    <aura:attribute name="jsonlistofrequiredfields" type="String" default='' />
+    <aura:attribute name="sortDirection" type="String" default='' />
+    <aura:attribute name="TermStoreFulllist" type="List" />
+    <aura:attribute name="TermStorelist" type="List" />
+    <aura:attribute name="isUpload" type="Boolean" default="false" />
+    <aura:attribute name="Disabled" type="Boolean" default="false" />
+    <aura:attribute name="isModalOpen" type="boolean" default="false" description="To display modal pop-up"/>
+    <aura:attribute name="showFileDetailMessage" type="boolean" default="false" description="Display pop-up with details of file"/>
+    <aura:attribute name="ShowerrorMessage" type="boolean" default="false" description="Display pop-up with error message for mltiple files"/>
+    <aura:attribute name="showFileUploadResponse" type="boolean" default="false" description="Display pop-up with Success Response"/>
+    <aura:attribute name="ErrorHeader" type="String"/>
+    <aura:attribute name="ErrorMessage" type="String"/>
+    <aura:attribute name="fileName" type="String" default=""/>
+    <aura:attribute name="fileExtension" type="String" default=""/>
+    <aura:attribute name="SearchText" type="String"/>
+    <aura:attribute name="fileSize" type="String"/>
+    <aura:attribute name="droppedFiles" type="Object"/>
+    <aura:attribute name="Spinner" type="boolean" default="true"/>
+    <aura:attribute name="issearching" type="Boolean" default="false"/>
+    <aura:attribute name="isWidgetActive" type="Boolean" default="false"/>
+    <aura:attribute name="inActiveMessage" type="String" default=""/>
+    <aura:attribute name="FileExitsInSharepoint" type="Boolean" default="false" />
+    
+    <aura:attribute name="uploadedFilesProperty" type="List" default=""/>
+    <aura:attribute name="changedFileNameList" type="map" default=""/>
+    <aura:attribute name="savedFiles" type="list"/>
+    <aura:attribute name="ContentDocumentIdList" type="List" default=""/>
+    
+    <!---->
+    <aura:attribute name="FileExitsInSharepointName" type="list" />
+    <!---->
+   <aura:attribute name="NoContentTypes" type="Boolean" default="false" />
+   <aura:attribute name="uploadDisabled" type="Boolean" default="false" />
+    <!-- -->
+    <aura:attribute name="contentVersionIds" type="List" default=""/>
+ 
+   
+
+    <div>
+        <aura:if isTrue="{!v.NoContentTypes}">
+        <div class='errormessage' style="display: block;text-align: center;font-size: 24px; padding: 0px;margin: 0px;font-weight: 600; color: #1b5297;">
+            <h3>{!$Label.c.ContentTypesNotAvailable}</h3>
+        </div>
+    </aura:if>
+        <aura:if isTrue="{!v.isWidgetActive}">
+            <div class="documents_main">
+                
+                <div class="title">
+                    <h3>Documents</h3>
+                    <a href="{!v.SeeAlllink}" target="_blank"><lightning:button variant="base" label="See all" title="Base action" /></a>
+                    
+                </div>
+                <div class="ribbon">
+                    <div class="rib-leftside ">
+                        <div class="ribbon-lbl new"><a><lightning:icon aura:id="changeIt" iconName="utility:add" alternativeText="add" /> New </a>
+                            
+                        </div>
+                        <div class="ribbon-lbl">
+                            <lightning:fileUpload aura:id="fileUploader"
+                                                  multiple="true"
+                                                  recordId="{!v.recordId}"
+                                                  disabled="{!v.uploadDisabled}"
+                                                  onuploadfinished="{! c.onFileSelectChange }"
+                                                  title="Upload"/>
+                        </div>
+                    </div>
+                    
+                    <div class="rib-rightside">
+                        <div class="ribbon-input" onkeyup="{! c.OnSearch }" ><lightning:input aura:id="enter-search" name="enter-search" label="Search when user hits the 'enter' key" isLoading="{! v.issearching }" type="search" placeholder= "Search" onchange="{!c.OnSearchClear}" /></div>
+                        <div class="ribbon-dropdown">
+                            <a class="rib-droplink" id="rib-droplink"><lightning:icon iconName="utility:right_align_text" alternativeText="Show menu" /><lightning:icon iconName="utility:chevrondown" alternativeText="down" /></a>
+                            <div class="rib-innerbox" >
+                                <ul class="tib-menulist">
+                                    <li id="details">
+                                        <a class="tib-menuitem">
+                                            <aura:if isTrue="{!v.Details}"><span class="check-ico"><lightning:icon iconName="utility:check" alternativeText="add" /></span></aura:if>
+                                            <p class="tib-itemname"><lightning:icon iconName="utility:right_align_text" alternativeText="Show menu" /> Details</p>
+                                        </a>
+                                    </li>
+                                    <li id="tiles">
+                                        <a class="tib-menuitem">
+                                            <aura:if isTrue="{!v.Tiles}"><span class="check-ico"><lightning:icon iconName="utility:check" alternativeText="add" /></span></aura:if>
+                                            <p class="tib-itemname" ><lightning:icon iconName="utility:tile_card_list" alternativeText="Show menu" /> Tiles</p>
+                                        </a>
+                                    </li>
+                                    <aura:iteration items="{!v.ViewsList}" var="View">
+                                        <li viewid="{!View.viewName}" ><aura:if isTrue="{!View.DefaultView}"><span class="check-ico"><lightning:icon iconName="utility:check" alternativeText="add" /></span></aura:if><p class="def-itemname">{!View.viewName}</p></li>
+                                    </aura:iteration>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <aura:if isTrue="{!v.Details}"> 
+                    <div class="doc-table-part">
+                        <table>
+                            <thead>
+                                
+                                <tr>
+                                    <th><a href="#"><lightning:icon iconName="utility:page" alternativeText="add" /></a></th>
+                                    <aura:iteration items="{!v.ViewDisplayFields}" var="field">
+                                        <th><a href="#" onclick="{!c.sortingOflist}">{!field} <aura:if isTrue="{!and(v.sortDirection == 'Asc',v.sortColumn==field)}">  <lightning:icon iconName="utility:chevronup" alternativeText="up" /> <aura:set attribute="else">  <lightning:icon iconName="utility:chevrondown" alternativeText="down" />   </aura:set> </aura:if></a></th>
+                                    </aura:iteration>
+                                </tr>
+                            </thead>
+                            <tbody id="details_tbody">
+                                <aura:iteration items="{!v.Documents}" var="item">
+                                    <tr> 
+                                        <td>
+                                            <img src="{! 'https://spoprod-a.akamaihd.net/files/fabric/assets/item-types-fluent/20/'+item.DocIcon+'.svg'}" class="typeico"></img>
+                                            
+                                        </td>
+                                        <td><p><a href="{!item.documentUrl}" target="_blank" title="{!item.Name}" onclick="{!c.getDetails}">{!item.Name}</a></p></td>
+                                        <td><p title="{!item.Title}">{!item.Title}</p></td>
+                                        <aura:if isTrue="{!v.SearchDate}">
+                                            <td><p><ui:outputDateTime format="MM/dd/yyyy hh:mm a" value="{!item.Modified}" timezone='{!v.TimeZone}'/> </p></td>
+                                            <aura:set attribute="else">
+                                                <td><p>{!item.Modified}</p></td>
+                                            </aura:set>
+                                        </aura:if> 
+                                        
+                                        <td><p>{!item.Author}</p></td>
+                                        <aura:if isTrue="{!v.sObjectName=='Task'}">
+                                            <td><p>{!item.Task_Number}</p></td>
+                                            <td><p>{!item.Period}</p></td>
+                                            <td><p>{!item.Action_Plan_Task}</p></td>
+                                        </aura:if >
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.Tiles}">
+                    <div class="doc-list-part">
+                        <div class="doc-list">
+                            <aura:iteration items="{!v.Documents}" var="item">
+                                <div class="doc-itembox">
+                                    <div class="doc-itemimg">
+                                        <img src="{! 'https://spoprod-a.akamaihd.net/files/fabric/assets/item-types-fluent/20/'+item.DocIcon+'.svg'}" class="typeico" style="width: 64px; height: 64px;"></img>
+                                    </div>
+                                    <div class="doc-item-text">
+                                        <a href="{!item.documentUrl}" target="_blank" title="{!item.Name}">{!item.Name}</a>
+                                    </div>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                </aura:if>
+            </div>
+        </aura:if>
+    </div>
+    
+    <aura:if isTrue="{!v.ModelPopUp}">
+        <div class="slds-m-around_xx-large">
+            
+            <!--###### MODAL BOX Start######--> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    
+                    <!--###### MODAL BOX BODY Part Start######-->
+                    
+                    <aura:if isTrue="{!v.ShowContentType}">
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{!c.closeModel}"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-button slds-modal__close closeIcon slds-button_icon-bare slds-button_icon-inverse"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Document Properties</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <label> Select Content Type </label>
+                            <select style="width:100%" id="contenttype" class="select2Class"  value="{!v.selectedContentType}" onchange="{! c.onSelectChange }" disabled="{!v.Disabled}">
+                                
+                                <aura:iteration items="{!v.ContenttypeNameList}" var="CT">
+                                    <aura:if isTrue="{!CT.IsNewType}">  
+                                        <option value="{!CT.value}">{!CT.text}</option>
+                                    </aura:if> 
+                                </aura:iteration>     
+                            </select>
+                            <br/>
+                            <aura:if isTrue="{!v.selectedContentType!=''}">
+                                <aura:if isTrue="{!and(v.isUpload, v.uploadedFilesProperty!='')}">
+                                    <label>Name : </label>
+                                    <aura:iteration items="{!v.uploadedFilesProperty}" var="file" indexVar="index">
+                                        <div class="fileName">
+                                            <input data-selected-Index="{!index}" id="{!'fileName' + index}" type="text" value="{!file.fileName}" data-contentdocumentId="{!file.documentId}" class="slds-input" />  <p class="fileExtension">{!file.fileExtension}</p>
+                                        </div>
+                                    </aura:iteration>
+                                    <aura:set attribute="else">
+                                        <lightning:input  class="fileName" aura:id="filename" name="input1" required="true" label="Name" value="{!v.fileName}" placeholder='Enter filename'/><p class="fileExtension">{!v.fileExtension}</p>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:if>  
+                            <br/>
+                            <aura:iteration items="{!v.ContentTypeFieldsList}" var="ContentTypeField">
+                                
+                                <aura:if isTrue="{!and(ContentTypeField.ColumnType=='Choice',v.selectedContentType!='')}">
+                                    <label> {!ContentTypeField.ColumnName} </label>
+                                    <select id="{!ContentTypeField.ColumnName}" class="slds-select">
+                                        <option value="">--Select--</option>
+                                        <aura:iteration items="{!ContentTypeField.Choices}" var="Choice">
+                                            <option value="{!Choice}">{!Choice}</option>
+                                        </aura:iteration>
+                                    </select>
+                                </aura:if> 
+                                <br/>
+                                <aura:if isTrue="{!and(ContentTypeField.ColumnType=='TaxonomyFieldTypeMulti',v.selectedContentType!='')}">
+                                    <label> {!ContentTypeField.ColumnName}</label>
+                                    <select style="width:100%" id="termstore" class="select2Class" multiple="multiple" label="Select Term Stores" onchange="{!c.changeTS}">
+                                        <aura:iteration items="{!v.TermStorelist}" var="tsList">
+                                            <option value="{!tsList.value}"> {!tsList.name} </option>
+                                        </aura:iteration> 
+                                    </select>
+                                </aura:if>
+                            </aura:iteration>
+                            
+                        </div>
+                        
+                        <footer class="slds-modal__footer">
+                            <aura:if isTrue="{!v.isUpload}">
+                                <lightning:button variant="brand"
+                                                  label="Upload"
+                                                  title="Upload"
+                                                  onclick="{!c.CheckFileWithSP}"/>
+                                <lightning:button label="Cancel" title="Cancel" onclick="{!c.closeModel}" variant="brand"/>
+                                <aura:set attribute="else">
+                                    <lightning:button aura:id="save" label="Save" title="Save" onclick="{!c.openNewfile}" disabled="{!v.SaveDisabled}"
+                                                      variant="brand"/>
+                                    <lightning:button label="Cancel" title="Cancel" onclick="{!c.closeModel}" variant="brand"/>
+                                </aura:set>
+                            </aura:if>
+                        </footer>
+                    </aura:if>
+                    <aura:if isTrue ="{!v.ShowResponseMessage}">
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{!c.closeModel}"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"> Success </h2>
+                        </header>
+                        <aura:if isTrue="{!!v.isUpload}">
+                            <div class="slds-modal__content slds-p-around_medium slds-modal-fontsize" id="modal-content-id-1" align="center">
+                                <p> Document Created Successfully.</p>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isUpload}">
+                            <div class="slds-modal__content slds-p-around_medium slds-modal-fontsize" id="modal-content-id-1" align="center">
+                                <p>  Documents Uploaded Successfully.</p>
+                            </div>
+                        </aura:if>
+                        <footer class="slds-modal__footer">
+                            <aura:if isTrue="{!v.isUpload}">
+                                <aura:if isTrue="{!v.savedFiles.length == 1}"> 
+                                    <a href="{!v.doclink}" target="_blank"> 
+                                        <lightning:button label="Open" title="Open" variant="brand" onclick="{!c.closeModel}"/></a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </aura:if>
+                                <aura:set attribute="else">
+                                    <a href="{!v.doclink}" target="_blank"> <lightning:button label="Open" title="Open" variant="brand" onclick="{!c.closeModel}"/></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                </aura:set>
+                            </aura:if>
+                            <lightning:button label="Ok" title="Ok" onclick="{!c.closeModel}" variant="Brand"/>
+                        </footer>
+                    </aura:if>
+                    <aura:if isTrue="{!v.ShowerrorMessage}">
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{! c.closeModel }"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.ErrorHeader}</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium slds-modal-fontsize" id="modal-content-id-1" align="center">
+                            <p>{!v.ErrorMessage}</p>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning:button label="Close" title="Close" onclick="{!c.closeModel}" variant="brand"/>
+                        </footer>
+                    </aura:if>
+                    <aura:if isTrue="{!v.FileExitsInSharepoint}" >
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{! c.closeModel }"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"> Warning</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium slds-modal-fontsize" id="modal-content-id-1" align="center">
+                            <p>File with same name already exits Do you wish to override existing file(s)?</p>
+                            <aura:iteration items="{!v.FileExitsInSharepointName}" var="item">
+                                {!item} <br/>
+                            </aura:iteration>
+                        </div>
+                        
+                        <footer class="slds-modal__footer">
+                            <lightning:button label="Yes" title="Yes" onclick="{!c.uploadFileToSP}" variant="brand"/>
+                            <lightning:button label="No" title="No" onclick="{!c.RedirectToDocumentProperties}" variant="brand"/>
+                        </footer>
+                    </aura:if>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.Spinner}">
+        <div class="demo-only" style="">
+            <div class="slds-spinner_container" style="position:fixed;z-index:9050000; background-color: rgba(0,0,0,0.4);">
+                <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_inverse">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!!v.isWidgetActive}">
+        <div class='errormessage' style="display: block;text-align: center;font-size: 24px; padding: 0px;margin: 0px;font-weight: 600; color: #1b5297;">
+            <h3>{!v.inActiveMessage}</h3>
+        </div>
+    </aura:if>
+    
+    
+</aura:component>

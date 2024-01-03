@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_PEP_cannot_have_Normal_Risk</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(PEP__c, &apos;Yes_Active_PEP&apos;)
+&amp;&amp;
+ISPICKVAL(What_is_the_risk_of_money_laundering__c, &apos;Medium Risk&apos;)</errorConditionFormula>
+    <errorMessage>The risk of money laundering cannot be set to Normal with an active PEP.</errorMessage>
+</ValidationRule>

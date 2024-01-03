@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loss_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Loss Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lost to Competitor</fullName>
+                <default>false</default>
+                <label>Lost to Competitor</label>
+            </value>
+            <value>
+                <fullName>User friendliness</fullName>
+                <default>false</default>
+                <label>User friendliness</label>
+            </value>
+            <value>
+                <fullName>Disqualified after first call</fullName>
+                <default>false</default>
+                <label>Disqualified after first call</label>
+            </value>
+            <value>
+                <fullName>Functionality</fullName>
+                <default>false</default>
+                <label>Functionality</label>
+            </value>
+            <value>
+                <fullName>Execution capabilities</fullName>
+                <default>false</default>
+                <label>Execution capabilities</label>
+            </value>
+            <value>
+                <fullName>Qualification</fullName>
+                <default>false</default>
+                <label>Qualification</label>
+            </value>
+            <value>
+                <fullName>Relation</fullName>
+                <default>false</default>
+                <label>Relation</label>
+            </value>
+            <value>
+                <fullName>Resources</fullName>
+                <default>false</default>
+                <label>Resources</label>
+            </value>
+            <value>
+                <fullName>No Budget / Lost Funding</fullName>
+                <default>false</default>
+                <label>No Budget / Lost Funding</label>
+            </value>
+            <value>
+                <fullName>No Decision / Non-Responsive</fullName>
+                <default>false</default>
+                <label>No Decision / Non-Responsive</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Disqualified after first meeting</fullName>
+                <default>false</default>
+                <label>Disqualified after first meeting</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

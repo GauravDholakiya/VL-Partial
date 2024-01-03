@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>High_risk_Industry__c</fullName>
+    <description>High-risk industry is based on NACE code</description>
+    <externalId>false</externalId>
+    <formula>Case(MID((Industry_code__c), 3, 2),
+
+&quot;03&quot;, &quot;Fiskeri&quot;,
+&quot;06&quot;, &quot;Olje og gass&quot;,
+&quot;41&quot;, &quot;Eiendomsutvikling, Bygg og anlegg&quot;,
+&quot;42&quot;, &quot;Eiendomsutvikling, Bygg og anlegg&quot;,
+&quot;43&quot;, &quot;Eiendomsutvikling, Bygg og anlegg&quot;,
+&quot;45&quot;, &quot;Bilvask, bilpleie/verksted&quot;,
+&quot;56&quot;, &quot;Restaurant og uteliv&quot;,
+&quot;68&quot;, &quot;Eiendomsutvikling, Bygg og anlegg&quot;,
+&quot;78&quot;, &quot;Utleie av arbeidskraft&quot;,
+&quot;92&quot;, &quot;Spill- og lotteritjenester&quot;,
+
+Case(MID((Industry_code__c), 3, 3),
+
+&quot;471&quot;, &quot;Dagligvare/kiosk uten franchise&quot;,
+&quot;472&quot;, &quot;Dagligvare/kiosk uten franchise&quot;,
+&quot;473&quot;, &quot;Dagligvare/kiosk uten franchise&quot;,
+&quot;478&quot;, &quot;Dagligvare/kiosk uten franchise&quot;,
+&quot;494&quot;, &quot;Transport&quot;,
+&quot;532&quot;, &quot;Transport&quot;,
+&quot;661&quot;, &quot;Kryptovalutaer og vekslingstjenester knyttet til virtuelle valutaer&quot;,
+&quot;812&quot;, &quot;Renhold&quot;,
+
+&quot;No&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>High-risk industry is based on NACE code (Industry Code)</inlineHelpText>
+    <label>High-risk Industry?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

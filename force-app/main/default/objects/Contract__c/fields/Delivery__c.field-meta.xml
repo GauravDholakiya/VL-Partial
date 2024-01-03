@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delivery__c</fullName>
+    <defaultValue>&quot;Services&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Delivery</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Country__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Delivery</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>System Norway</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>Services Norway</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>System Sweden</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Services Sweden</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

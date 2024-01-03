@@ -1,0 +1,7 @@
+<!--
+ - Created by Jozef on 18.2.2019.
+ -->
+
+<aura:event type="APPLICATION" description="AptPlanSearchKeyChangeEvt">
+    <aura:attribute name="searchKey" type="String"/>
+</aura:event>

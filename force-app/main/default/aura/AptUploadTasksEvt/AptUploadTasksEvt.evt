@@ -1,0 +1,7 @@
+<!--
+ - Created by Jozef on 2.7.2019.
+ -->
+
+<aura:event type="APPLICATION" description="AptUploadTasksEvt">
+    <aura:attribute name="selectedTasks" type="List"/>
+</aura:event>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DESKSCMT__Failed_Articles</fullName>
+    <columns>NAME</columns>
+    <columns>DESKSCMT__Error__c</columns>
+    <columns>DESKSCMT__Desk_Article_Id__c</columns>
+    <columns>DESKSCMT__URL__c</columns>
+    <columns>DESKSCMT__Title__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DESKSCMT__Error__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Failed Articles</label>
+</ListView>

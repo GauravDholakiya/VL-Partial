@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integrations</fullName>
+    <active>true</active>
+    <description>Use for Integration Projects</description>
+    <label>Integrations</label>
+    <picklistValues>
+        <picklist>Customer_category__c</picklist>
+        <values>
+            <fullName>Accounting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>System</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Account Deactivated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finished</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ongoing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

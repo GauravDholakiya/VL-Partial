@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Accounts_modified</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.LAST_UPDATE</columns>
+    <columns>Project_Number_Operational__c</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>Support_Agreement__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Company_Type__c</columns>
+    <columns>Country2__c</columns>
+    <columns>ERP_System__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Deactivated__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_UPDATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>UPDATEDBY_USER.ALIAS</field>
+        <operation>equals</operation>
+        <value>abaaj</value>
+    </filters>
+    <label>All Accounts modified</label>
+</ListView>

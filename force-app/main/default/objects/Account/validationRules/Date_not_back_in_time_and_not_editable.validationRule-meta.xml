@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_not_back_in_time_and_not_editable</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND
+(
+NOT(ISNEW()),
+ISCHANGED( Termination_date__c ),
+$User.ProfileId &lt;&gt; &apos;00e1t000001UNCv&apos;,
+NOT(ISBLANK(TEXT(PRIORVALUE(Termination_date__c))))
+)
+||
+(
+ISCHANGED( Termination_date__c )
+&amp;&amp;
+Termination_date__c &lt; (Today()-5)
+&amp;&amp;
+$User.ProfileId &lt;&gt; &apos;00e1t000001UNCv&apos;
+)</errorConditionFormula>
+    <errorMessage>Termination Date cannot be set into the past or be changed after a value has been added. Please contact your Salesforce Administrator if you need to change the date.</errorMessage>
+</ValidationRule>

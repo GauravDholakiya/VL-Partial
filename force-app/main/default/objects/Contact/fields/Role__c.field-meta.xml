@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Role</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+                <label>Accountant</label>
+            </value>
+            <value>
+                <fullName>Auditor</fullName>
+                <default>false</default>
+                <label>Auditor</label>
+            </value>
+            <value>
+                <fullName>Board member</fullName>
+                <default>false</default>
+                <label>Board member</label>
+            </value>
+            <value>
+                <fullName>Board of directors</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Board of directors</label>
+            </value>
+            <value>
+                <fullName>CEO</fullName>
+                <default>false</default>
+                <label>CEO</label>
+            </value>
+            <value>
+                <fullName>CFO</fullName>
+                <default>false</default>
+                <label>CFO</label>
+            </value>
+            <value>
+                <fullName>Chairman of the board</fullName>
+                <default>false</default>
+                <label>Chairman of the board</label>
+            </value>
+            <value>
+                <fullName>COO</fullName>
+                <default>false</default>
+                <label>COO</label>
+            </value>
+            <value>
+                <fullName>HR</fullName>
+                <default>false</default>
+                <label>HR</label>
+            </value>
+            <value>
+                <fullName>It</fullName>
+                <default>false</default>
+                <label>IT</label>
+            </value>
+            <value>
+                <fullName>Office- / project manager</fullName>
+                <default>false</default>
+                <label>Office- / project manager</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

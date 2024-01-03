@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Requires_Task_Control</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Status) &amp;&amp; (Task_Number__c = 510 || Task_Number__c = 511) &amp;&amp; ISPICKVAL(Status, &quot;Completed&quot;) &amp;&amp; ISBLANK(TEXT( Task_Control__c ))</errorConditionFormula>
+    <errorMessage>Task Control must be filled in to mark as Completed</errorMessage>
+</ValidationRule>

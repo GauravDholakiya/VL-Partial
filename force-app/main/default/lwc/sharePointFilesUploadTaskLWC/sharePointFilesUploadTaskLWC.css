@@ -1,0 +1,283 @@
+.slds-text-heading_small {
+    font-size: 1.00rem;
+    /* Increase font size to 20px */
+}
+
+.UpDropFileView {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding-top: 0 !important;
+    margin-right: 0 !important;
+}
+
+.NamExt lightning-layout.slds-grid.slds-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.NamExt label.slds-form-element__label.slds-no-flex,
+.NamExt .slds-form-element__label:empty {
+    display: none !important;
+}
+
+.NamExt {
+    margin-bottom: 0px;
+}
+
+.NamExt lightning-input.slds-form-element {
+    width: 94.5%;
+}
+
+.NamExt .file-extension {
+    width: 5%;
+    font-size: 12px;
+}
+
+
+lightning-button.slds-col_bump-left.viewBTN button {
+    min-width: 120px;
+    height: 35px;
+}
+
+/* .DocumentPROP lightning-combobox.slds-form-element label {
+    font-size: 16px !important;
+} */
+.DocumentPROP [lightning-combobox_combobox-host] {
+    font-size: 12px !important;
+    margin: 10px 0;
+    width: 95%;
+}
+.PersnlBox lightning-combobox.slds-table.slds-table_bordered.slds-table_cell-buffer.slds-form-element {
+    margin: 0 !important;
+}
+
+.PersnlBox{
+    font-size: 12px !important;
+    margin: 15px 0;
+    width: 95%;
+}
+
+.DocumentPROP [lightning-combobox_combobox-host]:last-child {
+    margin-bottom: 5px;
+}
+
+.slds-tabs_card .slds-card__header,
+.slds-tabs_card.slds-tabs_card .slds-card__header {
+    padding-top: 10px;
+}
+
+:host {
+    --slds-c-card-header-spacing-block-end: 8px;
+
+    --lwc-squareIconMediumBoundary: 2.4rem;
+}
+
+/* 
+THIS .DocumentPROP label {
+color: red !important;
+}
+label[lightning-combobox_combobox] {
+    font-size: 20px;
+} */
+
+
+/*
+NB CSS Start
+*/
+.cus_files_table {
+    height: auto !important;
+    margin: 3px 3px 20px !important;
+    overflow-x: auto;
+}
+
+/* .THIS header > div.slds-media__body > h2
+{
+    padding-left: 10px !important;
+    margin: 5px 0px !important;
+}
+
+.THIS header > div.slds-media__body > h2 > span{
+    font-size: 18px !important;
+} */
+
+.cus_prop_filename_label {
+    font-size: 12px !important;
+}
+
+lightning-input.slds-form-element {
+    font-size: 12px !important;
+}
+
+.typeico {
+    width: 20px;
+    margin: 0px auto;
+}
+
+/*
+NB CSS End
+*/
+.large-text {
+    font-size: 28px;
+    color: black;
+    text-align: center;
+}
+
+.DocumentClassification {
+    display: flex;
+    flex-flow: wrap;
+    width: 95%;
+}
+
+.DocumentClassification label {
+    width: 100%;
+}
+
+.DocumentClassification select {
+    width: 100%;
+}
+
+.slds-text-color_error {
+    color: red;
+    
+}
+
+.slds-text-color_upload {
+    color: green;
+    text-align: center;
+}
+
+.ProgressBarBG {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ddd;
+}
+
+.ProgressBarText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    background-color: none;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+}
+
+.ProgressBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #04AA6D;
+    box-shadow: 0 4px 8px 0 rgba(0, 125, 0, 0.25), 0 6px 20px 0 rgba(0, 125, 0, 0.24);
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+
+.MainHead {
+    margin: 20px 0 !important;
+}
+
+.no-docs-text {
+    font-size: 12px !important;
+    color: black;
+    text-align: left;
+    margin: 10px 0px 0;
+    font-weight: 700;
+}
+
+.suces .slds-modal__header {
+    border-bottom: 2px solid #e5e5e5 !important;
+}
+
+.ChekExistFile .slds-modal__content h2 {
+    font-size: 13px !important;
+    text-align: center !important;
+}
+
+.select2Class {
+    min-height: 200px;
+}
+
+.select2Class option {
+    padding: 4px 12px;
+    font-size: 12px;
+}
+
+/*.document_combo_font .slds-truncate {
+    color: #181818 !important;
+}*/
+
+:host {
+    --slds-c-icon-color-background: transparent !important;
+}
+
+.iconInTD tbody tr td:first-child {
+    text-align: center;
+}
+
+.threBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+:host {
+    --lwc-heightInput: 36px !important;
+}
+
+.viewBTN {
+    --slds-c-button-spacing-block-start: 3px;
+    --slds-c-button-spacing-block-end: 3px;
+}
+
+.iconInTD th:first-child,
+.iconInTD td:first-child {
+    width: 50px !important;
+}
+
+.serchBox .error  {
+    color: red;
+   margin-left: 3rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.search-input {
+    width: 430px;
+    margin-left: 3rem;
+}
+
+.ImageNams {
+    margin-left: calc(17% - 10px);
+    text-align: left;
+    margin-top: 6px;
+}
+
+.scrollable-container {
+    overflow-y: auto !important;
+    height: auto !important;
+}
+.DocumentClassification .required{
+    font-size: 11px;
+}
+.UlodTask {
+    justify-content: flex-start !important;
+}
+/* Adjust the value according to your needs */
+.DocumentPROP .slds-modal__container {
+    max-height: 40vh; 
+}

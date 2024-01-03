@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_on_Customer__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case(Main_Activity__c,
+
+&quot;Internal&quot;, &quot;Internal&quot;,
+
+&quot;Interntid&quot;, &quot;Internal&quot;,
+
+&quot;India&quot;, IF((Billable_Time__c)&gt;0,&quot;Billable time India Consultants&quot;,&quot;None billable time India Consultants&quot;),
+
+IF((Billable_Time__c)&gt;0,&quot;Billable time Consultants&quot;,&quot;None billable time Consultants&quot;)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Time on Customer</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

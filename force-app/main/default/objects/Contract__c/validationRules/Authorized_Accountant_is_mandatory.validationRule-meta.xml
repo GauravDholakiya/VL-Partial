@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Authorized_Accountant_is_mandatory</fullName>
+    <active>true</active>
+    <description>Oppdragsansvarlig is mandatory when status != Draft and country is not sweden</description>
+    <errorConditionFormula>RecordType.Name = &apos;Operational&apos;
+&amp;&amp;
+TEXT(Status__c) != &apos;Draft&apos;
+&amp;&amp;
+BEGINS(TEXT(Delivery__c), &apos;Services&apos;)
+&amp;&amp;
+ISBLANK(Assignment_Responsible__c)
+&amp;&amp;
+ TEXT(Account__r.Country2__c) != &apos;SE - Sweden&apos;</errorConditionFormula>
+    <errorMessage>Authorized Accountant is mandatory when status is other then Draft.</errorMessage>
+</ValidationRule>

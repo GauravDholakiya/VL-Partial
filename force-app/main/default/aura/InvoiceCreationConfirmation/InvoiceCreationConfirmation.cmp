@@ -1,0 +1,45 @@
+<aura:component controller="InvoiceController" implements="force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens">
+	<aura:attribute name="projectId" type="String" />
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    <aura:attribute name="result" type="String"/>
+    <aura:attribute name="hasError" type="Boolean" default = "false"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+  
+    <aura:if isTrue="{!v.Spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container">
+       <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+         <span class="slds-assistive-text">Loading</span>
+         <div class="slds-spinner__dot-a"></div>
+         <div class="slds-spinner__dot-b"></div>
+       </div>
+    </div>
+ </aura:if>
+ 	<lightning:layout>
+         <aura:if isTrue="{!!v.hasError}">
+         	<lightning:layoutItem size="12" padding="around-small">
+                <div class="slds-box slds-theme_info">
+                    <p class="slds-align_absolute-center">Are you sure?</p>                
+                </div>
+            </lightning:layoutItem>
+        
+         	<aura:set attribute="else">
+             	<lightning:layoutItem size="12" padding="around-small">
+                    <div class="slds-box slds-theme_error">
+                    	<p class="slds-align_absolute-center">{!v.result}</p>                
+                    </div>	
+               	</lightning:layoutItem>
+            </aura:set>
+    	</aura:if>
+    </lightning:layout>
+    <lightning:layout>
+         <lightning:layoutItem size="12" class="buttonAlign" padding="around-small">
+             <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.cancel}"/>
+             <lightning:button variant="neutral" label="Back" title="Cancel" onclick="{!c.back}"/>
+             <lightning:button variant="brand" label="Confirm" title="Create Invoice" onclick="{!c.submitInvoice}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

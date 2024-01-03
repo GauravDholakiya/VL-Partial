@@ -1,0 +1,7 @@
+<!--
+ - Created by jozef on 4. 4. 2023.
+ -->
+
+<aura:event type="APPLICATION" description="AptEditPeriodsPressedEvt">
+    <aura:attribute name="tabIndex" type="Integer"/>
+</aura:event>

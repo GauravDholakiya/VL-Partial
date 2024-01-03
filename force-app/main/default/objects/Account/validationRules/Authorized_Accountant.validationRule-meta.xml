@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Authorized_Accountant</fullName>
+    <active>true</active>
+    <description>It is not allowed to change Authorized Accountant on Account</description>
+    <errorConditionFormula>ISCHANGED(Assignment_Responsible__c)
+&amp;&amp;
+Bypass_Validation_Rule__c = False</errorConditionFormula>
+    <errorMessage>Authorized Accountant can only be changed from Kontrakt</errorMessage>
+</ValidationRule>

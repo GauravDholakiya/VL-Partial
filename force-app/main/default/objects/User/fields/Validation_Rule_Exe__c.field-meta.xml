@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_Rule_Exe__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field used to let Platform users perform changes on account through process update.</description>
+    <externalId>false</externalId>
+    <label>Validation Rule exception</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

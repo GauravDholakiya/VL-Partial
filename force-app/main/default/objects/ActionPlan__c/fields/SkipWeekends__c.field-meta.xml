@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SkipWeekends__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Skip weekends when calculation activity start dates.</description>
+    <externalId>false</externalId>
+    <label>Skip Weekends</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

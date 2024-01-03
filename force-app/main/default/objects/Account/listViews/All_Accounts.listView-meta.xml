@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Accountec_UUID__c</columns>
+    <columns>Project_Number_Operational__c</columns>
+    <columns>Org_Number__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>Company_Type__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ERP_System__c</columns>
+    <columns>Support_Agreement__c</columns>
+    <columns>Firm__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Accounts</label>
+</ListView>

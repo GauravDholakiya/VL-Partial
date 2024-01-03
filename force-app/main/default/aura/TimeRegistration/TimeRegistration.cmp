@@ -1,0 +1,262 @@
+<aura:component controller="TimekeepingCalendar"
+				implements="force:appHostable,force:lightningQuickAction,lightning:actionOverride">
+	<aura:html tag="style">
+		.slds-modal__container {
+		min-width: 90vw;
+		min-height: 90vh;
+		}
+	</aura:html>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+	<!-- So we need to build a form, and send the data to the Apex controller on submit.  The controller will then process the data and create
+		 one or many Time records. -->
+	<aura:attribute name="projectTasks" type="List"/>
+	<!-- Project tasks to split this time over -->
+	<aura:attribute name="selectedProjectTasks" type="List"/>
+
+	<!-- Search keys for the 'live-search' functionality -->
+	<aura:attribute name="searchKey" type="String" />
+	<aura:attribute name="delayTimeout" type="Object" />
+	<aura:attribute name="isSearching" type="Boolean" default="false"/>
+	<aura:attribute name="commentRequired" type="Boolean" default="false"/>
+	<aura:attribute name="regDate" type="Date" />
+	<aura:attribute name="CurrentUser" type="String"/>
+	<aura:attribute name="newRecord" type="Time__c" default="{}" />
+	<aura:attribute name="TimeTypeDefaultValue" type="String" default="" />
+	<aura:attribute name="agreement" type="Contract__c" default="{}" />
+	<aura:attribute name="activityPriceAgreementOptions" type="List" />
+	<aura:attribute name="newRecordRegisteredHours" type="Decimal"/>
+	<aura:attribute name="newRecordRegisteredMinutes" type="Decimal"/>
+	<aura:attribute name="newRecordBillableHours" type="Decimal"/>
+	<aura:attribute name="newRecordBillableMinutes" type="Decimal"/>
+	<aura:attribute name="paWarning" type="String"/>
+	<aura:attribute name="activityPriceAgreementSettings" type="Object" />
+	<aura:registerEvent name="closeTimeRegistrationModal" type="c:closeTimeRegistrationModal"/>
+
+    <aura:attribute name="disableUnits" type="Boolean" default="true"/>
+
+	<!-- This handler controls the live project task search - When the search key changes then perform the query. -->
+	<aura:handler name="searchKeyChange" value="{!v.searchKey}" action="{!c.handleSearchKeyChange}" />
+
+	<!-- The following handle the adding of a project task, which should set the Project_Country__c picklist and unlock the dependent picklists -->
+	<aura:registerEvent name="projectTaskSelected" type="c:projectTaskSelected"/>
+	<aura:handler event="c:projectTaskSelected" action="{!c.handleProjectTaskSelected}" includeFacets="true"/>
+    <aura:registerEvent name="projectTaskDeselected" type="c:projectTaskDeselected"/>
+	<aura:handler event="c:projectTaskDeselected" action="{!c.handleProjectTaskDeselected}" includeFacets="true"/>
+    <aura:attribute name="noCountrySet" type="String" default="true"/>
+	<aura:registerEvent name="projectCountrySet" type="c:projectCountrySet"/>
+	
+	<aura:handler name="change" value="{!v.newRecord}" action="{!c.changedNewRecord}"/>
+	<aura:handler name="activitySelectedEvt" event="c:ActivitySelectedEvt" action="{!c.handleActivitySelected}"/>
+
+	<aura:attribute name="numOfRuns" type="Integer" default="0"/>
+	<aura:attribute name="operationalVariant" type="String" default="neutral"/>
+	<aura:attribute name="internalVariant" type="String" default="neutral"/>
+	<aura:attribute name="internalFilter" type="Boolean" default="false" />
+	<aura:attribute name="operationalFilter" type="Boolean" default="false" />
+	<aura:attribute name="overDay" type="Boolean" default="false"/>
+	<aura:attribute name="startDate" type="Date"/>
+	<aura:attribute name="endDate" type="Date"/>
+	<aura:attribute name="billable" type="Boolean" default="false"/>
+	<aura:attribute name="skipWeekend" type="Boolean" default="true"/>
+	<aura:attribute name="hoursPerDay" type="Decimal" default="8"/>
+	<aura:attribute name="minutesPerDay" type="Decimal" default="0"/>
+	<!-- Time Type remove -->
+	<aura:attribute name="timeTypeOptions" type="List" />
+	<aura:attribute name="publicTimeTypeOptions" type="List" />
+
+	<c:AptActionPlanUtil aura:id="utilId"/>
+	<c:Spinner countOfRuns="{!v.numOfRuns}"/>
+
+    <!-- Project task is a multiselect, with dynamic options. -->
+    <!--div>
+        <ui:inputSelect multiple="true" label="Project Task:" class="multiple" aura:id="InputSelectMultiple"  change="{!c.onMultiSelectChange}">
+            <aura:iteration items="{!v.projectTasks}" var="task">
+                <ui:inputSelectOption text="{!task.Name}" value="{!task.Id}"/>
+            </aura:iteration>            
+        </ui:inputSelect>
+    </div-->
+
+	<!-- Live search -->
+	<div class="slds-m-around_medium">
+		<div aura:id="warningMessageOpProject" class="slds-text-color_error slds-p-bottom_small slds-hide"
+			 style="text-align: center;">Is not possible to log time for Operational project, when Main activity is "Internal"</div>
+		<div aura:id="warningMessagePrivateProject" class="slds-text-color_error slds-p-bottom_small slds-hide"
+			 style="text-align: center;">Only one private project can be selected!</div>
+		<div class="slds-text-color_error slds-p-bottom_small" style="text-align: center;">{!v.paWarning}</div>
+		<lightning:layout >
+			<lightning:layoutItem size="4">
+				<lightning:buttonGroup class="slds-var-p-bottom_medium">
+					<lightning:button label="{!$Label.c.OperationalButton}" variant="{!v.operationalVariant}"
+									  onclick="{!c.handleOperationalPressed}" />
+					<lightning:button label="{!$Label.c.InternalButton}" variant="{!v.internalVariant}"
+									  onclick="{!c.handleInternalPressed}" />
+				</lightning:buttonGroup>
+				<div class="slds-p-bottom_small"></div>
+				<lightning:input aura:id="live-search" name="live-search" isLoading="{!v.isSearching}"
+								 type="search" onchange="{!c.handleKeyChange}" class="slds-m-bottom_small"
+								 label="Search Project Tasks" value="{!v.searchKey}"/>
+				{!v.body}
+			</lightning:layoutItem>
+
+			<lightning:layoutItem size="4">
+				<div class="slds-p-left_medium">
+					<c:SelectedProjectTaskList selectedProjectTaskList="{!v.selectedProjectTasks}"/>
+				</div>
+			</lightning:layoutItem>
+			
+			<lightning:layoutItem size="4">
+                <lightning:input aura:id="inputForm"
+                                 type="Date"
+                                 name="IncurredDate"
+                                 label="Date"
+                                 required="true"
+                                 value="{!v.regDate}"/>
+				<c:LightningDependentPicklistCmp    objectName="Time__c"
+													firstParentFieldAPI="Project_Country__c"
+													parentFieldAPI="Main_Activity__c"
+													childFieldAPI ="Activity__c"
+													firstParentFieldLabel="Project Country"
+													parentFieldLabel="Main Activity"
+													childFieldLabel="Activity"
+													firstParentValue="{!v.newRecord.Project_Country__c}"
+													parentValue="{!v.newRecord.Main_Activity__c}"
+													childValue="{!v.newRecord.Activity__c}"
+													firstParentRequired="true"
+													parentRequired="true"
+													childRequired="true"
+													disabledParentField="{!v.noCountrySet}" 
+													projectTasks="{!v.projectTasks}"
+													selectedProjectTasks="{!v.selectedProjectTasks}"
+													aura:id="lightningDependentPicklistCmp"/>
+
+				<lightning:select aura:id="inputForm"
+								  name="Picklist" 
+								  label="Activity Price Agreement"
+								  disabled="false"
+								  value="{!v.newRecord.Activity_Price_Agreement__c}"
+								  onchange="{!c.handlePriceAgreementChange}">
+					<aura:iteration items="{!v.activityPriceAgreementOptions}" var="s">
+						<option value="{!s}">{!s}</option>
+					</aura:iteration>
+				</lightning:select>
+				
+				<lightning:input name="Units"
+								 label="Units"
+								 value="{!v.newRecord.Units__c}"
+								 disabled="{!v.disableUnits}"
+								 required="{!not(v.disableUnits)}"/>
+
+				<lightning:select aura:id="inputForm"
+								  name="timeTypePicklist"
+								  label="Time Type"
+								  disabled="false"
+								  value="{!v.newRecord.Time_Type__c}">
+					<aura:iteration items="{!v.timeTypeOptions}" var="s">
+						<option value="{!s}">{!s}</option>
+					</aura:iteration>
+				</lightning:select>
+				
+				<lightning:input aura:id="inputForm" 
+								 name="DescInput"
+								 label="Description"
+								 required="false" 
+								 placeholder="Enter a description of the hours used here..."
+								 maxlength="256"
+								 value="{!v.newRecord.Description__c}"/>
+
+				<aura:if isTrue="{!v.overDay}">
+					<lightning:input aura:id="inputForm"
+									 type="date"
+									 name="startDateInput"
+									 label="{!$Label.c.StartDate}"
+									 required="true"
+									 value="{!v.startDate}"/>
+					<lightning:input aura:id="inputForm"
+									 type="date"
+									 name="endDateInput"
+									 label="{!$Label.c.EndDate}"
+									 required="true"
+									 value="{!v.endDate}"/>
+					<lightning:input aura:id="inputForm"
+									 class="slds-p-bottom_xx-small slds-p-top_small"
+									 type="checkbox"
+									 name="skipWeekendInput"
+									 label="{!$Label.c.SkipWeekends}"
+									 checked="{!v.skipWeekend}"/>
+					<lightning:input aura:id="inputForm"
+									 class="slds-p-bottom_xx-small slds-p-top_small"
+									 type="checkbox"
+									 name="billableInput"
+									 label="{!$Label.c.Billable}"
+									 checked="{!v.billable}"/>
+					<lightning:input aura:id="inputForm"
+									 type="number"
+									 required="true"
+									 step=".01"
+									 name="hoursPerDayInput"
+									 label="{!$Label.c.NumberOfHours}"
+									 value="{!v.hoursPerDay}"/>
+					<lightning:input aura:id="inputForm"
+									 type="number"
+									 required="true"
+									 name="minutesPerDayInput"
+									 label="{!$Label.c.NumberOfMinutes}"
+									 value="{!v.minutesPerDay}"/>
+					<aura:set attribute="else">
+						<lightning:input aura:id="inputForm"
+										 type="number"
+										 name="hoursInput"
+										 label="Hours"
+										 required="true"
+										 step="1"
+										 value="{!v.newRecordRegisteredHours}"
+										 onchange="{!c.handleRegHoursChange}"/>
+						<lightning:input aura:id="inputForm"
+										 type="number"
+										 name="minutesInput"
+										 label="Minutes"
+										 required="true"
+										 step="1"
+										 value="{!v.newRecordRegisteredMinutes}"
+										 onchange="{!c.handleRegMinutesChange}"/>
+						<lightning:input aura:id="inputForm"
+										 type="number"
+										 name="billableHoursInput"
+										 label="Billable Hours"
+										 required="true"
+										 step="1"
+										 value="{!v.newRecordBillableHours}"
+										 onchange="{!c.handleBillHoursChange}"/>
+						<lightning:input aura:id="inputForm"
+										 type="number"
+										 name="billableMinutesInput"
+										 label="Billable Minutes"
+										 required="true"
+										 step="1"
+										 value="{!v.newRecordBillableMinutes}"
+										 onchange="{!c.handleBillMinutesChange}"/>
+					</aura:set>
+				</aura:if>
+
+				<lightning:input aura:id="inputForm" 
+								 name="CommentInput" 
+								 label="{!$Label.c.Comment}"
+								 required="{!v.commentRequired}"
+								 placeholder="Enter comment here..."
+								 maxlength="256"
+								 value="{!v.newRecord.Comment__c}"/>
+                
+                
+                
+				<br/>
+				<lightning:button class="slds-m-top-small" type="submit" label="{!$Label.c.SaveAndNew}"
+					onclick="{!c.handleSubmit}" disabled="false" aura:id="saveButton" />
+				<lightning:button class="slds-m-top-small" type="submit" label="{!$Label.c.SaveAndClose}"
+								  onclick="{!c.handleSaveAndClose}" disabled="false" aura:id="saveCloseButton" />
+				<lightning:button class="slds-m-top-small" name="cancel" label="Cancel"
+								  onclick="{!c.handleCancel}"/>
+			</lightning:layoutItem>
+		</lightning:layout>
+	</div>
+</aura:component>

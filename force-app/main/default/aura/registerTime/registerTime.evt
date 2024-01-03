@@ -1,0 +1,8 @@
+<!--c:registerTime-->
+<aura:event type="COMPONENT" description="Component event to trigger the new time registration modal">
+    <aura:attribute name="regDate" type="Date" />
+    <aura:attribute name="currentUser" type="String" />
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    <aura:attribute name="overDay" type="Boolean" default="false" />
+</aura:event>

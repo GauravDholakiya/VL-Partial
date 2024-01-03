@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_by_contract_date_Fahim</fullName>
+    <columns>Firm__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Support_Agreement__c</columns>
+    <columns>ACCOUNT.LAST_UPDATE</columns>
+    <columns>Project_Number_Operational__c</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Company_Type__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>Assignment_Responsible__c</columns>
+    <columns>Account_Status__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Price_Agreement__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Historical_contract_date__c</field>
+        <operation>equals</operation>
+        <value>10/1/2021</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>fazim</value>
+    </filters>
+    <label>Accounts by contract date - Fahim</label>
+</ListView>

@@ -1,0 +1,92 @@
+.THIS{
+    min-height:100px;
+}
+.THIS .hidefilecontroller{
+    width:0;
+    height:0;
+}
+.THIS .js-is-hidden {
+	display: none!important;
+}
+.THIS .documents_main{
+    padding:15px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.THIS .title{
+    display: inline-block;
+    width: 100%;
+}
+.THIS .title h3{
+    font-size:28px;
+    font-weight:500;
+    float:left;
+}
+
+.THIS .title button{
+    float:right;
+    color:#305295;
+    text-decoration:none;
+}
+ .THIS .addRibbonNew{cursor: not-allowed;}
+.THIS .ribbon{float:left;display:flex; width:100%;background-color:#f4f4f4;padding:0px 20px; align-items:center;}
+.THIS .rib-leftside{ float: left;padding: 5px; margin-right: auto;}
+.THIS .rib-rightside{display: inline-flex;float: right; align-items: center;}
+.THIS .ribbon-lbl{/*float:left;*/ display:inline-block; position:relative;}
+.THIS .ribbon-lbl:first-child{margin-right:20px;}
+.THIS .ribbon-lbl a{text-decoration: none;font-size: 14px;color:#555555; font-weight: normal;}
+.THIS .ribbon-input .slds-input{border-radius:0px; width:350px; height:38px; border:1px solid #b3b3b3;}
+.THIS .ribbon-input .slds-form-element__label {display: none;}
+.THIS .ribbon-lbl .slds-icon{width: 14px;height: 14px;fill: #305295 !important;}
+.THIS .ribbon-dropdown{float:right;background-color:#dadada;padding:10px;margin-left:10px; position:relative;}
+.THIS a.rib-droplink .slds-icon-utility-right-align-text .slds-icon-text-default {width:18px;fill:#305295;}
+.THIS a.rib-droplink .slds-icon-utility-chevrondown .slds-icon-text-default {width:18px; fill:#a6a6a6; margin-left:6px;}
+.THIS .rib-innerbox{width:282px; background-color:#fff; display:none; position:absolute; border:1px solid #b0adab; top:100%; right:0px;z-index:10;}
+.THIS .tib-menulist{position:relative;}
+.THIS .tib-menulist li {position:relative;}
+.THIS .tib-menulist li:nth-child(1), .THIS .tib-menulist li:nth-child(2){padding:5px 0px;}
+.THIS .tib-menulist li:nth-child(2){border-bottom:1px solid #9e9b9b;}
+.THIS .tib-menulist .def-itemname{display:inline-block; cursor:pointer; padding-left:50px; color:#7d7575; font-size:16px; width:100%; padding:6px 5px 6px 50px;}
+.THIS .tib-menuitem .tib-menuitem{width:100%;}
+.THIS .tib-menuitem span.check-ico {position:absolute;top:7px;left:11px;}
+.THIS .tib-menulist li span.check-ico {position:absolute;top:7px;left:11px;}
+.THIS .tib-menulist li span.check-ico .slds-icon-text-default {width:18px;}
+.THIS .tib-menuitem span.check-ico .slds-icon-text-default {width:18px;}
+.THIS .tib-itemname{display:inline-block; padding-left:50px;color:#7d7575; font-size:16px;}
+.THIS .tib-itemname .slds-icon-text-default{fill:rgb(48, 82, 149); width:16px;}
+.THIS .doc-table-part{float:left; display:inline-block; width:100%; margin-top: 36px;}
+.THIS .is-dragover {   background-color: rgba(186, 186, 186,0.3); border-radius:1%;}
+.THIS .doc-table-part thead{border-bottom:2px solid #a6a6a6;}
+.THIS .doc-table-part .slds-icon-text-default{color:#a6a6a6; width:16px;}
+.THIS .doc-table-part th a{font-size:17px; color:#a6a6a6; font-weight:500; text-decoration:none;}
+.THIS .doc-table-part th:nth-child(2), .THIS .doc-table-part th:nth-child(3){
+        max-width: 200px;
+}
+.THIS .doc-table-part td:nth-child(2), .THIS .doc-table-part td:nth-child(3){
+        max-width: 200px;
+}
+.THIS .doc-table-part td:nth-child(2) p, .THIS .doc-table-part td:nth-child(3) p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.THIS .slds-modal-fontsize p{
+    font-size: 1rem!important;
+}
+.THIS .doc-table-part td{padding:5px;}
+.THIS .new-inbox{width:324px; background-color:#fff; display:none; position:absolute; top:35px; left:0; border:1px solid #b0adab;}
+.THIS .new-inbox ul li{padding:8px; color:#7d7575; font-size:16px;}
+.THIS .doc-table-part td p{font-size:16px; color:#a6a6a6; cursor:pointer;}
+.THIS .doc-table-part table tr td:first-child img {width: 20px;}
+.THIS .doc-list-part{float:left; display:inline-block; width:100%; margin-top:80px;}
+.THIS .doc-list{float:left; display:inline-block; width:100%;}
+.THIS .doc-itembox{float:left; display:inline-block; width:calc(25% - 8px); margin-right:10px; margin-bottom:10px; border:1px solid #a6a6a6; }
+.THIS .doc-itembox:nth-child(4n){margin-right:0px; cursor:pointer; }        
+.THIS .doc-itemimg{float: left;display: inline-block;width: 100%; height: 124px;border-bottom: 1px solid #a6a6a6;text-align: center;line-height: 124px;}
+.THIS .doc-item-text{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;float:left; display:inline-block; padding:8px; width:100%; background-color: #f5f5f5;}
+.THIS .doc-item-text a{width:18px; color:#333; font-weight:600;}
+.THIS .fileName input {width:90%!important;float:left!important}
+.THIS .fileExtension{line-height: 2.1!important;text-align: left!important;font-size: initial!important; }
+/*--- Start sidebar component style ---*/
+.THIS .region-sidebar-right .ribbon-input .slds-input {width: 200px !important;}

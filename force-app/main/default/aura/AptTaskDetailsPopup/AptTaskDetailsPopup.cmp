@@ -1,0 +1,45 @@
+<!--
+ - Created by jozef on 5. 4. 2023.
+ -->
+
+<aura:component description="AptTaskDetailsPopup">
+    <aura:attribute name="panelDisplay" type="Boolean"/>
+    <aura:attribute name="periodNumber" type="String"/>
+    <aura:attribute name="comment" type="String"/>
+    <aura:attribute name="description" type="String"/>
+    <aura:attribute name="boxClass" type="String"/>
+    <aura:attribute name="periodLinkTop" type="Integer"/>
+    <aura:attribute name="periodLinkLeft" type="Integer"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+
+    <aura:if isTrue="{!v.panelDisplay}">
+        <div aura:id="textId" style="{!v.boxClass}" class="slds-text-body_regular slds-text-color_default">
+            <section aria-labelledby="panel-heading-id" class="slds-popover slds-popover_medium slds-nubbin_bottom"
+                     role="dialog">
+                <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close"
+                        title="Close dialog"
+                        onclick="{!c.closeModal}">
+                    <lightning:icon iconName="utility:close" size="small" alternativeText="Close" title="Close" />
+                </button>
+                <div  class="slds-popover__body slds-popover__body_small" id="dialog-body-id-110">
+                    <div class="slds-media">
+                        <div class="slds-media__body">
+                            <header class="slds-popover__header">
+                                <h2 class="slds-text-heading_small" id="dialog-heading-id-117">
+                                    <b>{!$Label.c.AptDescription}:</b></h2>
+                            </header>
+                            <p>{!v.description}</p>
+                            <div class="slds-p-top_small"></div>
+                            <header class="slds-popover__header">
+                                <h2 class="slds-text-heading_small" id="dialog-heading-id-117">
+                                    <b>{!$Label.c.AptComments}:</b></h2>
+                            </header>
+                            <p>{!v.comment}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </aura:if>
+</aura:component>

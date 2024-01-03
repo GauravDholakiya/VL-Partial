@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beneficial_owners_in_high_risk_count__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If one or more beneficial owners are residing in a high-risk country. For updated information/definition regarding beneficial owners and high-risk countries, see “Hvitvaskingsrutinen” 5.1.8</inlineHelpText>
+    <label>Beneficial owners in high-risk count.</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

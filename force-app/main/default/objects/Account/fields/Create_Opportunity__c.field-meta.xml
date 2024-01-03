@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Opportunity__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox used to trigger process to create Opportunity records.</description>
+    <externalId>false</externalId>
+    <label>Create Opportunity</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

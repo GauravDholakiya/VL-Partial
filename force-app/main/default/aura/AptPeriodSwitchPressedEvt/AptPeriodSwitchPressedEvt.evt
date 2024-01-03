@@ -1,0 +1,8 @@
+<!--
+ - Created by Jozef on 18.3.2019.
+ -->
+
+<aura:event type="APPLICATION" description="AptPeriodSwitchPressedEvt">
+    <aura:attribute name="tId" type="String"/>
+    <aura:attribute name="status" type="String"/>
+</aura:event>

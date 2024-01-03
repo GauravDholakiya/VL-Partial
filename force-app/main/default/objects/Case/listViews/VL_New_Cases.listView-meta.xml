@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VL_New_Cases</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Support_Agreement__c</columns>
+    <columns>CASES.NAME</columns>
+    <columns>CASES.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Norway_Support,Case.Sweden_Support</value>
+    </filters>
+    <filters>
+        <field>CASES.TYPE</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <filters>
+        <field>CASES.SUBJECT</field>
+        <operation>notContain</operation>
+        <value>Automation Case | VC</value>
+    </filters>
+    <label>VL New Cases</label>
+</ListView>

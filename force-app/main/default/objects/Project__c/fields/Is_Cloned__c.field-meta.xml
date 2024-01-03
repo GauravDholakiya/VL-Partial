@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Cloned__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field use to distinguish whether a project record will trigger automation or not. Projects that are cloned will not trigger Process/Flow.</description>
+    <externalId>false</externalId>
+    <label>Is Cloned</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,36 @@
+<aura:component controller="TimekeepingCalendar"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <ltng:require styles="{!$Resource.Calendar     + '/fullcalendar390/fullcalendar.css'}" scripts="{!join(',',
+                           $Resource.Calendar  + '/fullcalendar390/lib/jquery.min.js',
+                           $Resource.Calendar  + '/fullcalendar390/lib/moment.min.js',
+                           $Resource.Calendar  + '/fullcalendar390/fullcalendar.js'
+                           )}" afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+
+    <!--ltng:require styles="/resource/calendar/fullcalendar390/fullcalendar.css" /-->
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+       
+    <aura:registerEvent name="registerTimeFired" type="c:registerTime"/>
+    <aura:registerEvent name="closeTimeRegistrationModal" type="c:closeTimeRegistrationModal"/>
+    
+    <aura:handler name="registerTimeFired" event="c:registerTime" action="{!c.handleLoadModal}" />
+    <aura:handler event="c:closeTimeRegistrationModal" action="{!c.handleCloseModal}" />
+    <aura:handler event="force:showToast" action="{!c.handleEventSave}" />
+
+    <aura:attribute name='modalPromise' type='Object' />
+    <aura:attribute name='Objectlist' type='Object[]' />
+    <aura:attribute name="buttonstate" type="Boolean" default="false" />
+    <aura:attribute name="CurrentUser" type="String"/>
+    <c:AptActionPlanUtil aura:id="utilId"/>
+
+    <lightning:buttonStateful labelWhenOff="List View" labelWhenOn="Grid View" state="{!v.buttonstate}"
+        onclick="{!c.handleClick }" />
+
+    <div id="calendar" class="slds-card">
+    </div>
+    <div id="listcalendar" class="slds-card" />
+
+
+</aura:component>

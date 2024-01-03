@@ -1,0 +1,9 @@
+<!--
+ - Created by Jozef on 24.1.2019.
+ -->
+
+<aura:event type="APPLICATION" description="AptTableReadRowSelectedEvt">
+    <!-- <aura:attribute name="aptId" type="String"/> -->
+    <aura:attribute name="headerId" type="String"/>
+    <aura:attribute name="index" type="Integer"/>
+</aura:event>

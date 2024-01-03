@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Main_Activity__c</fullName>
+    <externalId>false</externalId>
+    <label>Main Activity</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Project_Country__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Main_Activity</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Accounting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Payroll</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Reporting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Year end reporting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Quality control</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Outsourcing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Internal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>VTI</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

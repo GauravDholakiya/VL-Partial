@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounty</fullName>
+    <availability>online</availability>
+    <description>Used when order by Accounty</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Accounty</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://vcuipath.viewconnect.net/?Eier={!Account.Name}&amp;EierID={!Account.Entity_Id__c}&amp;Organisasjonsnummer={!Account.Org_Number__c}&amp;System={!Account.ERP_System__c}&amp;RequestorSystem=Salesforce&amp;pno={!Account.Project_Number_Operational__c}&amp;pag={!Account.Price_Agreement__c}</url>
+</WebLink>

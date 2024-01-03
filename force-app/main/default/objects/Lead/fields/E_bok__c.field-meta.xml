@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E_bok__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is referenced to which E-book they have downloaded</inlineHelpText>
+    <label>E-bok</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Web_Source__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Håndbok for Frilansere</fullName>
+                <default>false</default>
+                <label>Våre Beste Tips til Frilansere og Mindre Foretak</label>
+            </value>
+            <value>
+                <fullName>Implementere Nytt Økonomisystem</fullName>
+                <default>false</default>
+                <label>Implementere Nytt Økonomisystem</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Ebok</controllingFieldValue>
+            <valueName>Håndbok for Frilansere</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Ebok</controllingFieldValue>
+            <valueName>Implementere Nytt Økonomisystem</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

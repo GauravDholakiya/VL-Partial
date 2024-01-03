@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Information_is_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISPICKVAL(Status__c, &quot;Signed&quot;)||
+ISPICKVAL(Status__c, &quot;Updated&quot;))
+&amp;&amp;
+(ISPICKVAL(Price_Agreement__c, &quot;&quot;) ||
+ISPICKVAL(Customer_Group__c, &quot;&quot;) ||
+ISPICKVAL(Invoice_Delivery_Method__c, &quot;&quot;) || 
+ISPICKVAL(Payment__c, &quot;&quot;) ||
+ISPICKVAL(Cost_Centre__c, &quot;&quot;) ||
+ISPICKVAL(Business_Area__c, &quot;&quot;) ||
+ISPICKVAL(Country__c, &quot;&quot;))</errorConditionFormula>
+    <errorMessage>Billing Information is mandatory</errorMessage>
+</ValidationRule>

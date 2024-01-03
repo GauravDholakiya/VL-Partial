@@ -1,0 +1,9 @@
+<!--
+ - Created by Jozef on 25.2.2019.
+ -->
+
+<aura:component description="AptTemplatePlanCreation"
+                implements = "lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome">
+    <aura:attribute name="recordId" type="String" />
+    <c:AptTemplateDetail mode="EDIT" recordId="{!v.recordId}"/>
+</aura:component>

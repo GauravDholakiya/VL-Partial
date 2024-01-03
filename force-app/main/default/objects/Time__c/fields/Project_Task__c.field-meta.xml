@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Task__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Project Task</label>
+    <lookupFilter>
+        <active>false</active>
+        <errorMessage>Project Task Status is Completed!</errorMessage>
+        <filterItems>
+            <field>Project_task__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Project_task__c</referenceTo>
+    <relationshipLabel>Time</relationshipLabel>
+    <relationshipName>Time</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OrgNumber_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Type)
+&amp;&amp;
+ISPICKVAL(PRIORVALUE(Type), &quot;Prospect&quot;) 
+&amp;&amp; 
+ISBLANK(Org_Number__c)</errorConditionFormula>
+    <errorDisplayField>Org_Number__c</errorDisplayField>
+    <errorMessage>Org.Number is mandatory</errorMessage>
+</ValidationRule>

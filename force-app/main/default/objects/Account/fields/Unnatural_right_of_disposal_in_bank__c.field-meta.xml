@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unnatural_right_of_disposal_in_bank__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Does the customer have unnatural persons who disposes bank accounts? Unnatural person is to be understood as any person who typically should not have access to dispose bank accounts.</inlineHelpText>
+    <label>Unnatural right of disposal in bank?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

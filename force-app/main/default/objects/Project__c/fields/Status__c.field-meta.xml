@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Draft</fullName>
+                <default>false</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+                <label>Prospect</label>
+            </value>
+            <value>
+                <fullName>Planning</fullName>
+                <default>false</default>
+                <label>Planning</label>
+            </value>
+            <value>
+                <fullName>Build</fullName>
+                <default>false</default>
+                <label>Build</label>
+            </value>
+            <value>
+                <fullName>Test</fullName>
+                <default>false</default>
+                <label>Test</label>
+            </value>
+            <value>
+                <fullName>Deploy</fullName>
+                <default>false</default>
+                <label>Deploy</label>
+            </value>
+            <value>
+                <fullName>Ongoing</fullName>
+                <default>false</default>
+                <label>Ongoing</label>
+            </value>
+            <value>
+                <fullName>Operational with outstanding tasks</fullName>
+                <default>false</default>
+                <label>Operational with outstanding tasks</label>
+            </value>
+            <value>
+                <fullName>Signed</fullName>
+                <default>false</default>
+                <label>Signed</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Finished</fullName>
+                <default>false</default>
+                <label>Finished</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Account Deactivated</fullName>
+                <default>false</default>
+                <label>Account Deactivated</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

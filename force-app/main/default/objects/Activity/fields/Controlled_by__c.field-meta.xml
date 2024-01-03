@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Controlled_by__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Add a user here whos has controlled the Task</description>
+    <externalId>false</externalId>
+    <label>Controlled by</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Activities</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

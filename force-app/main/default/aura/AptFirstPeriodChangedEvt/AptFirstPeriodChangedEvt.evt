@@ -1,0 +1,9 @@
+<!--
+ - Created by jozef on 11. 4. 2023.
+ -->
+
+<aura:event type="APPLICATION" description="AptFirstPeriodChangedEvt">
+    <aura:attribute name="firstPeriodDate" type="Date"/>
+    <aura:attribute name="periodColumn" type="String"/>
+    <aura:attribute name="taskIndex" type="Integer" />
+</aura:event>

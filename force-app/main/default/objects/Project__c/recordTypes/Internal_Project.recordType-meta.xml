@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Project</fullName>
+    <active>true</active>
+    <description>Use for Internal Projects</description>
+    <label>Internal Project</label>
+    <picklistValues>
+        <picklist>Customer_category__c</picklist>
+        <values>
+            <fullName>Accounting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>System</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Account Deactivated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Build</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ongoing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

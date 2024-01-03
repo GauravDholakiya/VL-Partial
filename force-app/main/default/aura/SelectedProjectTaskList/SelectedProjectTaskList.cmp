@@ -1,0 +1,17 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes">
+    
+    <!-- List of ProductItem records, this is kept up to date in the aura:iteration below -->    
+    <aura:attribute name="selectedProjectTaskList" type="List"/>  
+    <aura:registerEvent name="projectTaskSelected" type="c:projectTaskSelected"/>
+    <aura:handler event="c:projectTaskSelected" action="{!c.handleProjectTaskSelected}"/>
+    <aura:registerEvent name="projectTaskDeselected" type="c:projectTaskDeselected"/>
+    <aura:handler event="c:projectTaskDeselected" action="{!c.handleProjectTaskDeselected}"/>
+    
+    Selected Project Tasks:<br/>
+    <ui:scrollerWrapper class="scrollerSize">
+    <aura:iteration items="{!v.selectedProjectTaskList}" var="p">
+        <!-- Everything in between these iteration tags is created for each list element. -->
+        <c:ProjectTaskItem projectTaskName="{!p.Name}" projectTaskId="{!p.Id}" isSelected="true" deactivated="{!p.Deactivated}" accountStatus="{!p.AccountStatus}" reasonForDeactivation="{!p.ReasonForDeactivation}" defaultTimeType="{!p.DefaultTimeType}" lockTimeType="{!p.LockTimeType}"/>
+    </aura:iteration>    
+    </ui:scrollerWrapper>         
+</aura:component>

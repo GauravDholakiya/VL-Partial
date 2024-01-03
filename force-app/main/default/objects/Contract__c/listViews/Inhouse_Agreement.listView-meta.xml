@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inhouse_Agreement</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Description__c</columns>
+    <columns>Account_Owner_KA__c</columns>
+    <columns>Status__c</columns>
+    <columns>Business_Area__c</columns>
+    <columns>Cost_Centre__c</columns>
+    <columns>Outsourcing_Sub_processor__c</columns>
+    <columns>SpecialTerms__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Outsourcing_Sub_processor__c</field>
+        <operation>equals</operation>
+        <value>Fintax</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contract__c.Operational</value>
+    </filters>
+    <label>Inhouse Agreement</label>
+    <sharedTo>
+        <role>Consultant_Inhouse</role>
+    </sharedTo>
+</ListView>

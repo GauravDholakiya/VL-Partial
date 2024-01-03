@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TerminationCommentWhenOtherReason</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Reason_for_termination__c) = &quot;Other&quot;
+&amp;&amp;
+ISBLANK(Termination_Comment__c)</errorConditionFormula>
+    <errorDisplayField>Termination_Comment__c</errorDisplayField>
+    <errorMessage>Termination comment is mandatory when &quot;Other&quot; is selected as reason for termination.</errorMessage>
+</ValidationRule>

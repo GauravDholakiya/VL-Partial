@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DESKSCMT__IsVisibleInPkb__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>null</description>
+    <externalId>false</externalId>
+    <label>In Support Center</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

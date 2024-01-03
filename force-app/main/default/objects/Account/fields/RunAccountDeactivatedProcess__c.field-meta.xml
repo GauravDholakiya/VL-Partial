@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RunAccountDeactivatedProcess__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Helper field to trigger next step in account process when evaluating next criteria.</description>
+    <externalId>false</externalId>
+    <label>Run Account Deactivated Process</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

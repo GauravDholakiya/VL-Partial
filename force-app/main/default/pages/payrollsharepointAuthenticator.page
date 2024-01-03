@@ -1,0 +1,143 @@
+<apex:page >
+    
+    <apex:includeScript value="{! $Resource.msalv2 }"/>
+    
+    
+    <script>
+    
+    var isProcessing = false;
+    var SharePointTokenMC = "{!$MessageChannel.payrollsharepointToken__c}";
+    var requestSharePointTokenMC = "{!$MessageChannel.payrollrequestSharepointToken__c}";  
+    var sharePointTenantURL = 'https://viewledger.sharepoint.com/';
+    var sharePointScope = [sharePointTenantURL + "/.default"];
+    var tenantId = '987d5b59-8ee7-4939-ab38-b720e9d085d7';
+    //Nidhi
+    var azureAppId = '90f23fd5-9702-4b6e-8b8a-8d15685ea83d'; 
+  // var azureAppId = '3MVG9fTLmJ60pJ5KzQlZMIBy5QycLczRL6igy2hMVlcwJAInHEajCT7l_uZG3ldbeMRC_.u5yhKniiTQW9mco'; 
+    
+    //zarana with full control SenderEmail
+    //var azureAppId = 'c4b8767b-d3ec-4bae-b8ee-3a5eb4e8e2cc';
+    console.log('subscriptionToMC',subscriptionToMC);
+    console.log('requestSharePointTokenMC',requestSharePointTokenMC);
+    
+    var userFederationId = '{!$User.Email}';
+    var subscriptionToMC;
+    function subscribeMC() {
+        if (!subscriptionToMC)
+            subscriptionToMC = sforce.one.subscribe(requestSharePointTokenMC, tokenRequestFromLWC);
+        
+    }
+    function unsubscribeMC() {
+        if (subscriptionToMC)
+            sforce.one.unsubscribe(subscriptionToMC);
+        subscriptionToMC = null;
+    }
+    
+    window.addEventListener('DOMContentLoaded', subscribeMC);
+    
+    
+    
+    //msalv2
+    const msalConfig = {
+        auth: {
+            //Nidhi
+           clientId: '90f23fd5-9702-4b6e-8b8a-8d15685ea83d',
+          // clientId:'3MVG9fTLmJ60pJ5KzQlZMIBy5QycLczRL6igy2hMVlcwJAInHEajCT7l_uZG3ldbeMRC_.u5yhKniiTQW9mco',
+            //zarana with full control
+            //clientId: 'c4b8767b-d3ec-4bae-b8ee-3a5eb4e8e2cc', 
+            authority: 'https://login.microsoftonline.com/987d5b59-8ee7-4939-ab38-b720e9d085d7/',
+            navigateToLoginRequestUrl: true,
+            
+        },
+        cache: {
+            cacheLocation: "sessionStorage",
+            storeAuthStateInCookie: false,
+            secureCookies: false
+        },
+        system: {
+            loadFrameTimeout: 60000,
+            asyncPopups: false,
+            allowRedirectInIframe: true
+        }
+    }
+    
+    const loginRequest = {  
+        scopes: ["user.read","Sites.ReadWrite.All"],
+        loginHint: userFederationId
+    };
+    
+    const tokenRequest = {
+        
+        scopes: sharePointScope
+    };
+    
+    function tokenRequestFromLWC(message) {
+        console.log('Event Received! ', message);
+        if(!this.isProcessing){
+            this.isProcessing = true;
+            getSharePointToken();
+        }
+        else {
+            console.log("No Token ");
+        }
+         console.log('Message Token: ' + message.token);
+    }
+    
+    function sendSharePointToken(SharePointToken) {
+        this.isProcessing = false;
+        const loadToken = {
+            token: SharePointToken
+        }
+        sforce.one.publish(SharePointTokenMC, loadToken);
+        console.log('loadToken: ' + loadToken.token);
+    }
+    
+    
+    
+    async function getSharePointToken() {
+        const msalInstance = new msal.PublicClientApplication(msalConfig);
+        loginRequest.account = msalInstance.getAccountByUsername(userFederationId);
+        tokenRequest.account = msalInstance.getAccountByUsername(userFederationId);
+        
+        //console.log('useragent1234-----'+JSON.stringify(msalInstance));
+        
+        try {
+            const loginResponse = await msalInstance.ssoSilent(loginRequest);
+        } catch (err) {
+            console.log(err);
+            console.log(err.name);
+            if (err) {
+                const loginResponse = await msalInstance.loginPopup(loginRequest).catch(error => {
+                    // handle error
+                    console.log('error trying to get login popup: ',err);
+                    sendSharePointToken('Error');
+                });
+                } else {
+                    // handle error
+                    console.log('unexpected error: ',err);
+                    sendSharePointToken('Error');
+                }
+                }
+                    msalInstance.acquireTokenSilent(tokenRequest).then(tokenResponse => {
+                    sendSharePointToken(tokenResponse.accessToken);
+                    
+                }).catch(async (error) => {
+                    console.log(error);
+                    console.log(error.name);
+                    if (error) {
+                    // fallback to interaction when silent call fails
+                    return msalInstance.acquireTokenPopup(tokenRequest).then(tokenResponse => {
+                    sendSharePointToken(tokenResponse.accessToken);
+                }).catch(error => {
+                    console.log('aquireTokenPopup fail');
+                    throw error;
+                });
+                }
+                }).catch(error => {
+                    console.log(error.name);
+                    console.log('error in authentication',error);
+                    sendSharePointToken('Error');
+                });
+                }
+                    </script>
+</apex:page>

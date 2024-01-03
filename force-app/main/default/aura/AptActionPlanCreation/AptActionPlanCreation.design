@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="contractId" label="ContractId"/>
+    <design:attribute name="fiscalYear" label="FiscalYear"/>
+    <design:attribute name="cloneExisting" label="CloneExisting"/>
+</design:component>

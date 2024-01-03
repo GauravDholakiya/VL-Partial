@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonForTerminationV2</fullName>
+    <active>true</active>
+    <errorConditionFormula>(!ISBLANK(Termination_date__c)
+&amp;&amp;
+ISBLANK(Termination_end_date__c)
+&amp;&amp;
+TEXT(Reason_for_termination__c) = &quot;&quot;)
+||
+(ISBLANK(Termination_date__c)
+&amp;&amp;
+!ISBLANK(Termination_end_date__c)
+&amp;&amp;
+TEXT(Reason_for_termination__c) = &quot;&quot;)
+||
+(ISBLANK(Termination_date__c)
+&amp;&amp;
+ISBLANK(Termination_end_date__c)
+&amp;&amp;
+TEXT(Reason_for_termination__c) != &quot;&quot;)
+||
+(!ISBLANK(Termination_date__c)
+&amp;&amp;
+!ISBLANK(Termination_end_date__c)
+&amp;&amp;
+TEXT(Reason_for_termination__c) = &quot;&quot;)
+||
+(!ISBLANK(Termination_date__c)
+&amp;&amp;
+ISBLANK(Termination_end_date__c)
+&amp;&amp;
+TEXT(Reason_for_termination__c) != &quot;&quot;)
+||
+(ISBLANK(Termination_date__c)
+&amp;&amp;
+!ISBLANK(Termination_end_date__c)
+&amp;&amp;
+TEXT(Reason_for_termination__c) != &quot;&quot;)</errorConditionFormula>
+    <errorMessage>All termination fields must have a value.</errorMessage>
+</ValidationRule>

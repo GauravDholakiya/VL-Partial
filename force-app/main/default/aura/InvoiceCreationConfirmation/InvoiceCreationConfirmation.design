@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="projectId" label="projectId"/>
+    <design:attribute name="startDate" label="startDate"/>
+    <design:attribute name="endDate" label="endDate"/>
+</design:component>

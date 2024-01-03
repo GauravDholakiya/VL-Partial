@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_and_control_structure__c</fullName>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>During the customer control, it must be revealed who the real licensees are. Check that the owner and company structure are uploaded in VIEWforce, enter a description of the number of owners. Also check if the company has abnormal or complicated use of real rights holders.</inlineHelpText>
+    <label>Owner and control structure</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

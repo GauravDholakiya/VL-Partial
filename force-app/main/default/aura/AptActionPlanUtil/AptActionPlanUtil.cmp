@@ -1,0 +1,50 @@
+<!--
+ - Created by Jozef on 11.2.2019.
+ -->
+
+<aura:component description="AptActionPlanUtil">
+    <aura:method name="showError" action="{!c.showErrorToast}" access="PUBLIC">
+        <aura:attribute name="message" type="String" default=""/>
+    </aura:method>
+
+    <aura:method name="getLastIndex" action="{!c.getLastIndexOfTasks}" access="PUBLIC">
+        <aura:attribute name="tasks" type="List" default="[]"/>
+    </aura:method>
+
+    <aura:method name="handleError" action="{!c.handleErrorMessage}" access="PUBLIC">
+        <aura:attribute name="response" type="Object" default=""/>
+    </aura:method>
+
+    <aura:method name="setPeriods" action="{!c.setPeriods}" access="PUBLIC">
+        <aura:attribute name="fiscalYear" type="String" default=""/>
+        <aura:attribute name="apt" type="Object" default=""/>
+        <aura:attribute name="initDate" type="Object" default=""/>
+    </aura:method>
+
+    <aura:method name="setNewPeriods" action="{!c.setNewPeriods}" access="PUBLIC">
+        <aura:attribute name="fiscalYear" type="String" default=""/>
+        <aura:attribute name="apt" type="Object" default=""/>
+        <aura:attribute name="initDate" type="Object" default=""/>
+    </aura:method>
+
+
+    <aura:method name="setStaticPeriods" action="{!c.setStaticPeriods}" access="PUBLIC">
+        <aura:attribute name="apt" type="Object" default=""/>
+    </aura:method>
+
+    <aura:method name="filterByNameAndNumber" action="{!c.findByNameAndNumber}" access="PUBLIC">
+        <aura:attribute name="searchKey" type="String" default=""/>
+        <aura:attribute name="tasks" type="List" default="[]"/>
+    </aura:method>
+
+    <aura:method name="filterByKeyword" action="{!c.filterByKeyword}" access="PUBLIC">
+        <aura:attribute name="searchKey" type="String" default=""/>
+        <aura:attribute name="tasks" type="List" default="[]"/>
+    </aura:method>
+
+    <aura:method name="skipWeekend" action="{!c.skipWeekend}" access="PUBLIC">
+        <aura:attribute name="tasks" type="List" default="[]"/>
+        <aura:attribute name="skip" type="Boolean" default="false"/>
+    </aura:method>
+
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="sobjectLabel" type="String" required="true"/>
+	<div class="slds-align_absolute-center">
+        <aura:if isTrue="{!v.sobjectLabel != 'Content Version'}">
+    		Are you sure you want to delete this {!v.sobjectLabel}?
+    		<aura:set attribute="else">
+     			Are you sure you want to delete this File?
+    		</aura:set>
+  		</aura:if> 
+		
+    </div>
+</aura:component>

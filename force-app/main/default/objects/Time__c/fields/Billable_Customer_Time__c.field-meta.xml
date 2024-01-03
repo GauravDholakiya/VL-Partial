@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billable_Customer_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+
+(TEXT(Main_Activity__c)=&quot;Internal&quot;) || (Text(Main_Activity__c)=&quot;Interntid&quot;), 0,
+
+
+IF
+
+(Text(Activity_Price_Agreement__c) =&quot;Hourly Rate&quot;, Billable_Time__c , 
+
+
+
+
+((((Registered_Time__c)-(Billable_Time__c))*(BU__c)/100)+Billable_Time__c)
+
+
+
+)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Billable Customer Time</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DESKSCMT__Failed_Accounts</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DESKSCMT__error__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Failed Accounts</label>
+</ListView>

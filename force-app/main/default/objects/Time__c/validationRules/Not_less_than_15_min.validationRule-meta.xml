@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_less_than_15_min</fullName>
+    <active>false</active>
+    <errorConditionFormula>Billable_Hours__c = 0
+&amp;&amp;
+Billable_Minutes__c &lt; 15</errorConditionFormula>
+    <errorDisplayField>Billable_Minutes__c</errorDisplayField>
+    <errorMessage>Cannot be less than 15 minutes</errorMessage>
+</ValidationRule>

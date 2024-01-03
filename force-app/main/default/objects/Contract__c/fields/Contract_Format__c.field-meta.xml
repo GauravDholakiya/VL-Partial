@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Format__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If Merger Contract, Other Contract or missing, new contract needs to be created</inlineHelpText>
+    <label>Contract Format</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>View contract</fullName>
+                <default>true</default>
+                <label>VIEW Contract</label>
+            </value>
+            <value>
+                <fullName>View deviating</fullName>
+                <default>false</default>
+                <label>VIEW Contract deviating</label>
+            </value>
+            <value>
+                <fullName>SSA Contract</fullName>
+                <default>false</default>
+                <label>SSA Contract</label>
+            </value>
+            <value>
+                <fullName>Fusion contract</fullName>
+                <default>false</default>
+                <label>Merger Contract</label>
+            </value>
+            <value>
+                <fullName>RN Contract</fullName>
+                <default>false</default>
+                <label>Other Contract</label>
+            </value>
+            <value>
+                <fullName>Missing Contract</fullName>
+                <default>false</default>
+                <label>Missing Contract</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

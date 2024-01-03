@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>webm__Evaluation_Criteria__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Evaluation Criteria</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>created</fullName>
+                <default>false</default>
+                <label>created</label>
+            </value>
+            <value>
+                <fullName>created, and every time it&apos;s edited</fullName>
+                <default>false</default>
+                <label>created, and every time it&apos;s edited</label>
+            </value>
+            <value>
+                <fullName>created, and any time it&apos;s edited to subsequently meet criteria</fullName>
+                <default>false</default>
+                <label>created, and any time it&apos;s edited to subsequently meet criteria</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

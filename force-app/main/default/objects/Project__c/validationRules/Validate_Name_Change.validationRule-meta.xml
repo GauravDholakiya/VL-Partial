@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Name_Change</fullName>
+    <active>true</active>
+    <description>System admin - 00e1t000001UNCv
+View Inhouse - 00e1t000000Rnwy</description>
+    <errorConditionFormula>ISCHANGED(Name)
+&amp;&amp; 
+BEGINS(PRIORVALUE(Name),&quot;O - &quot;) 
+&amp;&amp; 
+RecordType.Name = &quot;Operational&quot;
+&amp;&amp;
+$User.ProfileId &lt;&gt; &quot;00e1t000001UNCv&quot;
+&amp;&amp;
+$User.ProfileId &lt;&gt; &quot;00e1t000000Rnwy&quot;</errorConditionFormula>
+    <errorMessage>Project Name is created automatically and cannot be changed.</errorMessage>
+</ValidationRule>

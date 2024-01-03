@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="recordId" label="recordId"/>
+    <design:attribute name="startDate" label="startDate"/>
+    <design:attribute name="endDate" label="endDate"/>
+</design:component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_performed_customer_control__c</fullName>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the date when VIEW performed the last customer check or made changes to Customer Control &amp; Money Laundery Risk.</inlineHelpText>
+    <label>Last performed customer control</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

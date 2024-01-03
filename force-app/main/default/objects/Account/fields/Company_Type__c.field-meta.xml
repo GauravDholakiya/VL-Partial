@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Company Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Country2__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AB</fullName>
+                <default>false</default>
+                <label>AB</label>
+            </value>
+            <value>
+                <fullName>AS</fullName>
+                <default>false</default>
+                <label>AS</label>
+            </value>
+            <value>
+                <fullName>ANS</fullName>
+                <default>false</default>
+                <label>ANS</label>
+            </value>
+            <value>
+                <fullName>ASA</fullName>
+                <default>false</default>
+                <label>ASA</label>
+            </value>
+            <value>
+                <fullName>BA</fullName>
+                <default>false</default>
+                <label>BA</label>
+            </value>
+            <value>
+                <fullName>BRL</fullName>
+                <default>false</default>
+                <label>BRL</label>
+            </value>
+            <value>
+                <fullName>DA</fullName>
+                <default>false</default>
+                <label>DA</label>
+            </value>
+            <value>
+                <fullName>ENK</fullName>
+                <default>false</default>
+                <label>ENK</label>
+            </value>
+            <value>
+                <fullName>ESEK</fullName>
+                <default>false</default>
+                <label>ESEK</label>
+            </value>
+            <value>
+                <fullName>FLI</fullName>
+                <default>false</default>
+                <label>FLI</label>
+            </value>
+            <value>
+                <fullName>HB</fullName>
+                <default>false</default>
+                <label>HB</label>
+            </value>
+            <value>
+                <fullName>IKS</fullName>
+                <default>false</default>
+                <label>IKS</label>
+            </value>
+            <value>
+                <fullName>KBO</fullName>
+                <default>false</default>
+                <label>KBO</label>
+            </value>
+            <value>
+                <fullName>KS</fullName>
+                <default>false</default>
+                <label>KS</label>
+            </value>
+            <value>
+                <fullName>KTRF</fullName>
+                <default>false</default>
+                <label>KTRF</label>
+            </value>
+            <value>
+                <fullName>NUF</fullName>
+                <default>false</default>
+                <label>NUF</label>
+            </value>
+            <value>
+                <fullName>ORGL</fullName>
+                <default>false</default>
+                <label>ORGL</label>
+            </value>
+            <value>
+                <fullName>PRE</fullName>
+                <default>false</default>
+                <label>PRE</label>
+            </value>
+            <value>
+                <fullName>SA</fullName>
+                <default>false</default>
+                <label>SA</label>
+            </value>
+            <value>
+                <fullName>SAM</fullName>
+                <default>false</default>
+                <label>SAM</label>
+            </value>
+            <value>
+                <fullName>SF</fullName>
+                <default>false</default>
+                <label>SF</label>
+            </value>
+            <value>
+                <fullName>STI</fullName>
+                <default>false</default>
+                <label>STI</label>
+            </value>
+            <value>
+                <fullName>OTHERS</fullName>
+                <default>false</default>
+                <label>OTHERS</label>
+            </value>
+            <value>
+                <fullName>BRF</fullName>
+                <default>false</default>
+                <label>BRF</label>
+            </value>
+            <value>
+                <fullName>EF</fullName>
+                <default>false</default>
+                <label>EF</label>
+            </value>
+            <value>
+                <fullName>Enkelt bolag</fullName>
+                <default>false</default>
+                <label>Enkelt bolag</label>
+            </value>
+            <value>
+                <fullName>Enskild firma</fullName>
+                <default>false</default>
+                <label>Enskild firma</label>
+            </value>
+            <value>
+                <fullName>Ekonomisk förening</fullName>
+                <default>false</default>
+                <label>Ekonomisk förening</label>
+            </value>
+            <value>
+                <fullName>Filial</fullName>
+                <default>false</default>
+                <label>Filial</label>
+            </value>
+            <value>
+                <fullName>Ideell Förening</fullName>
+                <default>false</default>
+                <label>Ideell Förening</label>
+            </value>
+            <value>
+                <fullName>KB</fullName>
+                <default>false</default>
+                <label>KB</label>
+            </value>
+            <value>
+                <fullName>Kommun</fullName>
+                <default>false</default>
+                <label>Kommun</label>
+            </value>
+            <value>
+                <fullName>Foreign company</fullName>
+                <default>false</default>
+                <label>Foreign company</label>
+            </value>
+            <value>
+                <fullName>Privatperson</fullName>
+                <default>false</default>
+                <label>Privatperson</label>
+            </value>
+            <value>
+                <fullName>Group Unit</fullName>
+                <default>false</default>
+                <label>Group Unit</label>
+            </value>
+            <value>
+                <fullName>Privat person</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Privat person</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>AS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>ANS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>ASA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>BA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>BRL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>DA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>ENK</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>ESEK</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>FLI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>HB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>IKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>KBO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>KS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>KTRF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>NUF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>ORGL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>PRE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>SA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>SAM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>SF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <valueName>STI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Foreign company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Privatperson</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>Group Unit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>AB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>BRF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>EF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Enkelt bolag</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Enskild firma</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Ekonomisk förening</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Filial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Ideell Förening</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>KB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>Kommun</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

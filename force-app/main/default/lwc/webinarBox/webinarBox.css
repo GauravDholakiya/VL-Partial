@@ -1,0 +1,41 @@
+.single_webinar{
+    padding-bottom: 2rem;
+}
+.heading {
+    line-height: 0rem;
+}
+.webinar_list {
+    padding-left: 3rem;
+}
+.card_title {
+    font-weight: bold;
+    padding-top: 0.5rem;
+}
+.icon {
+    padding-left: 2rem;
+}
+.heading_grid {
+    padding-bottom: 0.5rem;
+}
+.slds-backdropEdit {
+    opacity: 0.20;
+}
+.slds-modal__container {
+    max-width: 40rem !important;
+    width: 40% !important;
+}
+.icons {
+    padding: 0.1rem;
+}
+.clearSelectAll {
+    font-size: 95%;
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+    width: 8rem;
+}
+.tName {
+    padding-left: 1rem;
+}
+.tButtons {
+    padding-right: 0.7rem;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action_Plan_Task__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(AP_Task__c ) , &apos;&apos;, HYPERLINK(&quot;/&quot; &amp; AP_Task__c , AP_Task__r.Subject__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Action Plan Task</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

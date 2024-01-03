@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIEW_Family_Office_Lead</fullName>
+    <filterScope>Queue</filterScope>
+    <label>VIEW Family Office</label>
+    <queue>VIEW_Family_Office</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

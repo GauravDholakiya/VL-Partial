@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pricelist_Hours__c</fullName>
+    <externalId>false</externalId>
+    <label>Price List (Hours)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Customer_Group__c</controllingField>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Std timmar</fullName>
+                <default>false</default>
+                <label>Std timmar</label>
+            </value>
+            <value>
+                <fullName>Timer Kristiansand</fullName>
+                <default>false</default>
+                <label>Timer Kristiansand</label>
+            </value>
+            <value>
+                <fullName>Timer Kristiansand Pluss</fullName>
+                <default>false</default>
+                <label>Timer Kristiansand Pluss</label>
+            </value>
+            <value>
+                <fullName>Timer Lillehammer</fullName>
+                <default>false</default>
+                <label>Timer Lillehammer</label>
+            </value>
+            <value>
+                <fullName>Timer Standard</fullName>
+                <default>false</default>
+                <label>Timer Standard</label>
+            </value>
+            <value>
+                <fullName>Timer Søgne</fullName>
+                <default>false</default>
+                <label>Timer Søgne</label>
+            </value>
+            <value>
+                <fullName>Timer Tripletex Fastpris</fullName>
+                <default>false</default>
+                <label>Timer Tripletex Fastpris</label>
+            </value>
+            <value>
+                <fullName>Timer Tripletex Standard</fullName>
+                <default>false</default>
+                <label>Timer Tripletex Standard</label>
+            </value>
+            <value>
+                <fullName>Timer Tripletex Stavanger</fullName>
+                <default>false</default>
+                <label>Timer Tripletex Stavanger</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Premium Large</controllingFieldValue>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <controllingFieldValue>Mini</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Std timmar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Large</controllingFieldValue>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <controllingFieldValue>Mini</controllingFieldValue>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Årskunde</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Lillehammer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Large</controllingFieldValue>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <controllingFieldValue>Mini</controllingFieldValue>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Årskunde</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Large</controllingFieldValue>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <controllingFieldValue>Mini</controllingFieldValue>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Årskunde</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Søgne</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Kristiansand</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Kristiansand Pluss</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Tripletex Fastpris</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Tripletex Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>Timer Tripletex Stavanger</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Systems__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Other systems delivered by VIEW.</inlineHelpText>
+    <label>Other Systems</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Aditro_HR_and_Payroll</fullName>
+                <default>false</default>
+                <label>Aditro HR and Payroll</label>
+            </value>
+            <value>
+                <fullName>VIEW Connect</fullName>
+                <default>false</default>
+                <label>VIEW Connect</label>
+            </value>
+            <value>
+                <fullName>VIEW Expense</fullName>
+                <default>false</default>
+                <label>VIEW Expense</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

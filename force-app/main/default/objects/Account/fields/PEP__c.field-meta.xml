@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PEP__c</fullName>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A person who falls under the PEP (Political Exposed person) definition will forever remain a PEP (this includes close family members and well-known employees). PEP shall be subject to reinforced customer measures at least one year after PEP terminates the position or position that made the person PEP. Further investigations may reveal that this is not an active PEP. This means that there is no longer a basis for treating the person as PEP and it is filled in with NO on PEP status.</inlineHelpText>
+    <label>PEP</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+            <value>
+                <fullName>Yes_Active_PEP</fullName>
+                <default>false</default>
+                <label>Yes (Active PEP)</label>
+            </value>
+            <value>
+                <fullName>Yes_None_Active_PEP</fullName>
+                <default>false</default>
+                <label>Yes (None Active PEP)</label>
+            </value>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Yes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

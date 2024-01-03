@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notice_ID_control_company__c</fullName>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter information about customer control is performed in Kjenndinkunde, with web form or manual self-declaration form etc.</inlineHelpText>
+    <label>Notice - ID control company</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DESKSCMT__Max_ID_Case_Fetch__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Sets the max_id for case fetch</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sets the max_id for case fetch</inlineHelpText>
+    <label>Case Fetch - max_id (default null)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

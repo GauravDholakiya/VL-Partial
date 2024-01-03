@@ -1,0 +1,340 @@
+<!--
+ - Created by Jozef on 4.3.2019.
+ -->
+
+<aura:component description="AptTemplateTasksTable" controller="AptTemplateController"
+                implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="tId" type="String" />
+    <aura:attribute name="headerId" type="String" />
+    <aura:attribute name="tableIndex" type="String"/>
+    <aura:attribute name="tTasks" type="APTTaskTemplate__c[]" />
+    <aura:attribute name="delTasks" type="APTTaskTemplate__c[]" />
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+    <aura:attribute name="sortAsc" type="Boolean" default="true"/>
+    <aura:attribute name="sortField" type="String" default=""/>
+    <aura:attribute name="assignedToOptions" type="Object"/>
+    <aura:attribute name="initialStartDateOptions" type="Object"/>
+
+    <aura:registerEvent name="cmpSelectedRowsEvent" type="c:AptTableReadRowSelectedEvt"/>
+    <aura:registerEvent name="cmpPeriodSwitchPressedEvent" type="c:AptPeriodSwitchPressedEvt"/>
+	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="frequencyValues" type="Object" />
+    <c:PicklistValues sObjectName="APTTaskTemplate__c" fieldName="Frequency__c" picklistValues="{!v.frequencyValues}" />
+
+    <!--
+    <aura:handler name="change" value="{!v.mode}" action="{!c.modeChange}"/>
+    -->
+
+
+    <aura:handler event="c:AptPlanSearchKeyChangeEvt" action="{!c.searchKeyChange}"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+
+    <c:AptPlanSearch/>
+
+    <table id="taskTable" class="read-table">
+        <thead>
+        <tr class="slds-line-height_reset">
+            <aura:if isTrue="{!v.mode == 'EDIT'}">
+                <th class="deleteHeading" scope="col">
+                    Delete
+                </th>
+            </aura:if>
+
+            <th aria-label="Task Number" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByNumber}" role="button"
+                   data-sort-field="Task_Number__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptTaskNumber}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Subject" aria-sort="none" class="slds-is-sortable sortHeading subject" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortBy}" role="button"
+                   data-sort-field="Subject__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptSubject}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+
+            <th aria-label="Is Mandatory" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByCheckBox}" role="button"
+                   data-sort-field="IsMandatory__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptIsMandatory}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+
+            <th aria-label="Frequency" aria-sort="none" class="slds-is-sortable sortHeading frequency" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortBy}" role="button"
+                   data-sort-field="Frequency__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptFrequency}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Skip Weekends" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByCheckBox}" role="button"
+                   data-sort-field="Skip_Weekends__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptSkipWeekends}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Assigned Role" aria-sort="none" class="slds-is-sortable sortHeading frequency" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortBy}" role="button"
+                   data-sort-field="Assigned_Role__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptAssignedRole}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptSetInitialStartDate}</th>
+            <th aria-label="Reminder" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByCheckBox}" role="button"
+                   data-sort-field="Reminder__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptReminder}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Period 1" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '1'}</th>
+            <th aria-label="Period 2" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '2'}</th>
+            <th aria-label="Period 3" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '3'}</th>
+            <th aria-label="Period 4" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '4'}</th>
+            <th aria-label="Period 5" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '5'}</th>
+            <th aria-label="Period 6" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '6'}</th>
+            <th aria-label="Period 7" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '7'}</th>
+            <th aria-label="Period 8" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '8'}</th>
+            <th aria-label="Period 9" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '9'}</th>
+            <th aria-label="Period 10" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '10'}</th>
+            <th aria-label="Period 11" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '11'}</th>
+            <th aria-label="Period 12" aria-sort="none" class="periodHeading" scope="col">{!$Label.c.AptPeriod + '12'}</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <aura:iteration items="{!v.tTasks}" var="t" indexVar="index">
+            <aura:if isTrue="{!t.IsVisible__c == true}">
+                <tr class="slds-hint-parent" data-index="{!index}"
+                    data-row-id="{!t.Id}"
+                    data-header-id="{!t.AttachmentHeader__c}"
+                    onclick="{!c.onRowClick}" >
+
+                    <aura:if isTrue="{!v.mode == 'EDIT'}">
+                        <td class="" scope="col" >
+                            <lightning:buttonIcon tabindex="{!t.taskIndex__c}" iconName="utility:close" variant="bare"
+                                                  onclick="{!c.deleteRow }" alternativeText="Delete" />
+
+                        </td>
+                    </aura:if>
+
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input  type="number" value="{!t.Task_Number__c}" name="Task_Number__c" required="false"
+                                              variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                {!t.Task_Number__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+
+
+                    <td data-label="woot" scope="row" class=" subject">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input  value="{!t.Subject__c}" name="Subject__c" required="false"
+                                              variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                {!t.Subject__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+
+                    <td data-label="woot" scope="row" class="">
+                        <lightning:input type="checkbox" label="" name="IsMandatory__c" checked="{!t.IsMandatory__c}"
+                                         variant="label-hidden"
+                                         required="false" disabled="{!v.mode == 'VIEW'}"/>
+                    </td>
+
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:select value="{!t.Frequency__c}" variant="label-hidden" class="label-hidden">
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.frequencyValues}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                            <aura:set attribute="else">
+                                {!t.Frequency__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <lightning:input type="checkbox" label="" name="Skip_Weekends__c" checked="{!t.Skip_Weekends__c}"
+                                         variant="label-hidden" tabindex="{!t.taskIndex__c}"
+                                         onchange="{!c.skipWeekendsTask}"
+                                         required="false" disabled="{!v.mode == 'VIEW'}" />
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:select value="{!t.Assigned_Role__c}" variant="label-hidden" class="label-hidden">
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.assignedToOptions}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                            <aura:set attribute="else">
+                                {!t.Assigned_Role__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:select value="{!t.Initial_Start_Date__c}" variant="label-hidden" class="label-hidden">
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.initialStartDateOptions}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                            <aura:set attribute="else">
+                                {!t.Initial_Start_Date__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <lightning:input type="checkbox" label="" name="Reminder__c" checked="{!t.Reminder__c}"
+                                         variant="label-hidden"
+                                         required="false" disabled="{!v.mode == 'VIEW'}"/>
+                    </td>
+                    <td data-label="woot" scope="row" class="periodCol1">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_1__c"
+                                             value="{!t.Period_1__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_1__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_2__c"
+                                             value="{!t.Period_2__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_2__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="periodCol1">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_3__c"
+                                             value="{!t.Period_3__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_3__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_4__c"
+                                             value="{!t.Period_4__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_4__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="periodCol1">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_5__c"
+                                             value="{!t.Period_5__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_5__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_6__c"
+                                             value="{!t.Period_6__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_6__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="periodCol1">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_7__c"
+                                             value="{!t.Period_7__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_7__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_8__c"
+                                             value="{!t.Period_8__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_8__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="periodCol1">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_9__c"
+                                             value="{!t.Period_9__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_9__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_10__c"
+                                             value="{!t.Period_10__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_10__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="periodCol1">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_11__c"
+                                             value="{!t.Period_11__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_11__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:input type="date" name="Period_12__c"
+                                             value="{!t.Period_12__c}"
+                                             variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                <lightning:formattedDateTime value="{!t.Period_12__c}"/>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                </tr>
+            </aura:if>
+        </aura:iteration>
+        </tbody>
+    </table>
+
+
+
+</aura:component>

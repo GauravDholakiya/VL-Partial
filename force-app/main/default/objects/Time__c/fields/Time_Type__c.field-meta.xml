@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Time Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Project_Country__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Time_Type</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>0 Normal Time</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>150 Overtime 150%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>200 Overtime 50% with time off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>300</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>305 Time for flex OB pr. 01.01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>310 Hours for time off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>311 Hours timed off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>312 Hours paid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>400</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>405</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>410</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>415</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>430</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>550</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <valueName>560</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NO - Norge</controllingFieldValue>
+            <controllingFieldValue>SE - Sweden</controllingFieldValue>
+            <controllingFieldValue>DK - Denmark</controllingFieldValue>
+            <valueName>600 Absence reported HR</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,65 @@
+<aura:component  access="global" implements="lightning:availableForFlowScreens,force:lightningQuickAction,force:hasRecordId"
+                 controller="AptTaskUploadSelectorController">
+	<aura:attribute name="apTaskList" type="List" />
+    <aura:attribute name="selectedTasks" type="List"/>
+    <aura:attribute name="isUploadTasksModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="numOfRuns" type="Integer" default="0"/>
+    <aura:attribute name="contractId" type="Id" default=""/>
+
+    <aura:attribute name="templateTypeOptions" type="List" default="[
+    {'label': 'Library', 'value': 'library'},
+    {'label': 'Template', 'value': 'template'}
+    ]"/>
+    <aura:attribute name="tempOptionValue" type="String" default="library"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:registerEvent name="uploadEvent" type="c:AptUploadTasksEvt"/>
+
+    <aura:if isTrue="{!v.isUploadTasksModalOpen}">
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+
+            <!-- Modal/Popup Box Header Starts here-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                                      onclick="{! c.closeModal }"
+                                      alternativeText="close"
+                                      variant="bare-inverse"
+                                      class="slds-modal__close"/>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.AptSelectAdditionalTasks}</h2>
+            </header>
+            <div class="slds-box slds-theme_default slds-modal__content">
+                <div class="centerSpinner">
+                    <c:Spinner countOfRuns="{!v.numOfRuns}"/>
+                </div>
+                <div class="slds-align_absolute-center">
+                    <lightning:radioGroup name="radioTemplateButtonGroup"
+                                          variant="label-hidden"
+                                          label="Select Template Type:"
+                                          options="{! v.templateTypeOptions }"
+                                          value="{! v.tempOptionValue }"
+                                          onchange="{! c.handleChangeTempOption }"
+                                          type="button"/>
+                </div>
+                <table id="taskTable" >
+                    <aura:iteration items="{!v.apTaskList}" var="apt" indexVar="key">
+                        <c:AptTaskUploadSelectorSection aura:id="actionPlanTasks"
+                                                        apTaskList="{!apt.value}"
+                                                        sectionName="{!apt.key}"/>
+                     </aura:iteration>
+
+                </table>
+            </div>
+
+            <footer class="slds-modal__footer">
+                <lightning:button variant="brand" label="{!$Label.c.AptAddTasks}"
+                              title="{!$Label.c.AptAddTasks}" onclick="{!c.addTasks}" />
+            </footer>
+        </div>
+    </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+</aura:component>

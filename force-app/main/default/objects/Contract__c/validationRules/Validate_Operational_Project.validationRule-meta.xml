@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Operational_Project</fullName>
+    <active>false</active>
+    <errorConditionFormula>RecordType.Name = &quot;Operational&quot;
+&amp;&amp;
+ISPICKVAL(Status__c, &quot;Signed&quot;) 
+&amp;&amp;
+ISBLANK(Account__r.Project_Number_Operational__c)</errorConditionFormula>
+    <errorMessage>You have to create a Project of type operational first.</errorMessage>
+</ValidationRule>

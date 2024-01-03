@@ -1,0 +1,137 @@
+<!--
+ - Created by Jozef on 18.1.2019.
+
+ -->
+
+<aura:component description="AptActionPlanDetail" controller="AptActionPlanController"
+                implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="actionPlan" type="Object"/>
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="apTasks" type="APTaskTemplate__c[]" default="[]"/>
+    <aura:attribute name="delTasks" type="APTaskTemplate__c[]" default="[]"/>
+    <aura:attribute name="dataLoaded" type="Boolean" default="false"/>
+
+    <aura:attribute name="contractId" type="Id"/>
+    <aura:attribute name="contract" type="Object"/>
+
+    <aura:attribute name="fiscalYear" type="String" default="2019"/>
+    <aura:attribute name="numOfRuns" type="Integer" default="0"/>
+    <aura:attribute name="initDate" type="Object"/>
+    <aura:attribute name="actionPlanName" type="String"/>
+    <aura:attribute name="isUploadTasksModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="cloneExisting" type="Boolean" default="false"/>
+
+
+    <aura:handler event="c:AptUploadTasksEvt" action="{!c.handleUploadTasksEvent}"/>
+    <aura:attribute name="additionalTasks" type="List"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <c:Spinner countOfRuns="{!v.numOfRuns}"/>
+
+    <div class="slds-box slds-theme_default">
+        <div class="slds-page-header slds-page-header_record-home forceRecordLayout"
+             data-aura-class="forceRecordLayout"
+             style="left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;">
+
+            <div class="slds-grid primaryFieldRow" data-aura-rendered-by="4250:0" style="transform: translate3d(0px, 0px, 0px);">
+            <c:AptHeaderPanel objectLabel="Action Plan" templateName = "{!v.actionPlanName}" />
+            <lightning:buttonGroup>
+                <aura:if isTrue="{!v.mode == 'VIEW'}">
+                    <lightning:button label="{!$Label.c.AptEdit}" onclick="{!c.doEdit}"/>
+                    <aura:if isTrue="{!v.recordId != null}">
+                        <lightning:button label="{!$Label.c.AptDelete}" onclick="{!c.doDelete}"/>
+                    </aura:if>
+                </aura:if>
+                <aura:if isTrue="{!v.mode == 'EDIT'}">
+                    <lightning:button label="{!$Label.c.AptSave}" onclick="{!c.doSave}"/>
+                    <lightning:button label="{!$Label.c.AptCancel}" onclick="{!c.doCancel}"/>
+                </aura:if>
+            </lightning:buttonGroup>
+            </div>
+            <div class="panel"
+                 style="transform: translate3d(0px, 0px, 0px); opacity: 1; visibility: visible;">
+                <c:AptActionPlanInfo apId="{!v.recordId}" contract="{!v.contract}"
+                                     fiscalYear="{!v.fiscalYear}"
+                                     actionPlan="{!v.actionPlan}"/>
+            </div>
+        </div>
+
+
+        <div class="section" style="left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;" >
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">{!$Label.c.AptOptions}</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+                    <div class="c-container">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="6"  padding="around-small">
+                                <lightning:input type="checkbox" label="{!$Label.c.AptSkipWeekends}" name="SkipWeekends__c"
+                                                 disabled="{!v.mode == 'VIEW'}"
+                                                 checked="{!v.actionPlan.SkipWeekends__c}"
+                                                 onchange="{!c.skipWeekendChange}"
+                                                 required="false"/>
+
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">{!$Label.c.AptTasks}</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+
+
+                    <div class="table-container">
+
+                            <c:AptActionPlanTasksTable mode="{!v.mode}" apTasks="{!v.apTasks}"
+                                                   delTasks="{!v.delTasks}" initDate="{!v.initDate}"
+                                                   fiscalYear="{!v.fiscalYear}"/>
+
+                    </div>
+                    <c:AptTaskUploadSelector isUploadTasksModalOpen="{!v.isUploadTasksModalOpen}"
+                                             contractId = "{!v.contractId}"/>
+
+                    <div class="addTaskSection">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:button label="{!$Label.c.AptUploadAdditionalTasks}"
+                                              title="{!$Label.c.AptUploadAdditionalTasks}"
+                                              onclick="{! c.handleUploadTasks }"/>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="section" style="left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;" >
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">
+                        {!$Label.c.Selected_Task_Related_Comments_and_Attachments}
+                    </span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+                    <div class="c-container">
+                        <c:AptCommentAttachmentsSection editMode="{!v.mode == 'EDIT'}" apTasks="{!v.apTasks}"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</aura:component>

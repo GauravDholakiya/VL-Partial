@@ -1,0 +1,195 @@
+<!--
+ - Created by jozef on 27. 3. 2023.
+ -->
+
+<aura:component description="AptSetPeriodsPopup" access="global" implements="lightning:availableForFlowScreens,force:lightningQuickAction,force:hasRecordId"
+                controller="AptTaskUploadSelectorController">
+    <aura:attribute name="isPeriodModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="apTasks" type="APTaskTemplate__c[]" />
+    <aura:attribute name="apTask" type="APTaskTemplate__c" default="null"/>
+    <aura:attribute name="originApTask" type="APTaskTemplate__c" default="null"/>
+    <aura:attribute name="taskIndex" type="Integer" />
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+    <aura:registerEvent name="savePressedEvent" type="c:AptEditPeriodsSavePressedEvt"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <!-- <aura:handler name="render" value="{!this}" action="{!c.onRender}"/> -->
+
+    <!--
+    <aura:registerEvent name="uploadEvent" type="c:AptUploadTasksEvt"/>
+    -->
+    <aura:if isTrue="{!v.isPeriodModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.cancel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                        {!$Label.c.AptSetPeriodsFor} &nbsp; {!v.apTask.Subject__c}
+                    </h2>
+                </header>
+                <div class="slds-box slds-theme_default slds-modal__content">
+                    <div class="slds-align_absolute-center">
+                        <aura:if isTrue="{!v.apTask!= null}">
+                            <table id="taskTable" class="read-table">
+                                <tr>
+                                    <th aria-label="Period 1" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '1'}">{!$Label.c.AptPeriod + '1'}</span>
+                                    </th>
+                                    <th aria-label="Period 2" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '2'}">{!$Label.c.AptPeriod + '2'}</span>
+                                    </th>
+                                    <th aria-label="Period 3" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '3'}">{!$Label.c.AptPeriod + '3'}</span>
+                                    </th>
+                                    <th aria-label="Period 4" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '4'}">{!$Label.c.AptPeriod + '4'}</span>
+                                    </th>
+                                    <th aria-label="Period 5" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '5'}">{!$Label.c.AptPeriod + '5'}</span>
+                                    </th>
+                                    <th aria-label="Period 6" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '6'}">{!$Label.c.AptPeriod + '6'}</span>
+                                    </th>
+                                    <th aria-label="Period 7" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '7'}">{!$Label.c.AptPeriod + '7'}</span>
+                                    </th>
+                                    <th aria-label="Period 8" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '8'}">{!$Label.c.AptPeriod + '8'}</span>
+                                    </th>
+                                    <th aria-label="Period 9" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '9'}">{!$Label.c.AptPeriod + '9'}</span>
+                                    </th>
+                                    <th aria-label="Period 10" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '10'}">{!$Label.c.AptPeriod + '10'}</span>
+                                    </th>
+                                    <th aria-label="Period 11" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '11'}">{!$Label.c.AptPeriod + '11'}</span>
+                                    </th>
+                                    <th aria-label="Period 12" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                                        <span class="slds-truncate"
+                                              title="{!$Label.c.AptPeriod + '12'}">{!$Label.c.AptPeriod + '12'}</span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_1__c}"
+                                                           isStatic="{!v.apTask.P1static}"
+                                                           periodNumber="1" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_2__c}"
+                                                           isStatic="{!v.apTask.P2static}"
+                                                           periodNumber="2" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_3__c}"
+                                                           isStatic="{!v.apTask.P3static}"
+                                                           periodNumber="3" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_4__c}"
+                                                           isStatic="{!v.apTask.P4static}"
+                                                           periodNumber="4" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_5__c}"
+                                                           isStatic="{!v.apTask.P5static}"
+                                                           periodNumber="5" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_6__c}"
+                                                           isStatic="{!v.apTask.P6static}"
+                                                           periodNumber="6" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_7__c}"
+                                                           isStatic="{!v.apTask.P7static}"
+                                                           periodNumber="7" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_8__c}"
+                                                           isStatic="{!v.apTask.P8static}"
+                                                           periodNumber="8" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_9__c}"
+                                                           isStatic="{!v.apTask.P9static}"
+                                                           periodNumber="9" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_10__c}"
+                                                           isStatic="{!v.apTask.P10static}"
+                                                           periodNumber="10" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_11__c}"
+                                                           isStatic="{!v.apTask.P11static}"
+                                                           periodNumber="11" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                    <td data-label="woot" scope="row" class="periodCol">
+                                        <c:AptPeriodColumn apTask="{!v.apTask}" mode="{!v.mode}"
+                                                           periodDate="{!v.apTask.Period_12__c}"
+                                                           isStatic="{!v.apTask.P12static}"
+                                                           periodNumber="12" >
+                                        </c:AptPeriodColumn>
+                                    </td>
+                                </tr>
+                            </table>
+                        </aura:if>
+                    </div>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <aura:if isTrue="{!v.mode == 'VIEW'}">
+                        <lightning:button variant="brand" label="{!$Label.c.AptEdit}" onclick="{!c.edit}"/>
+                    </aura:if>
+                    <aura:if isTrue="{!v.mode == 'EDIT'}">
+                        <lightning:button variant="brand" label="{!$Label.c.AptSet}"
+                                          title="{!$Label.c.AptSet}" onclick="{!c.save}" />
+                    </aura:if>
+                    <lightning:button variant="neutral" label="{!$Label.c.AptCancel}"
+                                      title="{!$Label.c.AptCancel}" onclick="{!c.cancel}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+</aura:component>

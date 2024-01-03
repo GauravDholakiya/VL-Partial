@@ -1,0 +1,83 @@
+<aura:component controller="InvoiceController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,lightning:availableForFlowScreens" access="global">
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="result" type="String" />
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    <aura:attribute name="invoiceLines" type="List" />
+    <aura:attribute name="noOfNotApproved" type="Integer" default="0" />
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!v.Spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container">
+       <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+         <span class="slds-assistive-text">Loading</span>
+         <div class="slds-spinner__dot-a"></div>
+         <div class="slds-spinner__dot-b"></div>
+       </div>
+    </div>
+ </aura:if>
+    <lightning:card title="Create Invoice">
+    	<lightning:layout>
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:input type="date" name="StartDate" label="Start Date" value="{!v.startDate}" onchange="{!c.getTimes}"/>
+            </lightning:layoutItem>
+             <lightning:layoutItem size="4" padding="around-small">
+                <lightning:input type="date" name="EndDate" label="End Date" value="{!v.endDate}" onchange="{!c.getTimes}"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layout>
+            <aura:if isTrue="{!v.invoiceLines.length > 0}">
+                <lightning:layoutItem size="12" padding="around-small">
+                    <div class="slds"> 
+                        <table class="slds-table slds-table--bordered slds-table--striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><span class="slds-truncate">Date</span></th>
+                                    <th scope="col"><span class="slds-truncate">Main Activity</span></th>
+                                    <th scope="col"><span class="slds-truncate">Activity</span></th>
+                                    <th scope="col"><span class="slds-truncate">Incurred by</span></th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.invoiceLines}" var="time">
+                                <tr>
+                                    <td>{!time.Date__c}</td>
+                                    <td>{!time.Main_Activity__c}</td>
+                                    <td>{!time.Activity__c}</td>
+                                    <td>{!time.Incurred_By__r.Name}</td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                        </table>
+                    </div>
+                </lightning:layoutItem>
+                <aura:set attribute="else">
+                    <lightning:layoutItem size="12" padding="around-small">
+                        <div class="slds-box slds-theme_warning">
+                                <p class="slds-align_absolute-center">No approved times in given period!</p>                
+                        </div>	
+                    </lightning:layoutItem>
+                </aura:set>
+            </aura:if>
+        </lightning:layout>
+        <lightning:layout>
+            <lightning:layoutItem size="12" padding="around-small">
+                <aura:if isTrue="{!v.noOfNotApproved > 0}">
+                    <div class="slds-box slds-theme_warning">
+                            <p class="slds-align_absolute-center">You have {!v.noOfNotApproved} not approved Time(s)!</p>                
+                    </div>	
+                </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layout>
+            <lightning:layoutItem size="12" class="buttonAlign" padding="around-small">
+                 <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeWindow}"/>
+                 <lightning:button variant="brand" label="Create Invoice" title="Create Invoice" onclick="{!c.confirm }" disabled="{!!v.invoiceLines.length > 0}"/>
+            </lightning:layoutItem>
+       </lightning:layout>
+    </lightning:card>
+	
+</aura:component>

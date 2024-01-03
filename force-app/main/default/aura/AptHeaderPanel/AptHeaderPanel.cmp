@@ -1,0 +1,47 @@
+<!--
+ - Created by Jozef on 11.3.2019.
+ -->
+
+<aura:component description="AptHeaderPanel">
+    <aura:attribute name="objectLabel" type="String"/>
+    <aura:attribute name="templateName" type="String"/>
+
+    <div class="slds-grid slds-col slds-has-flexi-truncate slds-media--center">
+        <div class="profilePicWrapper slds-media slds-no-space">
+            <div class="slds-media__figure slds-icon forceEntityIcon" >
+                <div class="logoContainer slds-clearfix forceSocialPhotoWrapper" data-aura-class="forceSocialPhotoWrapper">
+            <span class="photoContainer forceSocialPhoto" data-aura-class="forceSocialPhoto">
+            <div class="small roundedSquare forceEntityIcon" style="background-color: #7F8DE1" data-aura-class="forceEntityIcon">
+                <c:SvgIcon class="slds-icon"
+                           svgPath="/resource/sldsi/custom-sprite/svg/symbols.svg#custom43"
+                           category="custom"
+                           size="medium"
+                           name="{!objectLabel}"/>
+                </div>
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="slds-media__body">
+            <nav class="entityNameTitle" style="opacity: 1; visibility: visible;">
+                <ol class="slds-breadcrumb slds-line-height_reset">
+                    <li class="slds-breadcrumb__item" >
+                        <span >{!objectLabel}</span>
+                    </li>
+                </ol>
+            </nav>
+            <h1 class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle" >
+                <div class="testonly-outputNameWithHierarchyIcon sfaOutputNameWithHierarchyIcon"
+                     data-aura-class="sfaOutputNameWithHierarchyIcon">
+
+                <span class="custom-truncate uiOutputText" data-aura-class="uiOutputText">
+                    {!v.templateName}
+                </span>
+
+
+                </div>
+            </h1>
+        </div>
+    </div>
+
+</aura:component>

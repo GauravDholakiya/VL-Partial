@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppdragsansvarlig_is_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(StageName) 
+&amp;&amp;
+ISPICKVAL(StageName, &quot;Closed Won&quot;)
+&amp;&amp;
+ISBLANK(Account.Assignment_Responsible__c)
+&amp;&amp;
+(Account.BillingCountry != &quot;Sweden&quot; ||
+ Account.ShippingCountry != &quot;Sweden&quot;)
+&amp;&amp;
+ISPICKVAL(Delivery__c, &quot;Accounting&quot;)</errorConditionFormula>
+    <errorMessage>Oppdragsansvarlig on Account is mandatory.</errorMessage>
+</ValidationRule>

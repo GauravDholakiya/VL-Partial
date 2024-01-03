@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VTI_Project_Task</fullName>
+    <active>true</active>
+    <label>VTI Project Task</label>
+    <picklistValues>
+        <picklist>Default_Time_Type__c</picklist>
+        <values>
+            <fullName>0 Normal Time</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>150 Overtime 150%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>200 Overtime 50%25 with time off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>305 Time for flex OB pr%2E 01%2E01</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>310 Hours for time off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>311 Hours timed off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>312 Hours paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>400</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>405</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>410</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>415</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>550</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>560</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>600 Absence reported HR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ongoing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

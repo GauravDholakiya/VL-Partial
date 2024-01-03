@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReportingDateValidation</fullName>
+    <active>false</active>
+    <description>Month of Reporting Date has to be same as month of Fiscal Year Start.</description>
+    <errorConditionFormula>IF(AND(NOT(ISBLANK( ReportingDate__c )), NOT(ISBLANK( FiscalYearStart__c ))), IF(MONTH(ReportingDate__c)!= MONTH(FiscalYearStart__c), true, false) , false)</errorConditionFormula>
+    <errorMessage>Month of Reporting Date has to be same as month of Fiscal Year Start.</errorMessage>
+</ValidationRule>

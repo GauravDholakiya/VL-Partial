@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overtime__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Time_Type2__c = &quot;305 Time for flex OB pr. 01.01&quot;, Registered_Time__c,
+IF(Time_Type2__c = &quot;310 Hours for time off&quot;, Registered_Time__c,
+IF(Time_Type2__c = &quot;200 Overtime 50% with time off&quot;, Registered_Time__c,
+
+0)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Overtime</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

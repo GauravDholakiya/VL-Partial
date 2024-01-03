@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VL_Tier_1_2_unassigned_Users_Workflow</fullName>
+    <booleanFilter>((1 AND 2 AND 3) OR (4 AND 5 AND 6)) AND 7 AND 8</booleanFilter>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>Support_Agreement__c</columns>
+    <columns>ERP_Area__c</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Norway_Support,Case.Sweden_Support</value>
+    </filters>
+    <filters>
+        <field>CASES.TYPE</field>
+        <operation>equals</operation>
+        <value>Tier 1,Tier 2</value>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Desk_Migrated_Cases</value>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <filters>
+        <field>CASES.TYPE</field>
+        <operation>equals</operation>
+        <value>Tier 1,Tier 2</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>norway,sweden</value>
+    </filters>
+    <filters>
+        <field>ERP_Area__c</field>
+        <operation>equals</operation>
+        <value>Users and workflow</value>
+    </filters>
+    <label>VL Tier 1&amp;2(unassigned) - Users&amp;Workflow</label>
+</ListView>

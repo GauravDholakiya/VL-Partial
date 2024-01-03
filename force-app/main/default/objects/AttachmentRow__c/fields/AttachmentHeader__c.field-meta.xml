@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AttachmentHeader__c</fullName>
+    <externalId>false</externalId>
+    <label>AttachmentHeader</label>
+    <referenceTo>AttachmentHeader__c</referenceTo>
+    <relationshipLabel>AttachmentRows</relationshipLabel>
+    <relationshipName>AttachmentRows</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

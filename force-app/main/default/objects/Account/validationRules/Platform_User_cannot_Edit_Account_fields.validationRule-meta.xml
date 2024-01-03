@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Platform_User_cannot_Edit_Account_fields</fullName>
+    <active>false</active>
+    <description>Temporary deactivated</description>
+    <errorConditionFormula>!ISNEW()
+&amp;&amp;
+$User.ProfileId = &quot;00e1t000000Vbo1&quot;
+&amp;&amp;
+$User.Id &lt;&gt;  Assignment_Responsible__c
+&amp;&amp;
+Bypass_Validation_Rule__c &lt;&gt; True
+&amp;&amp;
+!ISCHANGED(Bypass_Validation_Rule__c)
+&amp;&amp;
+(!ISCHANGED(Description_Flow__c)
+||
+!ISCHANGED(Name_Subject_Flow__c)
+&amp;&amp;
+(!ISCHANGED(Create_Opportunity__c)||
+!ISCHANGED(Create_Case__c)))</errorConditionFormula>
+    <errorMessage>Changes to Account is not allowed.</errorMessage>
+</ValidationRule>

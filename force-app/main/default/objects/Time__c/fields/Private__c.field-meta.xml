@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Private__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Get checked by workflow rule if Project task i set to true on Locked Time Type checkbox. This is used by sharing rule to prevent access to other users than owner.</description>
+    <externalId>false</externalId>
+    <label>Private</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

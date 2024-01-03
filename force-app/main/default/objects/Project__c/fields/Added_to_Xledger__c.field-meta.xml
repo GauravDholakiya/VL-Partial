@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Added_to_Xledger__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check when Project is added to Xledger</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check when Project is added to Xledger</inlineHelpText>
+    <label>Added to Xledger</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

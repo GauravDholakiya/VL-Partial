@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purpose_and_nature_of_the_relationship__c</fullName>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>In order to be able to classify the customer&apos;s risk and make ongoing follow-up, information regarding the purpose of the customer relationship answered in Kjenndinkunde must be filled in on new customers.
+In the case of ongoing control, actually check delivery against agreed delivery in the assignment agreement, and response from Kjenndinkunde. The assessments shall form a sufficient basis for an opinion on how the customer can be expected to act within the framework of the customer relationship.</inlineHelpText>
+    <label>Purpose and nature of the relationship</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

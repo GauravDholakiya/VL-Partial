@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Role__c</fullName>
+    <description>Replacement field for Assigned Type. Values from custom settings.</description>
+    <externalId>false</externalId>
+    <label>Assigned Role</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Certified Accountant</fullName>
+                <default>false</default>
+                <label>Certified Accountant</label>
+            </value>
+            <value>
+                <fullName>Customer Responsible and Remittance Resp</fullName>
+                <default>false</default>
+                <label>Customer Responsible and Remittance Resp</label>
+            </value>
+            <value>
+                <fullName>Employee 1</fullName>
+                <default>false</default>
+                <label>Employee 1</label>
+            </value>
+            <value>
+                <fullName>Employee 2</fullName>
+                <default>false</default>
+                <label>Employee 2</label>
+            </value>
+            <value>
+                <fullName>Employee 3</fullName>
+                <default>false</default>
+                <label>Employee 3</label>
+            </value>
+            <value>
+                <fullName>Employee 4</fullName>
+                <default>false</default>
+                <label>Employee 4</label>
+            </value>
+            <value>
+                <fullName>Integration Resource</fullName>
+                <default>false</default>
+                <label>Integration Resource</label>
+            </value>
+            <value>
+                <fullName>Payroll Officer</fullName>
+                <default>false</default>
+                <label>Payroll Officer</label>
+            </value>
+            <value>
+                <fullName>Project Manager</fullName>
+                <default>false</default>
+                <label>Project Manager</label>
+            </value>
+            <value>
+                <fullName>Account Owner</fullName>
+                <default>false</default>
+                <label>Account Owner</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

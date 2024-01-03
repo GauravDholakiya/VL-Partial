@@ -1,0 +1,22 @@
+<!--
+ - Created by Jozef on 6.2.2019.
+ -->
+
+<aura:component description="AptActionPlanCreation"
+                controller="AptActionPlanController"
+                implements = "lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,lightning:availableForFlowScreens">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="contractId" type="String" default=""/>
+    <aura:attribute name="fiscalYear" type="String" default=""/>
+    <aura:attribute name="displayPlan" type="Boolean" default="true"/>
+    <aura:attribute name="cloneExisting" type="Boolean" default="false"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!v.displayPlan}">
+        <c:AptActionPlanDetail mode="EDIT" recordId="{!v.recordId}" contractId="{!v.contractId}"
+                               fiscalYear="{!v.fiscalYear}" cloneExisting="{!v.cloneExisting}"/>
+    </aura:if>
+    
+</aura:component>

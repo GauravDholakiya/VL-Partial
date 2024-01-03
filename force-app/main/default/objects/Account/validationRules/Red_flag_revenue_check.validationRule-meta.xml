@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Red_flag_revenue_check</fullName>
+    <active>true</active>
+    <description>If red flag is checked then enter revenue</description>
+    <errorConditionFormula>AND(Red_Flag__c = TRUE,OR(ISBLANK( Red_Flag_Revenue_LTM__c)))</errorConditionFormula>
+    <errorDisplayField>Red_Flag_Revenue_LTM__c</errorDisplayField>
+    <errorMessage>You need to enter revenue for last twelve months</errorMessage>
+</ValidationRule>

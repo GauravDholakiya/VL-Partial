@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deviation_from_general_terms__c</fullName>
+    <externalId>false</externalId>
+    <label>Deviation from general terms</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Acquired companies (Merger contract)</fullName>
+                <default>false</default>
+                <label>Acquired companies (Merger contract)</label>
+            </value>
+            <value>
+                <fullName>Deviating processing of personal data (other data processing agreement)</fullName>
+                <default>false</default>
+                <label>Deviating processing of personal data (other data processing agreement)</label>
+            </value>
+            <value>
+                <fullName>Deviation from general terms</fullName>
+                <default>false</default>
+                <label>Deviation from general terms</label>
+            </value>
+            <value>
+                <fullName>Notice of price change</fullName>
+                <default>false</default>
+                <label>Notice of price change</label>
+            </value>
+            <value>
+                <fullName>Notice period</fullName>
+                <default>false</default>
+                <label>Notice period</label>
+            </value>
+            <value>
+                <fullName>Payment terms</fullName>
+                <default>false</default>
+                <label>Payment terms</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Use of another SSA</fullName>
+                <default>false</default>
+                <label>Use of another SSA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

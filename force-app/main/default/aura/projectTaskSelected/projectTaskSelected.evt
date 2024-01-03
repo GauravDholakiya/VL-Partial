@@ -1,0 +1,9 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="Id" type="String"/>
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="Deactivated" type="Boolean"/>
+    <aura:attribute name="AccountStatus" type="String"/>
+    <aura:attribute name="ReasonForDeactivation" type="String"/>
+    <aura:attribute name="DefaultTimeType" type="String"/>
+    <aura:attribute name="LockTimeType" type="Boolean"/>
+</aura:event>

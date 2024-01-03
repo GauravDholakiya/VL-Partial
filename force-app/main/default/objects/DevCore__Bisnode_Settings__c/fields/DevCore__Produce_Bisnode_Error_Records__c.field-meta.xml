@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DevCore__Produce_Bisnode_Error_Records__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <description>If this is disabled you will not be able to provide sufficient error information to Devcore for troubleshooting</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If this is disabled you will not be able to provide sufficient error information to Devcore for troubleshooting</inlineHelpText>
+    <label>Produce Bisnode Error Records</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

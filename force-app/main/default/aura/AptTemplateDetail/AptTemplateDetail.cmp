@@ -1,0 +1,171 @@
+<!--
+ - Created by Jozef on 18.2.2019.
+ -->
+
+<aura:component description="AptTemplateDetail" controller="AptTemplateController"
+                implements="lightning:actionOverride,flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="templatePlan" type="ActionPlanTemplate__c"/>
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+    <!-- <aura:attribute name="simpleTemplatePlan" type="Object"/> -->
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="tTasks" type="APTTaskTemplate__c[]" default="[]"/>
+    <aura:attribute name="delTasks" type="APTTaskTemplate__c[]" default="[]"/>
+    <aura:attribute name="numOfRuns" type="Integer" default="0"/>
+    <aura:attribute name="hasError" type="Boolean" default="false"/>
+    <aura:attribute name="startDayOptions" type="List"/>
+    <aura:attribute name="startDayValue" type="String"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+    <c:Spinner countOfRuns="{!v.numOfRuns}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <!--
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Name,Description__c"
+                      targetRecord="{!v.templatePlan}"
+                      targetFields="{!v.simpleTemplatePlan}"
+    />
+    -->
+
+
+    <div class="slds-box slds-theme_default">
+        <div class="slds-page-header slds-page-header_record-home forceRecordLayout"
+             data-aura-class="forceRecordLayout"
+             style="left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;">
+
+            <div class="slds-grid primaryFieldRow" data-aura-rendered-by="4250:0" style="transform: translate3d(0px, 0px, 0px);">
+                <c:AptHeaderPanel objectLabel="Action Plan Template" templateName = "{!v.templatePlan.Name}" />
+                <lightning:buttonGroup>
+                    <aura:if isTrue="{!v.mode == 'VIEW'}">
+                        <lightning:button label="{!$Label.c.AptEdit}" onclick="{!c.doEdit}"/>
+                        <lightning:button label="{!$Label.c.AptDelete}" onclick="{!c.doDelete}"/>
+                    </aura:if>
+                    <aura:if isTrue="{!v.mode == 'EDIT'}">
+                        <lightning:button label="{!$Label.c.AptSave}" onclick="{!c.doSave}"/>
+                        <lightning:button label="{!$Label.c.AptCancel}" onclick="{!c.doCancel}"/>
+                    </aura:if>
+                </lightning:buttonGroup>
+            </div>
+            <div class="panel"
+                 style="transform: translate3d(0px, 0px, 0px); opacity: 1; visibility: visible;">
+                <c:AptTemplateInfo tId="{!v.recordId}" />
+            </div>
+        </div>
+
+
+        <div class="section" style="left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;" >
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small"
+                          title="Section Title">{!$Label.c.AptInformations}</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+                    <div class="c-container">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="6"  padding="around-small">
+                                <div>
+                                    <lightning:input name="Name" value="{! v.templatePlan.Name}"
+                                                     placeholder="type your template name..."
+                                                     label="Name" readonly="{!v.mode != 'EDIT'}"/>
+                                </div>
+                                <div style ="margin-top: 10px;">
+                                    <lightning:input type="checkbox" label="{!$Label.c.AptLibrary}" name="SkipWeekends__c"
+                                                     disabled="{!v.mode == 'VIEW'}"
+                                                     checked="{!v.templatePlan.Library_Template__c}"
+                                                     required="false"/>
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="6"  padding="around-small">
+                                <div>
+                                    <lightning:textarea name="textAreaComments" readonly="{!v.mode != 'EDIT'}"
+                                                        value="{!v.templatePlan.Description__c}"
+                                                        label="{!$Label.c.AptComments}" />
+
+                                </div>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">{!$Label.c.AptOptions}</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+                    <div class="c-container">
+                        <lightning:layout multipleRows="true">
+                            <!--
+                            <lightning:layoutItem size="6"  padding="around-small">
+                               <lightning:radioGroup name="radioButtonGroup"
+                                   label="{!$Label.c.AptSetInitialStartDate}"
+                                   options="{! v.startDayOptions }"
+                                   value="{! v.templatePlan.Start_Date__c }"
+                                   disabled="{!v.mode != 'EDIT'}"
+                                   type="button"/>
+                            </lightning:layoutItem>
+                            -->
+                            <lightning:layoutItem size="6"  padding="around-small">
+                                <lightning:input type="checkbox" label="{!$Label.c.AptSkipWeekends}" name="SkipWeekends__c"
+                                                 disabled="{!v.mode == 'VIEW'}"
+                                                 checked="{!v.templatePlan.SkipWeekends__c}"
+                                                 onchange="{!c.skipWeekendChange}"
+                                                 required="false"/>
+
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">{!$Label.c.AptTasks}</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+
+                    <div class="table-container">
+                        <c:AptTemplateTasksTable mode="{!v.mode}" tTasks="{!v.tTasks}"
+                                                   delTasks="{!v.delTasks}"/>
+                    </div>
+
+                    <div class="addTaskSection">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:button label="{!$Label.c.AptAddNewTask}" title="{!$Label.c.AptAddNewTask}"
+                                              onclick="{! c.handleAddRow }"/>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section" style="left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;" >
+
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small"
+                          title="Section Title">{!$Label.c.Selected_Task_Related_Comments_and_Attachments}</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+                    <div class="c-container">
+                        <c:AptCommentAttachmentsSection editMode="{!v.mode == 'EDIT'}" apTasks="{!v.tTasks}"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+</aura:component>

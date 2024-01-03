@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hourly_basis__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Consultants with their checkbox checked will not receive notifications related to the users with 1.0 FTE.</description>
+    <externalId>false</externalId>
+    <label>Hourly basis</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

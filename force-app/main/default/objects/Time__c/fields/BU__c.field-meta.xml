@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BU__c</fullName>
+    <description>Hjelpefelt til BU - Midlertidig felt</description>
+    <externalId>false</externalId>
+    <formula>Case(Department__c,
+
+&quot;01 Oslo Felles&quot;,100,
+&quot;02 Fagteam Xledger Oslo&quot;,100,
+&quot;03 Fagteam Tripletex Oslo&quot;,90,
+&quot;04 Fagteam Lønn/HR Oslo&quot;,77,
+&quot;05 Advisory Oslo&quot;,100,
+&quot;06 Ålesund&quot;,120,
+&quot;07 Bergen&quot;, 120,
+&quot;11 Maritime&quot;,77,
+&quot;11 Stockholm Team 1&quot;,100,
+&quot;12 Stockholm Team 2&quot;,100,
+&quot;12 Haugesund&quot;,100,
+&quot;13 Stockholm Team 3&quot;,100,
+&quot;14 Stockholm Team 4&quot;,100,
+&quot;14 Søgne&quot;,90,
+&quot;15 Kristiansand&quot;, 100,
+&quot;15 Stockholm Team 5&quot;,100,
+&quot;16 Stockholm Avdelingschef&quot;,100,
+&quot;16 Lillehammer&quot;, 115,
+&quot;171 Stavanger Xledger&quot;,110,
+&quot;172 Stavanger Tripletex&quot;,100,
+&quot;18 Family Office&quot;,100,
+&quot;18 Foreign Companies&quot;,77,
+&quot;19 Sandefjord&quot;, 100,
+&quot;21 Consulatet&quot;, 77,
+&quot;22 Construct&quot;, 77,
+&quot;23 Stockholm Advisory&quot;,100,
+&quot;24 Procurator&quot;, 77,
+&quot;25 Kristiansand Pluss&quot;, 77,
+&quot;26 Mandal Pluss&quot;, 77,
+&quot;31 Malmo&quot;, 77,
+&quot;50 Kalmar T1 Löpande&quot;,100,
+&quot;51 Kalmar T2 Bokslut&quot;,100,
+&quot;52 Kalmar Manager&quot;,100,
+&quot;60 Stockholm VTI&quot;,77,
+&quot;60 VTI&quot;,77,
+&quot;Capitax&quot;,77,
+&quot;Compliance&quot;,77,
+&quot;86 Inhouse&quot;,100,
+
+77
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>BU</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

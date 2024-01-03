@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Smartscore__c</fullName>
+    <externalId>false</externalId>
+    <label>Smartscore</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GODK</fullName>
+                <default>false</default>
+                <label>GODK</label>
+            </value>
+            <value>
+                <fullName>KONT</fullName>
+                <default>false</default>
+                <label>KONT</label>
+            </value>
+            <value>
+                <fullName>AVSL</fullName>
+                <default>false</default>
+                <label>AVSL</label>
+            </value>
+            <value>
+                <fullName>INSC</fullName>
+                <default>false</default>
+                <label>INSC</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

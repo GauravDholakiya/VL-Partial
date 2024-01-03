@@ -1,0 +1,215 @@
+<!--
+ - Created by Jozef on 23.1.2019.
+ -->
+
+<aura:component description="AptActionPlanTableRead" controller="AptActionPlanController"
+                implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="aptId" type="String" />
+    <aura:attribute name="headerId" type="String" />
+    <aura:attribute name="tableIndex" type="String"/>
+    <aura:attribute name="aptIndex" type="Integer"/>
+    <aura:attribute name="apTasks" type="APTaskTemplate__c[]"/>
+    <aura:attribute name="delTasks" type="APTaskTemplate__c[]" />
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+    <aura:attribute name="sortAsc" type="Boolean" default="true"/>
+    <aura:attribute name="sortField" type="String" default=""/>
+    <aura:attribute name="initDate" type="Object"/>
+    <aura:attribute name="fiscalYear" type="String" default="2019"/>
+    <aura:attribute name="isPeriodModalOpen" type="Boolean" default="false"/>
+    <aura:attribute name="apTaskEdit" type="APTaskTemplate__c" default="null" />
+    <aura:attribute name="apTaskEditOrigin" type="APTaskTemplate__c" default="null" />
+    <aura:registerEvent name="cmpSelectedRowsEvent" type="c:AptTableReadRowSelectedEvt"/>
+    <!-- <aura:handler event="c:AptActionPlanSavePressedEvt" action="{!c.handleSavePlanEvent}"/> -->
+
+    <!--<aura:handler name="init" value="{!this}" action="{!c.init}" /> -->
+
+    <!-- <aura:attribute name="frequencyValues" type="list"
+        default="['Choose one...', 'Bi-monthly', 'Monthly', 'Annual', 'Quarterly', 'Biannual', 'Tertial']"/> -->
+    <!-- <c:PicklistValues sObjectName="APTaskTemplate__c" fieldName="Frequency__c" picklistValues="{!v.frequencyValues}" /> -->
+
+    <aura:attribute name="frequencyValues" type="Object" />
+    <c:PicklistValues sObjectName="APTaskTemplate__c" fieldName="Frequency__c" picklistValues="{!v.frequencyValues}" />
+
+    <aura:handler event="c:AptPlanSearchKeyChangeEvt" action="{!c.searchKeyChange}"/>
+    <aura:handler event="c:AptEditPeriodsPressedEvt" action="{!c.editPeriods}"/>
+    <aura:handler event="c:AptFirstPeriodChangedEvt" action="{!c.firstPeriodChanged}"/>
+    <aura:handler event="c:AptEditPeriodsSavePressedEvt" action="{!c.editPeriodsSavePressed}"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+
+
+    <c:AptPlanSearch/>
+    <c:AptSetPeriodsPopup taskIndex="{!v.aptIndex}" apTasks="{!v.apTasks}" apTask="{!v.apTaskEdit}"
+                          originApTask="{!v.apTaskEditOrigin}"
+                          isPeriodModalOpen="{!v.isPeriodModalOpen}"/>
+
+    <table id="taskTable" class="read-table">
+        <thead>
+        <tr class="slds-line-height_reset">
+            <aura:if isTrue="{!v.mode == 'EDIT'}">
+                <th class="deleteHeading" scope="col">
+                    Delete
+                </th>
+            </aura:if>
+
+            <th aria-label="Task Number" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByNumber}" role="button"
+                   data-sort-field="Task_Number__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptTaskNumber}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Subject" aria-sort="none" class="slds-is-sortable sortHeading subject" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortBy}" role="button"
+                   data-sort-field="Subject__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptSubject}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="AP Template" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByName}" role="button"
+                   data-sort-field="ActionPlanTemplate__r"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptApTemplate}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Frequency" aria-sort="none" class="slds-is-sortable sortHeading frequency" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortBy}" role="button"
+                   data-sort-field="Frequency__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptFrequency}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Skip Weekends" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByCheckBox}" role="button"
+                   data-sort-field="Skip_Weekends__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptSkipWeekends}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Assigned Role" aria-sort="none" class="slds-is-sortable sortHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortBy}" role="button"
+                   data-sort-field="Assigned_Role__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptAssignedRole}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Related To" aria-sort="none" class="slds-is-sortable periodHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByName}" role="button"
+                   data-sort-field="User__r"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptAssignedTo}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th aria-label="Reminder" aria-sort="none" class="slds-is-sortable reminderHeading" scope="col">
+                <a class="slds-th__action slds-text-link_reset" onclick="{!c.sortByCheckBox}" role="button"
+                   data-sort-field="Reminder__c"
+                   tabindex="-1">
+                    <c:AptSortableColumnHeader header="{!$Label.c.AptReminder}" sortAsc="{!v.sortAsc}"/>
+                </a>
+            </th>
+            <th class="firstPeriodHeading" scope="col">
+                <b>{!$Label.c.AptFirstPeriod}</b>
+            </th>
+            <aura:if isTrue="{!v.mode == 'EDIT'}">
+                <th class="periodsHeading" scope="col">
+                    {!$Label.c.AptPeriods}
+                </th>
+            </aura:if>
+        </tr>
+        </thead>
+        <tbody>
+
+        <aura:iteration items="{!v.apTasks}" var="t" indexVar="index">
+            <aura:if isTrue="{!t.IsVisible__c == true}">
+                <tr class="slds-hint-parent" data-index="{!index}"
+                    data-row-id="{!t.Id}"
+                    data-header-id="{!t.AttachmentHeader__c}"
+                    onclick="{!c.onRowClick}" >
+
+                    <aura:if isTrue="{!v.mode == 'EDIT'}">
+                        <td class="" scope="col" >
+                            <aura:if isTrue="{!t.IsMandatory__c == false}">
+                                <lightning:buttonIcon tabindex="{!t.taskIndex__c}" iconName="utility:close" variant="bare"
+                                                      onclick="{! c.deleteRow }" alternativeText="Delete" />
+                            </aura:if>
+                        </td>
+                    </aura:if>
+
+                    <td data-label="woot" scope="row" class="">
+                        {!t.Task_Number__c}
+                    </td>
+                    <td data-label="woot" scope="row" class="subject">
+                        <aura:if isTrue="{!and(v.mode == 'EDIT',t.Id == null)}">
+                            <lightning:input  value="{!t.Subject__c}" name="Subject__c" required="true"
+                                              variant="label-hidden"/>
+                            <aura:set attribute="else">
+                                {!t.Subject__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <a href="{!'/one/one.app?#/sObject/'+ t.ActionPlanTemplate__c + '/view'}" target="_blank">
+                            {!t.ActionPlanTemplate__r.Name}
+                        </a>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <lightning:select value="{!t.Frequency__c}" onchange="{!c.handleChangeFrequency}"
+                                              variant="label-hidden" class="label-hidden" tabindex="{!t.taskIndex__c}">
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.frequencyValues}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                            <aura:set attribute="else">
+                                {!t.Frequency__c}
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <lightning:input type="checkbox" label="" name="Skip_Weekends__c" checked="{!t.Skip_Weekends__c}"
+                                         variant="label-hidden" tabindex="{!t.taskIndex__c}"
+                                         onchange="{!c.skipWeekendsTask}"
+                                         required="false" disabled="{!v.mode == 'VIEW'}" />
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        {!t.Assigned_Role__c}
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <aura:if isTrue="{!v.mode == 'EDIT'}">
+                            <!-- <c:UserLookupContainer/> -->
+                            <c:AptLookup withFixedPosition="true" objectAPIName="user" iconName="standard:user" label=""
+                                         recId="{!t.User__c}" searchKey="{!t.User__r.Name}" variant="label-hidden"/>
+
+                            <aura:set attribute="else">
+                                <a href="{!'/lightning/r/User/'+ t.User__c + '/view'}" target="_blank">
+                                    {!t.User__r.Name}
+                                </a>
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td data-label="woot" scope="row" class="">
+                        <lightning:input type="checkbox" label="" name="Reminder__c" checked="{!t.Reminder__c}"
+                                         required="false"/>
+                    </td>
+                    <td class="" scope="col" >
+                        <c:AptFirstPeriodDate aura:id="firstPeriodId"
+                                              apTask="{!t}" taskIndex="{!t.taskIndex__c}"
+                                              mode="{!v.mode}"></c:AptFirstPeriodDate>
+                    </td>
+                    <aura:if isTrue="{!v.mode == 'EDIT'}">
+                        <td class="" scope="col" >
+                            <c:AptEditPeriodsButton aura:id="editButtonId" apTask="{!t}"
+                                                    taskIndex="{!t.taskIndex__c}"></c:AptEditPeriodsButton>
+                        </td>
+                    </aura:if>
+                </tr>
+            </aura:if>
+        </aura:iteration>
+        </tbody>
+    </table>
+
+</aura:component>

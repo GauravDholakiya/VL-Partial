@@ -1,0 +1,55 @@
+/**
+ * Created by jozef on 27. 3. 2023.
+ */
+
+.THIS {
+}
+
+.THIS .periodCol1{
+    background-color: #eae9e9;
+}
+
+.THIS .periodHeading{
+    padding: 7px 6px;
+    /* font-weight: 400;  - same as other*/
+    min-width: 100px;
+    position: relative;
+    border-bottom: 2px solid #ddd;
+}
+
+.THIS .periodCol{
+    padding-right: 5px;
+    vertical-align: top;
+}
+
+.THIS .moreThenWeekBeforeDueDate {
+    color: green;
+}
+
+.THIS .taskOverDueDate {
+    color: red;
+}
+
+.THIS .oneWeekBeforeDueDate {
+    color: orange;
+}
+
+.THIS .taskControlOk {
+    color: green;
+}
+
+.THIS .taskControlDeviated {
+    color: red;
+}
+
+.THIS .periodDateCss{
+    font-size: 15px;
+}
+
+.THIS .toggle {
+    display: none;
+}
+
+.THIS .periodColumnPadding {
+    padding-top: 6px;
+}

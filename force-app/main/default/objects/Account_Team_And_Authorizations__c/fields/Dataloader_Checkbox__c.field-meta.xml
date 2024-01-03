@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dataloader_Checkbox__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to trigger Project Manager sharing flow when set to true by dataloader.</description>
+    <externalId>false</externalId>
+    <label>Dataloader Checkbox</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

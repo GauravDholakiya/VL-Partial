@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_NPS_Comment__c</fullName>
+    <description>Updated by a flow to keep the previous comment when the NPS Comment field is updated.</description>
+    <externalId>false</externalId>
+    <label>Previous NPS Comment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

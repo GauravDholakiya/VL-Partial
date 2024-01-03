@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_edit_when_status_is_set_to_Invoiced</fullName>
+    <active>true</active>
+    <description>Lock all Time records when status is set to Invoiced. Only import and Admin should be able to do changes.</description>
+    <errorConditionFormula>OR(
+ AND( 
+   TEXT(Status__c) = &quot;Invoiced&quot;,
+   TEXT(PRIORVALUE(Status__c)) = &quot;Invoiced&quot;,
+   $Profile.Id &lt;&gt; &quot;00e1t000001UNCv&quot;
+ ),
+ AND( 
+   TEXT(Status__c) &lt;&gt; &quot;Invoiced&quot;,
+   TEXT(PRIORVALUE(Status__c)) = &quot;Invoiced&quot;,
+   $Profile.Id &lt;&gt; &quot;00e1t000001UNCv&quot;
+ )
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t edit record when status is set to Invoiced!</errorMessage>
+</ValidationRule>

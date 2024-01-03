@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Risk_Approval_is_not_Approved</fullName>
+    <active>true</active>
+    <errorConditionFormula>!(TEXT(Account__r.ApprovalStatus__c) = &apos;Approved&apos;)
+&amp;&amp;
+!(TEXT(Status__c) = &apos;On Hold&apos;)
+&amp;&amp;
+!(Account__r.Delivery__c = &apos;System&apos;)
+&amp;&amp;
+($User.ProfileId &lt;&gt; &apos;00e1t000001UNCv&apos;)</errorConditionFormula>
+    <errorMessage>The Account related to this project is not Risk Approved and can therefore only have Status &apos;&apos;On Hold&quot;.</errorMessage>
+</ValidationRule>

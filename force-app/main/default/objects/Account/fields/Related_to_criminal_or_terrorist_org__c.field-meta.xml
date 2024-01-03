@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_to_criminal_or_terrorist_org__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the customer noted on any sanction lists relating to criminal and/or terrorist organizations? Screening against sanctions lists is conducted through “Kjenn Din Kunde”.</inlineHelpText>
+    <label>Related to criminal or terrorist org.?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

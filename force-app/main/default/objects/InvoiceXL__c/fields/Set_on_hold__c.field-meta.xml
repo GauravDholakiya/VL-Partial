@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Set_on_hold__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Use when payment is to be set on hold.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set payment on hold (Pay code/betalingskode in Xledger)</inlineHelpText>
+    <label>Set on hold</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

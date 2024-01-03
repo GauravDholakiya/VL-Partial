@@ -1,0 +1,19 @@
+<!--
+ - Created by Jozef on 6.2.2019.
+ -->
+
+<aura:component description="RecordRefernce" implements="flexipage:availableForAllPageTypes"
+                controller="RecordReferenceController">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="sfObject" type="String" />
+    <aura:attribute name="fieldName" type="String" default="Name"/>
+    <aura:attribute access = "private" name="record" type="Object"/>
+    <aura:attribute access = "private" name="label" type="String"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <c:AptOutputField sfObject="{!v.sfObject}" recordId="{!v.recordId}" label="{!v.label}"/>
+
+
+</aura:component>

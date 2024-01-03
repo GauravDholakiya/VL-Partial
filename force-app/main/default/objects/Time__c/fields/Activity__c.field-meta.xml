@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity__c</fullName>
+    <externalId>false</externalId>
+    <label>Activity</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Main_Activity__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Activity</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Accounting</controllingFieldValue>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <valueName>0201 Vouchers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accounting</controllingFieldValue>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <valueName>0202 Periodic reconciliation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <valueName>9000 Internal work</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0110 Implementation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Payroll</controllingFieldValue>
+            <valueName>0301 Payroll</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Payroll</controllingFieldValue>
+            <valueName>0302 Periodic reconciliation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Reporting</controllingFieldValue>
+            <valueName>0401 Periodic reporting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Services</controllingFieldValue>
+            <valueName>0406 Consulting - Financial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Services</controllingFieldValue>
+            <valueName>0501 Consulting - Administration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Services</controllingFieldValue>
+            <valueName>0601 Advisory</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Year end reporting</controllingFieldValue>
+            <valueName>0801 Financial statement and tax report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Year end reporting</controllingFieldValue>
+            <valueName>0802 Shareholder statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outsourcing</controllingFieldValue>
+            <controllingFieldValue>Quality control</controllingFieldValue>
+            <valueName>1301 Quality control according to national regulations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payroll</controllingFieldValue>
+            <valueName>0303 New/Termination of employment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payroll</controllingFieldValue>
+            <valueName>0901 Vacation Year end Payroll</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Services</controllingFieldValue>
+            <valueName>0407 Consulting - Payroll/HR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0111 Solutions, Basisoppsett</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0115 Solutions, Integrasjoner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0116 Solutions, Kurs/Opplæring</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0118 Solutions, Prosjektledelse og møter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0121 Innleggelse av IB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0171 Solutions, Reisetid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0701 Kurs/opplæring system</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0705 Onboarding/Support VIEWexpense</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0710 Support System</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0711 Systemkonsulent System</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0715 Supportavtale innen 15 min – ikke fakturerbar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>0771 Kurs/opplæring reisetid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>2601 Konsulenttimer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>2602 Telefonsupport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>2603 Testing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>2604 Dokumentasjon</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>2609 Annen IT tid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VTI</controllingFieldValue>
+            <valueName>2610 Reisetid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Year end reporting</controllingFieldValue>
+            <valueName>0942 Year end payroll annual reporting</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

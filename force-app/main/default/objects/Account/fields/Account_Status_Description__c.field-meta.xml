@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Status_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+AccountStatus2__c,
+&quot;Active&quot;,&quot;OK&quot;,
+&quot;Terminated&quot;,&quot;Terminated&quot;,
+IF(
+AND(
+Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),!Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;RedFlag&quot;,
+IF(
+AND(
+Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),!Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;RedFlag,KYC&quot;,
+IF(
+AND(
+Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;RedFlag,KYC,LatePayment&quot;,
+IF(
+AND(
+Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;RedFlag,KYC,LatePayment,Terminated&quot;,
+IF(
+AND(
+!Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),!Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;KYC&quot;,
+IF(
+AND(
+!Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;KYC,LatePayment&quot;,
+IF(
+AND(
+!Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;KYC,LatePayment,Terminated&quot;,
+IF(
+AND(
+!Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;LatePayment&quot;,
+IF(
+AND(
+!Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;LatePayment,Terminated&quot;,
+IF(
+AND(
+!Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),!Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;Terminated&quot;,
+IF(
+AND(
+Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,ISBLANK(Termination_date__c),ISPICKVAL(Reason_for_termination__c,&quot;&quot;)
+),
+&quot;RedFlag,LatePayment&quot;,
+IF(
+AND(
+Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),!Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;RedFlag,Terminated&quot;,
+IF(
+AND(
+!Red_Flag__c,ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),!Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;KYC,Terminated&quot;,
+IF(
+AND(
+Red_Flag__c,!ISPICKVAL(ApprovalStatus__c,&quot;Overdue&quot;),Late_payment__c,OR(!ISBLANK(Termination_date__c),!ISPICKVAL(Reason_for_termination__c,&quot;&quot;))
+),
+&quot;RedFlag,LatePayment,Terminated&quot;,
+&quot;&quot;
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Status Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

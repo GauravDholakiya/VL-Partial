@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Products__c</fullName>
+    <externalId>false</externalId>
+    <label>Products</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Other Integration</fullName>
+                <default>false</default>
+                <label>Other Integration</label>
+            </value>
+            <value>
+                <fullName>VIEW AI Propell</fullName>
+                <default>false</default>
+                <label>VIEW AI Propell</label>
+            </value>
+            <value>
+                <fullName>VIEW AI Semine</fullName>
+                <default>false</default>
+                <label>VIEW AI Semine</label>
+            </value>
+            <value>
+                <fullName>VIEW Board Control</fullName>
+                <default>false</default>
+                <label>VIEW Board Control</label>
+            </value>
+            <value>
+                <fullName>VIEW Connect Integration</fullName>
+                <default>false</default>
+                <label>VIEW Connect Integration</label>
+            </value>
+            <value>
+                <fullName>VIEW Expense</fullName>
+                <default>false</default>
+                <label>VIEW Expense</label>
+            </value>
+            <value>
+                <fullName>VIEW Insera</fullName>
+                <default>false</default>
+                <label>VIEW Insera</label>
+            </value>
+            <value>
+                <fullName>VIEW SA 100 Platinum</fullName>
+                <default>false</default>
+                <label>VIEW SA 100 Platinum</label>
+            </value>
+            <value>
+                <fullName>VIEW SA 200 Gold</fullName>
+                <default>false</default>
+                <label>VIEW SA 200 Gold</label>
+            </value>
+            <value>
+                <fullName>VIEW SA 300 Silver</fullName>
+                <default>false</default>
+                <label>VIEW SA 300 Silver</label>
+            </value>
+            <value>
+                <fullName>VIEW SA 400 Basic</fullName>
+                <default>false</default>
+                <label>VIEW SA 400 Basic</label>
+            </value>
+            <value>
+                <fullName>VIEW SiteSmart</fullName>
+                <default>false</default>
+                <label>VIEW SiteSmart</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

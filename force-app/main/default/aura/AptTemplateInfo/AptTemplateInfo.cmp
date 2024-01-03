@@ -1,0 +1,31 @@
+<!--
+ - Created by Jozef on 22.2.2019.
+ -->
+
+<aura:component description="AptTemplateInfo" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="tId" type="String" />
+    <aura:attribute name="currentUser" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!v.tId != null }">
+        <c:AptViewForm tId="{!v.tId}"/>
+
+        <aura:set attribute="else">
+            <lightning:layout multipleRows="true">
+                <lightning:layoutItem size="1"  >
+                    <aura:if isTrue="{!v.currentUser != null}">
+                        <c:RecordRefernce recordId="{!v.currentUser}" sfObject="{!$Label.c.AptUser}"/>
+                    </aura:if>
+                </lightning:layoutItem>
+
+                <!--
+                <lightning:layoutItem size="1"  >
+                    <c:RecordRefernce recordId="{!v.contractId}" sfObject="Contract" fieldName="ContractNumber"/>
+                </lightning:layoutItem>
+                -->
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+
+</aura:component>

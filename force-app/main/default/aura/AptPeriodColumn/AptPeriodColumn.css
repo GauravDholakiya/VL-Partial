@@ -1,0 +1,20 @@
+/**
+ * Created by jozef on 3. 4. 2023.
+ */
+
+.THIS {
+}
+/*
+.THIS .periodDateCss{
+    font-size: 15px;
+}*/
+
+
+.THIS .iconWarning {
+    --sds-c-icon-color-foreground: rgb(254, 147, 57);
+    --sds-c-icon-color-foreground-default: rgb(254, 147, 57);
+}
+
+.THIS .toggle {
+    display: none;
+}

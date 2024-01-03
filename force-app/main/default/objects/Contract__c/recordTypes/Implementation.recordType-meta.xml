@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Implementation</fullName>
+    <active>true</active>
+    <label>Implementation</label>
+    <picklistValues>
+        <picklist>AccessToBankAccount__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approved_general_terms__c</picklist>
+        <values>
+            <fullName>No response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Business_Area__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tripletex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Xledger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Closing_Frequency__c</picklist>
+        <values>
+            <fullName>Annual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bi-monthly</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Biannual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tertial</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Format__c</picklist>
+        <values>
+            <fullName>Fusion contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RN Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SSA Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>View contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>View deviating</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cost_Centre__c</picklist>
+        <values>
+            <fullName>02 Fagteam Xledger Oslo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>03 Fagteam Tripletex Oslo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>04 Fagteam Lønn%2FHR Oslo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>05 Advisory Oslo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>06 Ålesund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>07 Bergen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10 Stockholm Xledger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11 Maritime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12 Haugesund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>14 Søgne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>15 Kristiansand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>16 Lillehammer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>171 Stavanger Xledger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>172 Stavanger Tripletex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>18 Family Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>18 Foreign Companies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>19 Sandefjord</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>21 Fagteam Xledger 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>22 Construct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>24 Procurator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>25 Kristiansand Pluss</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>31 Malmo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>51 Kalmar T2 Bokslut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60 Stockholm VTI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60 VTI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>70 Salg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>70 Stockholm Salg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>86 Inhouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90 Overhead</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Country__c</picklist>
+        <values>
+            <fullName>DK - Denmark</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NO - Norge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE - Sweden</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Group__c</picklist>
+        <values>
+            <fullName>Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Forening</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mini</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premium Large</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Årskunde</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery__c</picklist>
+        <values>
+            <fullName>Services Sweden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>System Sweden</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deviation_from_general_terms__c</picklist>
+        <values>
+            <fullName>Acquired companies %28Merger contract%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviating processing of personal data %28other data processing agreement%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviation from general terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notice of price change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notice period</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Use of another SSA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ERP_License_Owner__c</picklist>
+        <values>
+            <fullName>Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ERP_System__c</picklist>
+        <values>
+            <fullName>24SevenOffice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Briljant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortnox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marathon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tripletex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uni Economy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Xledger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Invoice_Delivery_Method__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Invoice</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Outsourcing_Sub_processor__c</picklist>
+        <values>
+            <fullName>Fintax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Approved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Accounting__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Consulting__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_HR__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Payroll__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Reporting__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Services__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Support__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_VTI__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PA_Year_end_reporting__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment__c</picklist>
+        <values>
+            <fullName>Avtalegiro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payroll_System_License_Owner__c</picklist>
+        <values>
+            <fullName>Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payroll_System__c</picklist>
+        <values>
+            <fullName>Aditro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortnox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hogia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SD Works</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tripletex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Xledger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Price_Agreement__c</picklist>
+        <values>
+            <fullName>Fixed Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pricelist_Hours__c</picklist>
+        <values>
+            <fullName>Std timmar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Kristiansand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Lillehammer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Søgne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Tripletex Fastpris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Tripletex Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timer Tripletex Stavanger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pricelist_System__c</picklist>
+        <values>
+            <fullName>1 Mini</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Charity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2B Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2B Systemkunde - Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3F Systemkunde Charity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3X Premium Xtra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S1 Mini - Stykkpris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S2 Flex Stykkpris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S2%2B Premium - Stykkpris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S2F Charity - Stykkpris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S2X Premium Xtra - Stykkpris</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Products__c</picklist>
+        <values>
+            <fullName>Other Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW AI Semine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW Board Control</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW Connect Integration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW Expense</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW Insera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW SA 100 Platinum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW SA 200 Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW SA 300 Silver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW SA 400 Basic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VIEW SiteSmart</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RemitForCustomer__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ReportingFrequency__c</picklist>
+        <values>
+            <fullName>Annual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biannual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Scope__c</picklist>
+        <values>
+            <fullName>Accounting VAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advisory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advisory %28time-limited%2Fno authorization%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bokslut och ÅR med revisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bokslut och ÅR utan revisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviating Year end reporting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Library Sweden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payroll</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Redovisning med moms kvartal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Redovisning med moms månad 26e</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisory tasks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Year end report</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Updated</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Support_Agreement__c</picklist>
+        <values>
+            <fullName>100 Platinum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>200 Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>300 Silver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>500 No Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>600 Fixed price %2815 minutes%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>XGL__c</picklist>
+        <values>
+            <fullName>2023 - Nysalg 2023</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusjon-9124 Fusjon NRP Procurator AS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusjon-9125 Fusjon Pluss Økonomi AS Kristiansand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusjon-9126 Fusjon Pluss Økonomi AS Mandal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fusjon-9305 Fusion Resursgruppen AB</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

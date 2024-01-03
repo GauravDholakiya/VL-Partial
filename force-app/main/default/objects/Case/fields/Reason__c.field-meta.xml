@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Instructions not clear (Need more info)</fullName>
+                <default>false</default>
+                <label>Instructions not clear (Need more info)</label>
+            </value>
+            <value>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+                <label>Existing problem</label>
+            </value>
+            <value>
+                <fullName>Standard service</fullName>
+                <default>false</default>
+                <label>Standard service</label>
+            </value>
+            <value>
+                <fullName>Standard reply</fullName>
+                <default>false</default>
+                <label>Standard reply</label>
+            </value>
+            <value>
+                <fullName>Basic functionality</fullName>
+                <default>false</default>
+                <label>Basic functionality</label>
+            </value>
+            <value>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+                <label>Complex functionality</label>
+            </value>
+            <value>
+                <fullName>Use new functionality</fullName>
+                <default>false</default>
+                <label>Use new functionality</label>
+            </value>
+            <value>
+                <fullName>New problem</fullName>
+                <default>false</default>
+                <label>New problem</label>
+            </value>
+            <value>
+                <fullName>Change request</fullName>
+                <default>false</default>
+                <label>Change request</label>
+            </value>
+            <value>
+                <fullName>Problem sent Xledger</fullName>
+                <default>false</default>
+                <label>Problem sent Xledger</label>
+            </value>
+            <value>
+                <fullName>Support</fullName>
+                <default>false</default>
+                <label>Support</label>
+            </value>
+            <value>
+                <fullName>Acceptanse testing</fullName>
+                <default>false</default>
+                <label>Acceptanse testing</label>
+            </value>
+            <value>
+                <fullName>Problem - sent Xledger</fullName>
+                <default>false</default>
+                <label>Problem - sent Xledger</label>
+            </value>
+            <value>
+                <fullName>Change request (N)</fullName>
+                <default>false</default>
+                <label>Change request (N)</label>
+            </value>
+            <value>
+                <fullName>Other Tier 1 case</fullName>
+                <default>false</default>
+                <label>Other Tier 1 case</label>
+            </value>
+            <value>
+                <fullName>RPA</fullName>
+                <default>false</default>
+                <label>RPA</label>
+            </value>
+            <value>
+                <fullName>VIEW Connect</fullName>
+                <default>false</default>
+                <label>VIEW Connect</label>
+            </value>
+            <value>
+                <fullName>Project</fullName>
+                <default>false</default>
+                <label>Project</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Instructions not clear (Need more info)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Existing problem</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Standard service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Standard reply</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <valueName>Change request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <controllingFieldValue>Tier 2b</controllingFieldValue>
+            <valueName>Problem sent Xledger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Acceptanse testing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Problem - sent Xledger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 1</controllingFieldValue>
+            <valueName>Other Tier 1 case</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <valueName>Basic functionality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <valueName>Complex functionality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <valueName>Use new functionality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <valueName>New problem</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier 2a</controllingFieldValue>
+            <valueName>Change request (N)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier Automation</controllingFieldValue>
+            <valueName>RPA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier Automation</controllingFieldValue>
+            <valueName>VIEW Connect</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tier Automation</controllingFieldValue>
+            <valueName>Project</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

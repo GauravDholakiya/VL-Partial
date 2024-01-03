@@ -1,0 +1,67 @@
+<!--
+ - Created by jozef on 29. 3. 2023.
+ -->
+
+<aura:component description="AptPeriodColumn">
+    <aura:attribute name="apTask" type="APTaskTemplate__c" default="null"/>
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+    <aura:attribute name="isStatic" type="Boolean"/>
+    <aura:attribute name="periodDate" type="Date"/>
+    <aura:attribute name="periodDateClass" type="String" default=""/>
+    <aura:attribute name="periodNumber" type="String"/>
+    <aura:attribute name="task" type="Object"/>
+    <!-- <aura:attribute name="taskControlClass" type="String" default=""/> -->
+    <aura:attribute name="showPanel" type="Boolean"/>
+    <aura:attribute name="iconName" type="String" default=""/>
+    <aura:attribute name="iconClass" type="String" default=""/>
+    <aura:attribute name="toolTipCss" type="String"/>
+    <aura:attribute name="toolTipDisplay" type="Boolean"/>
+
+    <aura:attribute name="periodLinkTop" type="Integer"/>
+    <aura:attribute name="periodLinkLeft" type="Integer"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+
+    <aura:if isTrue="{!v.mode == 'EDIT'}">
+        <lightning:input type="date" name="Period"
+                         value="{!v.periodDate}"
+                         variant="label-hidden" disabled="{!v.isStatic}"/>
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.task != null}">
+                <div>
+                    <div aura:id="periodLink" class="periodDateCss slds-p-top_xx-small">
+                        <c:AptTaskDetailsPopup panelDisplay="{!v.toolTipDisplay}"
+                                               periodNumber="{!v.periodNumber}"
+                                               comment="{!v.task.Description}"
+                                               description="{!v.task.Description__c}"
+                                               periodLinkLeft="{!v.periodLinkLeft}"
+                                               periodLinkTop="{!v.periodLinkTop}">
+                        </c:AptTaskDetailsPopup>
+                        <div class="slds-grid">
+                            <div class="slds-col slds-p-top_xxx-small slds-no-flex">
+                                <a href="{!'/'+ v.task.Id}" target="_blank" class="{!v.periodDateClass}">
+                                    <lightning:formattedDateTime value="{!v.periodDate}" />
+                                </a>
+                            </div>
+                            <div class="slds-col slds-no-flex slds-p-left_xxx-small">
+                                <lightning:buttonIcon iconName="utility:summarydetail"
+                                                      variant="bare" onclick="{! c.handleSummaryClick }"
+                                                      alternativeText="Details" title="Details" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-p-top_xx-small">
+                        <lightning:icon iconName="{!v.iconName}" class="{!v.iconClass}"
+                                        title="{!v.task.Task_Control__c}" size="small"/>
+                    </div>
+                </div>
+                <aura:set attribute="else">
+                    <div class="periodDateCss periodColumnPadding">
+                        <lightning:formattedDateTime value="{!v.periodDate}"/>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

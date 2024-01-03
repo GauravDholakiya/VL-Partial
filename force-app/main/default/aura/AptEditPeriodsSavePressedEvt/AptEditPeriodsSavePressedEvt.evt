@@ -1,0 +1,7 @@
+<!--
+ - Created by jozef on 11. 4. 2023.
+ -->
+
+<aura:event type="APPLICATION" description="AptEditPeriodsSavePressedEvt">
+    <aura:attribute name="taskIndex" type="Integer"/>
+</aura:event>

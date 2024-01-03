@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Reports__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))
+&amp; &quot;lightning/r/Report/00O1t00000991V4EAI/view?fv1=&quot; &amp; 
+SUBSTITUTE(Name, &quot;&amp;&quot;, &quot;%26&quot;),&quot;Action Plan - Open task&quot;,&quot;_blank&quot;)
++
+BR()
++
+HYPERLINK(LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))
+&amp; &quot;lightning/r/Report/00O6N000001FbK2UAK/view?fv1=&quot; &amp; 
+SUBSTITUTE(Name, &quot;&amp;&quot;, &quot;%26&quot;),&quot;Action Plan - Closed task&quot;,&quot;_blank&quot;)
++
+BR()
++
+HYPERLINK(LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))
+&amp; &quot;lightning/r/Report/00O6N000001FbJxUAK/view?fv0=&quot; &amp; 
+SUBSTITUTE(Name, &quot;&amp;&quot;, &quot;%26&quot;),&quot;Logged time pr customer&quot;,&quot;_blank&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Task Reports</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

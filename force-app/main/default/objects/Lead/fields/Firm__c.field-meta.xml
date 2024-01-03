@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Firm__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This is related to where on the web the contact us from originates from</inlineHelpText>
+    <label>Firm</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>VIEW Construct AS</fullName>
+                <default>false</default>
+                <label>VIEW Construct AS</label>
+            </value>
+            <value>
+                <fullName>VIEW Frilans</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIEW Frilans</label>
+            </value>
+            <value>
+                <fullName>VIEW Ledger AB</fullName>
+                <default>false</default>
+                <label>VIEW Ledger AB</label>
+            </value>
+            <value>
+                <fullName>VIEW Ledger AS</fullName>
+                <default>false</default>
+                <label>VIEW Ledger AS</label>
+            </value>
+            <value>
+                <fullName>VIEW Maritime AS</fullName>
+                <default>false</default>
+                <label>VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>VIEW Tax AS</fullName>
+                <default>false</default>
+                <label>VIEW Tax AS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

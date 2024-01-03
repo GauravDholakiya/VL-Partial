@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validat_ERP_Area</fullName>
+    <active>true</active>
+    <description>If ERP Area is X-Ledger this should be a mandatory field</description>
+    <errorConditionFormula>ISNEW()
+&amp;&amp; 
+ERP_system__c  = &quot;Xledger&quot;  
+&amp;&amp; 
+ISPICKVAL(ERP_Area__c, &quot;&quot;)</errorConditionFormula>
+    <errorMessage>Pls fill in ERP AREA</errorMessage>
+</ValidationRule>

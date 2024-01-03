@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIP__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(Main_Activity__c)=&quot;Consulting&quot;, Registered_Time__c,
+IF(TEXT(Main_Activity__c)=&quot;VTI&quot;, Registered_Time__c,
+IF(TEXT(Main_Activity__c)=&quot;Year end reporting&quot;, Registered_Time__c,
+IF(TEXT(Main_Activity__c)=&quot;Konsulttjänster&quot;, Registered_Time__c,
+IF(TEXT(Main_Activity__c)=&quot;Bokslut och årsavslut&quot;, Registered_Time__c,
+0)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>BIP</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

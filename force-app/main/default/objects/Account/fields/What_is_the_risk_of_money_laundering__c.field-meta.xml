@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_is_the_risk_of_money_laundering__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Make an assessment of the risk of transactions related to dividends from criminal offenses or terrorist financing, where the risk is assessed based on customer, product or transaction type (eg cash). Public sector not except.</inlineHelpText>
+    <label>What is the risk of money laundering?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Medium Risk</fullName>
+                <default>false</default>
+                <label>Normal Risk</label>
+            </value>
+            <value>
+                <fullName>High Risk</fullName>
+                <default>false</default>
+                <label>High Risk</label>
+            </value>
+            <value>
+                <fullName>Low Risk</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Low Risk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

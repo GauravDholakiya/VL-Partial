@@ -1,0 +1,36 @@
+<!--
+ - Created by Jozef on 3.6.2019.
+ -->
+
+<aura:component description="AptViewForm" controller="AptTemplateController">
+    <aura:attribute name="tId" type="String" />
+    <aura:attribute access="private" name="templatePlan" type="ActionPlanTemplate__c"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="1">
+            <c:AptOutputField recordId="{!v.templatePlan.OwnerId}" label="{!v.templatePlan.Owner.Name}"
+                              sfObject="{!$Label.c.AptOwner}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem size="1">
+            <c:AptOutputField recordId="{!v.templatePlan.CreatedById}" label="{!v.templatePlan.CreatedBy.Name}"
+                              sfObject="{!$Label.c.AptCreatedBy}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem size="1" >
+            <c:AptOutputField recordId="{!v.templatePlan.LastModifiedById}"
+                              label="{!v.templatePlan.LastModifiedBy.Name}"
+                              sfObject="{!$Label.c.AptLastModifiedBy}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem size="1" >
+            <c:AptOutputField label="{!v.templatePlan.LastModifiedDate}" sfObject="{!$Label.c.AptLastModifiedDate}"
+                              aType="Date"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="1" >
+            <c:AptOutputField label="{!v.templatePlan.CreatedDate}" sfObject="{!$Label.c.AptCreatedDate}" aType="Date"/>
+        </lightning:layoutItem>
+
+    </lightning:layout>
+
+</aura:component>

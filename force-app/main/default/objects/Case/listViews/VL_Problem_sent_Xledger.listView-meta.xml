@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VL_Problem_sent_Xledger</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>DESKSCMT__Desk_Case_Id__c</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Of_Child_Cases__c</columns>
+    <columns>Is_Parent_Case__c</columns>
+    <columns>Desk_Id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Reason__c</field>
+        <operation>equals</operation>
+        <value>Problem sent Xledger</value>
+    </filters>
+    <label>VL Problem sent Xledger</label>
+</ListView>

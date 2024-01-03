@@ -1,0 +1,75 @@
+<aura:component controller="LightningDependentPicklistCmpController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   
+    <!-- aura attributes--> 
+    <aura:attribute name="firstParentList" type="list" default="[]" description=""/>
+    <aura:attribute name="parentList" type="list" default="[]" description=""/>
+    <aura:attribute name="childList" type="list" default="[]"/>
+
+    <aura:attribute name="parentPickListMap" type="map"/>
+    <aura:attribute name="childPickListMap" type="map"/>
+    <aura:attribute name="disabledParentField" type="boolean" default="true"/>
+    <aura:attribute name="disabledChildField" type="boolean" default="true"/>
+    
+    <aura:attribute name="objectName" type="string" default="Account"/>
+    <aura:attribute name="firstParentFieldAPI" type="string" default="Active__c"/>
+    <aura:attribute name="parentFieldAPI" type="string" default="Active__c"/>
+    <aura:attribute name="childFieldAPI" type="string" default="CustomerPriority__c"/>
+    <aura:attribute name="firstParentFieldLabel" type="string" />
+    <aura:attribute name="parentFieldLabel" type="string" />
+    <aura:attribute name="childFieldLabel" type="string"/>
+    <aura:attribute name="firstParentValue" type="string" default=""/>
+    <aura:attribute name="parentValue" type="string" default=""/>
+    <aura:attribute name="childValue" type="string" default=""/>
+    <aura:attribute name="firstParentRequired" type="string" default="false"/>
+    <aura:attribute name="parentRequired" type="string" default="false"/>
+    <aura:attribute name="childRequired" type="string" default="false"/>
+
+    <aura:attribute name="projectTasks" type="List"/>
+    <aura:attribute name="selectedProjectTasks" type="List"/>  
+
+    <aura:registerEvent name="projectCountrySet" type="c:projectCountrySet"/>
+    <aura:registerEvent name="activitySelectedEvt" type="c:ActivitySelectedEvt"/>
+    <aura:handler event="c:projectCountrySet" action="{!c.handleProjectCountrySet}" includeFacets="true"/>
+
+        <!-- First Controller Field -->
+        <div style="display:none">
+        <lightning:select name="firstParentField" aura:id="firstParentField"
+                        value="{!v.firstParentValue}"
+                        label="{!v.firstParentFieldLabel}"
+                        required="{!v.firstParentRequired}"
+                        onchange="{!c.firstParentFieldChange}"
+                        disabled="true">
+            <aura:iteration items="{!v.firstParentList}" var="value">
+                <option value="{!value}">{!value}</option>
+            </aura:iteration>
+        </lightning:select>      
+        </div>        
+
+        <!-- Dependent/Controller Field -->
+        <lightning:select name="parentField" aura:id="parentField"
+                            value="{!v.parentValue}"
+                            label="{!v.parentFieldLabel}"
+                            required="{!v.parentRequired}"
+                            onchange="{!c.parentFieldChange}"
+                            disabled="{!v.disabledParentField}">
+            <aura:iteration items="{!v.parentList}" var="value">
+                <option value="{!value}" selected="{! v.parentValue == value ? true : false}">{!value}</option>
+            </aura:iteration>
+        </lightning:select>    
+
+        <!--Dependent Field-->
+        <lightning:select name="childField"
+                            value="{!v.childValue}"
+                            label="{!v.childFieldLabel}"
+                            required="{!v.childRequired}"
+                            disabled="{!v.disabledChildField}"
+                            onchange="{!c.onChildFieldChange}">
+            <aura:iteration items="{!v.childList}" var="value">
+                <option value="{!value}" selected="{! v.childValue == value ? true : false}">{!value}</option>
+            </aura:iteration>
+        </lightning:select>
+</aura:component>

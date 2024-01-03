@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_email_mandatory</fullName>
+    <active>true</active>
+    <description>Invoice email is mandatory if invoice method is email</description>
+    <errorConditionFormula>AND((ISPICKVAL(Invoice_Delivery_Method__c , &quot;Email&quot;)),
+ISBLANK( Invoice_Email__c ), NOT(ISPICKVAL( Status__c , &quot;Draft&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>Invoice_Email__c</errorDisplayField>
+    <errorMessage>Invoice email is mandatory if invoice method is email</errorMessage>
+</ValidationRule>

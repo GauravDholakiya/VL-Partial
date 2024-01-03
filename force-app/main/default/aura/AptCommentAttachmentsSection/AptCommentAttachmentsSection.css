@@ -1,0 +1,48 @@
+/**
+ * @author Jozef 
+ * @date 25.1.2019.
+ * @description //TODO
+ */
+.THIS {
+}
+
+.THIS .read-table {
+     background-color: rgb(255, 255, 255);
+     font-size: inherit;
+}
+
+.THIS .read-table th {
+    padding: 7px 6px;
+    position: relative;
+    font-weight: 400;
+
+    position: relative;
+    border-bottom: 2px solid #ddd;
+
+}
+
+.THIS .read-table td {
+    padding: .25rem .5rem;
+    /* white-space: nowrap; */
+    position: relative;
+}
+
+
+.THIS .read-table tbody tr {
+    counter-increment: row-number;
+}
+
+
+.THIS .read-table:not(.slds-no-row-hover) tbody tr:hover{
+    outline: 0;
+    background: #eae9e9;
+}
+
+.THIS .read-table:not(.slds-no-row-hover) tbody tr:focus {
+    outline: 0;
+    background: #eae9e9;
+}
+
+.THIS .slds-text-title_caps{
+    letter-spacing: 0 !important;
+}

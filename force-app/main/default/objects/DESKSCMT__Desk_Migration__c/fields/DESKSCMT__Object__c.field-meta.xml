@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DESKSCMT__Object__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Migration Object</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>User</fullName>
+                <default>false</default>
+                <label>User</label>
+            </value>
+            <value>
+                <fullName>Group Member</fullName>
+                <default>false</default>
+                <label>Group Member</label>
+            </value>
+            <value>
+                <fullName>Account</fullName>
+                <default>false</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>Contact</fullName>
+                <default>false</default>
+                <label>Contact</label>
+            </value>
+            <value>
+                <fullName>Case</fullName>
+                <default>false</default>
+                <label>Case</label>
+            </value>
+            <value>
+                <fullName>Note</fullName>
+                <default>false</default>
+                <label>Note</label>
+            </value>
+            <value>
+                <fullName>Interaction</fullName>
+                <default>false</default>
+                <label>Interaction</label>
+            </value>
+            <value>
+                <fullName>Attachment</fullName>
+                <default>false</default>
+                <label>Attachment</label>
+            </value>
+            <value>
+                <fullName>Article</fullName>
+                <default>false</default>
+                <label>Article</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

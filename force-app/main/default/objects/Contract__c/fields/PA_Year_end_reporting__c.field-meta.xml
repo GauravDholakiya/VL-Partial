@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PA_Year_end_reporting__c</fullName>
+    <defaultValue>&quot;Hourly Rate&quot;</defaultValue>
+    <description>Price Agreement Year end reporting</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Agreed upon delivery model for Year end reporting</inlineHelpText>
+    <label>PA - Year end reporting</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fixed Price</fullName>
+                <default>false</default>
+                <label>Fixed Price</label>
+            </value>
+            <value>
+                <fullName>Hourly Rate</fullName>
+                <default>false</default>
+                <label>Hourly Rate</label>
+            </value>
+            <value>
+                <fullName>Unit Price</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Unit Price</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

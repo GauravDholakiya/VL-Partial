@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_not_back_in_time_and_not_editable</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND
+(
+NOT(ISNEW()),
+ISCHANGED(CloseDate),
+$User.ProfileId &lt;&gt; &apos;00e1t000001UNCv&apos;,
+IsClosed = TRUE,
+NOT(ISBLANK(TEXT(PRIORVALUE(CloseDate))))
+)
+||
+(
+ISCHANGED(CloseDate)
+&amp;&amp;
+CloseDate &lt; (Today()-5)
+&amp;&amp;
+$User.ProfileId &lt;&gt; &apos;00e1t000001UNCv&apos;
+)</errorConditionFormula>
+    <errorMessage>Close Date cannot be set into the past or be changed after an Opportunity is closed. Please contact your Salesforce Administrator if you need to change the date.</errorMessage>
+</ValidationRule>

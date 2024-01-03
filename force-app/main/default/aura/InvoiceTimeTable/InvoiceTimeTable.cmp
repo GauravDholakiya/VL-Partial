@@ -1,0 +1,25 @@
+<aura:component controller="InvoiceController">
+    <aura:attribute name="projectId" type="Id"/>
+	<aura:attribute name="startDate" type="Date"/>
+    <aura:attribute name="endDate" type="Date"/>
+    <aura:attribute name="times" type="List"/>
+    
+    <div class="slds"> 
+		<table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate">Name</span></th>
+                    <th scope="col"><span class="slds-truncate">Date</span></th>
+                </tr>
+            </thead>
+        <tbody>
+            <aura:iteration items="{!v.times}" var="time">
+                <tr>
+                    <td>{!time.Incurred_By__r.Name}</td>
+                    <td>{!time.Date__c}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+        </div>
+</aura:component>

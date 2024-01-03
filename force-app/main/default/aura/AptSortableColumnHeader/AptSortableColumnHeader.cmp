@@ -1,0 +1,33 @@
+<!--
+ - Created by Jozef on 20.2.2019.
+ -->
+
+<aura:component description="AptSortableColumnHeader">
+
+    <aura:attribute name="header" type="String" />
+    <aura:attribute name="sortAsc" type="Boolean" />
+    <aura:attribute access="private" name ="iconPath" type="String"
+                    default="/resource/sldsi/utility-sprite/svg/symbols.svg"/>
+
+    <span class="slds-assistive-text">Sort by: </span>
+    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+        <span class="slds-truncate" title="{!v.header}">{!v.header}</span>
+        <span class="slds-icon_container slds-icon-utility-arrowdown">
+            <aura:if isTrue="{!v.sortAsc}">
+                <c:SvgIcon class="slds-icon slds-icon-text-default slds-is-sortable__icon"
+                    svgPath="{!v.iconPath + '#arrowup'}"
+                    category="standard"
+                    size="small"
+                    name="arrowdown"/>
+                <aura:set attribute="else">
+                    <c:SvgIcon class="slds-icon slds-icon-text-default slds-is-sortable__icon"
+                        svgPath="{!v.iconPath + '#arrowdown'}"
+                        category="standard"
+                        size="small"
+                        name="arrowup"/>
+                </aura:set>
+            </aura:if>
+
+        </span>
+    </div>
+</aura:component>

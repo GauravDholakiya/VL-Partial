@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Group__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Kundegruppe</inlineHelpText>
+    <label>Customer Group</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>ERP_System__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>(T 50) Systemkunde</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(T 50) Systemkunde</label>
+            </value>
+            <value>
+                <fullName>(T 60) GMS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>(T 60) GMS</label>
+            </value>
+            <value>
+                <fullName>Årskunde</fullName>
+                <default>false</default>
+                <label>Årskunde</label>
+            </value>
+            <value>
+                <fullName>Flex</fullName>
+                <default>false</default>
+                <label>Flex</label>
+            </value>
+            <value>
+                <fullName>Forening</fullName>
+                <default>false</default>
+                <label>Forening</label>
+            </value>
+            <value>
+                <fullName>Maxi</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Maxi</label>
+            </value>
+            <value>
+                <fullName>Mikro</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mikro</label>
+            </value>
+            <value>
+                <fullName>Mini</fullName>
+                <default>false</default>
+                <label>Mini</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Premium Large</fullName>
+                <default>false</default>
+                <label>Premium Large</label>
+            </value>
+            <value>
+                <fullName>To be advised</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>To be advised</label>
+            </value>
+            <value>
+                <fullName>Tripletex Basis</fullName>
+                <default>false</default>
+                <label>Tripletex Basis</label>
+            </value>
+            <value>
+                <fullName>Tripletex fastpris</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tripletex fastpris</label>
+            </value>
+            <value>
+                <fullName>Tripletex fastpris (frilans)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tripletex fastpris (frilans)</label>
+            </value>
+            <value>
+                <fullName>Tripletex holding (frilans)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tripletex holding (frilans)</label>
+            </value>
+            <value>
+                <fullName>Tripletex Komplett</fullName>
+                <default>false</default>
+                <label>Tripletex Komplett</label>
+            </value>
+            <value>
+                <fullName>Tripletex Mikro</fullName>
+                <default>false</default>
+                <label>Tripletex Mikro</label>
+            </value>
+            <value>
+                <fullName>Tripletex Smart</fullName>
+                <default>false</default>
+                <label>Tripletex Smart</label>
+            </value>
+            <value>
+                <fullName>Tripletex Timepris</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tripletex Timepris</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Briljant</controllingFieldValue>
+            <controllingFieldValue>Fortnox</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Uni Economy</controllingFieldValue>
+            <controllingFieldValue>Marathon</controllingFieldValue>
+            <controllingFieldValue>24SevenOffice</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex</controllingFieldValue>
+            <valueName>Tripletex Basis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex</controllingFieldValue>
+            <valueName>Tripletex Komplett</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex</controllingFieldValue>
+            <valueName>Tripletex Mikro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex</controllingFieldValue>
+            <valueName>Tripletex Smart</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Xledger</controllingFieldValue>
+            <valueName>Årskunde</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Xledger</controllingFieldValue>
+            <valueName>Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Xledger</controllingFieldValue>
+            <valueName>Forening</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Xledger</controllingFieldValue>
+            <valueName>Mini</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Xledger</controllingFieldValue>
+            <valueName>Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Xledger</controllingFieldValue>
+            <valueName>Premium Large</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

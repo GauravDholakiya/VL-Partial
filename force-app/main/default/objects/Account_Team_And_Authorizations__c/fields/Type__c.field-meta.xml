@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Area__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Oppdragsteam_Fullmakter</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Altinn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Bank_ERP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Bank – Read only (Given by Customer)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Bank – Read only (Given by VIEW)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Bank – Remittance (Given by Customer)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Bank – Remittance (Given by VIEW)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Billing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Pension_and_Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Recovery_Claim</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Skatteverket</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>Submission_Anual_Report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Authorizations</controllingFieldValue>
+            <valueName>VAT_Representation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Accounting Consultant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Accounting Consultant 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Accounting Controller</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Accounting Responsible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Account_Owner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Oppdragsansvarlig</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Customer Success Manager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Executive Sponsor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Integration_Resource</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Payroll Consultant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Payroll Consultant 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Payroll_Responsible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Project_Manager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Project Manager Payroll</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Quality Consultant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Quality Consultant Payroll</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Remittance Responsible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Sales Consultant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Year end Consultant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account_Team</controllingFieldValue>
+            <valueName>Year end Responsible</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

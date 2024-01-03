@@ -1,0 +1,7 @@
+<!--
+ - Created by Jozef on 31.3.2021.
+ -->
+
+<aura:event type="COMPONENT" description="ActivitySelectedEvt">
+    <aura:attribute name="activity" type="String"/>
+</aura:event>

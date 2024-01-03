@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Authorized_Accountant_and_owner</fullName>
+    <active>true</active>
+    <description>00e1t000001UNCv = System Administrator
+00e6N000001EHWd = Admin Light</description>
+    <errorConditionFormula>ISCHANGED(Assignment_Responsible__c) 
+&amp;&amp;
+PRIORVALUE( Assignment_Responsible__c) &lt;&gt; $User.Id 
+&amp;&amp;
+$User.Id &lt;&gt; OwnerId
+&amp;&amp;
+$User.Id &lt;&gt;  Account_Owner_KA__r.Id 
+&amp;&amp;
+$User.ProfileId  &lt;&gt; &quot;00e1t000001UNCv&quot; 
+&amp;&amp;
+$User.ProfileId  &lt;&gt; &quot;00e3O000000GcQy&quot;</errorConditionFormula>
+    <errorDisplayField>Assignment_Responsible__c</errorDisplayField>
+    <errorMessage>Authorized Accountant can only be changed by the Owner or the current Authorized Accountant</errorMessage>
+</ValidationRule>

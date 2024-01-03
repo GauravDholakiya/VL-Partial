@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Case_status_change</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(Status, &quot;Closed&quot;)
+&amp;&amp;
+Is_Parent_Case__c = True 
+&amp;&amp;
+Confirm_Closing_Parent_Case__c = False</errorConditionFormula>
+    <errorMessage>You are trying to close a case that has child cases, confirm by checking the &quot;Confirm Closing Parent Case&quot; field to true.</errorMessage>
+</ValidationRule>

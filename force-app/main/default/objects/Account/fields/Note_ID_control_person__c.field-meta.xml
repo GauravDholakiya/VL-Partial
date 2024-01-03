@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note_ID_control_person__c</fullName>
+    <description>KYC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If not signed with Bank Id, comment on who from VIEW has met the customer in person. If there are reasons to doubt the ID check or the check has been performed by a third party, it must be commented on here.</inlineHelpText>
+    <label>Note ID control person</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

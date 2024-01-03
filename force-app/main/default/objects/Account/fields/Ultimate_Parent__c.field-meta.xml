@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ultimate_Parent__c</fullName>
+    <description>Shows the ultimate parent, up to  8 levels.</description>
+    <externalId>false</externalId>
+    <formula>if(isblank(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id), /* Great Great Great Great Great Great Grandparent*/
+if(isblank(Parent.Parent.Parent.Parent.Parent.Parent.Id), /* Great Great Great Great Great Grandparent */
+if(isblank(Parent.Parent.Parent.Parent.Parent.Id), /* Great Great Great Great Grandparent */
+if(isblank(Parent.Parent.Parent.Parent.Id), /* Great Great Great Grandparent */
+if(isblank(Parent.Parent.Parent.Id), /* Great Great Grandparent */
+if(isblank(Parent.Parent.Id), /* Great Grandparent */
+if(isblank(Parent.Id), /* Parent */
+Name /* Default Case*/
+, Parent.Name) /* Parent */
+, Parent.Parent.Name) /* Great Grandparent */
+, Parent.Parent.Parent.Name) /* Great Great Grandparent */
+, Parent.Parent.Parent.Parent.Name) /* Great Great Great Grandparent */
+, Parent.Parent.Parent.Parent.Parent.Name) /* Great Great Great Great Grandparent */
+, Parent.Parent.Parent.Parent.Parent.Parent.Name) /* Great Great Great Great Great Grandparent */
+, Parent.Parent.Parent.Parent.Parent.Parent.Parent.Name) /* Great Great Great Great Great Great Grandparent */</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Ultimate Parent</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

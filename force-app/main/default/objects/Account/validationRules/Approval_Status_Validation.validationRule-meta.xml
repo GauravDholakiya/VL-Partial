@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Status_Validation</fullName>
+    <active>false</active>
+    <description>Only approval process og system administrator are allowed to change the approval status value.</description>
+    <errorConditionFormula>ISCHANGED(ApprovalStatus__c)
+&amp;&amp;
+$User.ProfileId &lt;&gt;  $Label.SysAdmin_Profile</errorConditionFormula>
+    <errorDisplayField>ApprovalStatus__c</errorDisplayField>
+    <errorMessage>You do not have the level of permission to change Risk Approval Status.</errorMessage>
+</ValidationRule>

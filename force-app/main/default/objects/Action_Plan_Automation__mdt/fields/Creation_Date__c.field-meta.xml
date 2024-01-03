@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Creation_Date__c</fullName>
+    <defaultValue>&quot;1.12&quot;</defaultValue>
+    <description>Day and Month when automatic process of Action plan creation starts.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Day and Month when automatic process of Action plan creation starts. Process is scheduled separately. Format: D.MM</inlineHelpText>
+    <label>Creation Date</label>
+    <length>5</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

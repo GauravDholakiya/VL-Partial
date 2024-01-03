@@ -1,0 +1,35 @@
+/**
+ * @author Jozef 
+ * @date 21.1.2019.
+ * @description //TODO
+ */
+ .THIS .panel {
+    margin: 8px -16px -8px -16px;
+    padding: 1rem;
+    border-radius: 0 0 .25rem .25rem;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 2;
+}
+
+.THIS .section {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(221, 219, 218);
+    border-radius: .25rem;
+    background: rgb(255, 255, 255);
+    background-clip: padding-box;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+    border: 1px solid rgb(221, 219, 218);
+    margin-top: 25px;
+}
+
+.THIS .table-container {
+   overflow-x: scroll;
+   overflow-y: auto;
+   min-height: 300px;
+   /*padding-bottom: 340px; */
+}
+.THIS .addTaskSection {
+    margin-top : 20px;
+
+}

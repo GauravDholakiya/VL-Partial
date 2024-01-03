@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TemplateStaticPeriodDates__c</fullName>
+    <description>static periods loaded from template task when action plan created, 
+does not change when date in template task is changed
+semicolon separated ISO format date values f.e. ;;;;;;;2016-12-31;;;;</description>
+    <externalId>false</externalId>
+    <label>Template Static Period Dates</label>
+    <length>150</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

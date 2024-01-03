@@ -1,0 +1,51 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens,force:hasRecordId" controller="AptFiscalYearSelectorController">
+    <aura:attribute name="fiscalYearsOptions" type="List" default="[]"/>
+    <aura:attribute name="fiscalYear" type="String"/>
+    <aura:attribute name="contractId" type="String" />
+    <aura:attribute name="validationMsg" type="Boolean" default="false" />
+    <aura:attribute name="nextButtonActive" type="Boolean" default="false"/>
+    <aura:attribute name="cloneExisting" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <div class="slds-box slds-theme_default">
+            <div class="slds-p-bottom_medium">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <lightning:icon iconName="standard:task" alternativeText="New Action Plan"/>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_weak slds-text-heading_medium">
+                           {!$Label.c.AptNewActionPlan}
+                        </div>
+                    </div>
+                </header>
+            </div>
+    
+	<lightning:card title="{!$Label.c.AptSelectFiscarYear}">
+        <lightning:layout horizontalAlign="space" >
+        	<lightning:layoutItem class="slds-size_1-of-6 slds-p-horizontal_small">
+        		<lightning:combobox aura:id="selectYear" name="FiscalYear" label="{!$Label.c.AptFiscalYear}"
+                    placeholder="--Select--"
+                    options="{!v.fiscalYearsOptions}"
+                    onchange="{!c.handleChange}"/>
+           
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-size_3-of-6 slds-p-vertical_large">
+       			<aura:if isTrue="{!v.validationMsg}">
+    				{!$Label.c.AptFiscalYearValidationMsg}
+  				</aura:if> 
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layout >
+            <lightning:layoutItem class="slds-size_2-of-6 slds-p-horizontal_small slds-p-vertical_medium ">
+                <lightning:input type="checkbox" label="{!$Label.c.AptCopyPlan}" name="input1" checked="{!v.cloneExisting}"/>
+  			</lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+    <div class="slds-m-top_medium right-align">
+        <lightning:button aura:id="cancelButtonId" class="slds-button slds-button_neutral slds-size_1-of-12" label="{!$Label.c.AptCancel}" onclick="{!c.navigateCancel}" />
+        <lightning:button aura:id="nextButtonId" class="slds-button slds-button_brand slds-size_1-of-12" label="{!$Label.c.AptNext}" onclick="{!c.navigateNext}" disabled="true" />
+    </div>
+</div>
+</aura:component>

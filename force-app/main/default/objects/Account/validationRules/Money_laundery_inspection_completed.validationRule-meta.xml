@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Money_laundery_inspection_completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>Inspection_on_money_laundering_completed__c = True
+&amp;&amp;
+(
+ISBLANK(Last_performed_ID_control_company__c) ||
+ISBLANK(Notice_ID_control_company__c) || 
+ISBLANK(TEXT(ID_control_executed__c)) || 
+ISBLANK(TEXT(PEP__c)) ||
+ISBLANK(Note_ID_control_person__c) ||
+ISBLANK(TEXT(What_is_the_risk_of_money_laundering__c)) || 
+ISBLANK(Note_risk_category__c) ||
+ISBLANK(High_risk_Industry__c) ||
+ISBLANK(Last_performed_customer_control__c) ||
+ISBLANK(Ultimate_beneficial_owners_huvudman__c)
+)</errorConditionFormula>
+    <errorMessage>You must complete all fields related to Customer Control &amp; Money Laundery Risk before you can confirm that inspection on money laundering is completed.</errorMessage>
+</ValidationRule>

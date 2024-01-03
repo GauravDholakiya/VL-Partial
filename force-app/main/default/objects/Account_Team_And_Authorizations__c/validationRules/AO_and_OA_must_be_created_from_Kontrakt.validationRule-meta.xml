@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AO_and_OA_must_be_created_from_Kontrakt</fullName>
+    <active>true</active>
+    <description>&amp;&amp;
+$User.Id &lt;&gt; Kontrakt__r.Account_Owner_KA__c &amp;&amp;
+$User.Id &lt;&gt; Kontrakt__r.Assignment_Responsible__c</description>
+    <errorConditionFormula>ISNEW()
+&amp;&amp;
+Bypass_Validation_Rule__c = False
+&amp;&amp;
+(Type_Value__c = &quot;Oppdragsansvarlig&quot;
+||
+Type_Value__c = &quot;Account_Owner&quot;)</errorConditionFormula>
+    <errorDisplayField>Area__c</errorDisplayField>
+    <errorMessage>Account Owner and Authorized Accountant can only be created by automated process.</errorMessage>
+</ValidationRule>

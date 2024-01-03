@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XGL__c</fullName>
+    <externalId>false</externalId>
+    <label>XGL</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>2013 -9105 - 2013 Nysalg Netledger Maritime Accounting AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2013 -9105 - 2013 Nysalg Netledger Maritime Accounting AS</label>
+            </value>
+            <value>
+                <fullName>2014-9008 - 2014 Nysalg Netledger Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9008 - 2014 Nysalg Netledger Bergen</label>
+            </value>
+            <value>
+                <fullName>2014-9009 - 2014 Nysalg Netledger Romerike</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9009 - 2014 Nysalg Netledger Romerike</label>
+            </value>
+            <value>
+                <fullName>2014-9012 - 2014 Nysalg Netlegder Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9012 - 2014 Nysalg Netlegder Haugaland</label>
+            </value>
+            <value>
+                <fullName>2014-9016 - 2014 Nysalg Netledger Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9016 - 2014 Nysalg Netledger Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2014-9100 - 2014 Nysalg Netledger Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9100 - 2014 Nysalg Netledger Oslo</label>
+            </value>
+            <value>
+                <fullName>2014-9101 - 2014 Nysalg Netledger Ålesund AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9101 - 2014 Nysalg Netledger Ålesund AS</label>
+            </value>
+            <value>
+                <fullName>2014-9103 - 2014 Nysalg NetLedger Drammen AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9103 - 2014 Nysalg NetLedger Drammen AS</label>
+            </value>
+            <value>
+                <fullName>2014-9105 - 2014 Nysalg Netledger Maritime Accounting AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9105 - 2014 Nysalg Netledger Maritime Accounting AS</label>
+            </value>
+            <value>
+                <fullName>2014-9106 - 2014 Nysalg Netledger Proøk AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2014-9106 - 2014 Nysalg Netledger Proøk AS</label>
+            </value>
+            <value>
+                <fullName>2015-9008 - 2015 Nysalg Netledger Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9008 - 2015 Nysalg Netledger Bergen</label>
+            </value>
+            <value>
+                <fullName>2015-9009 - 2015 Nysalg Netledger Romerike</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9009 - 2015 Nysalg Netledger Romerike</label>
+            </value>
+            <value>
+                <fullName>2015-9012 - 2015 Nysalg Netlegder Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9012 - 2015 Nysalg Netlegder Haugaland</label>
+            </value>
+            <value>
+                <fullName>2015-9013 - 2015 Nysalg Netledger Hardanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9013 - 2015 Nysalg Netledger Hardanger</label>
+            </value>
+            <value>
+                <fullName>2015-9016 - 2015 Nysalg Netledger Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9016 - 2015 Nysalg Netledger Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2015-9100 - 2015 Nysalg Netledger Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9100 - 2015 Nysalg Netledger Oslo</label>
+            </value>
+            <value>
+                <fullName>2015-9101 - 2015 Nysalg Netledger Ålesund AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9101 - 2015 Nysalg Netledger Ålesund AS</label>
+            </value>
+            <value>
+                <fullName>2015-9105 - 2015 Nysalg Netledger Maritime Accounting AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9105 - 2015 Nysalg Netledger Maritime Accounting AS</label>
+            </value>
+            <value>
+                <fullName>2015-9106 - 2015 Nysalg Netledger Proøk AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2015-9106 - 2015 Nysalg Netledger Proøk AS</label>
+            </value>
+            <value>
+                <fullName>2016-9008 - 2016 Nysalgs VIEW Ledger Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9008 - 2016 Nysalgs VIEW Ledger Bergen</label>
+            </value>
+            <value>
+                <fullName>2016-9009 - 2016 Nysalg VIEW Ledger Romerike</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9009 - 2016 Nysalg VIEW Ledger Romerike</label>
+            </value>
+            <value>
+                <fullName>2016-9012 - 2016 Nysalg VIEW Ledger Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9012 - 2016 Nysalg VIEW Ledger Haugaland</label>
+            </value>
+            <value>
+                <fullName>2016-9016 - 2016 Nysalg VIEW Ledger Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9016 - 2016 Nysalg VIEW Ledger Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2016-9017 - 2016 Nysalg VIEW Ledger Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9017 - 2016 Nysalg VIEW Ledger Stavanger</label>
+            </value>
+            <value>
+                <fullName>2016-9100 - 2016 Nysalg VIEW Ledger Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9100 - 2016 Nysalg VIEW Ledger Oslo</label>
+            </value>
+            <value>
+                <fullName>2016-9101 - 2016 Nysalg VIEW Ledger Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9101 - 2016 Nysalg VIEW Ledger Ålesund</label>
+            </value>
+            <value>
+                <fullName>2016-9105 - 2016 Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9105 - 2016 Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2016-9106 - 2016 Nysalg Netledger Proøk AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9106 - 2016 Nysalg Netledger Proøk AS</label>
+            </value>
+            <value>
+                <fullName>2016-9118 - 2016 Nysalg VIEW Tax AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2016-9118 - 2016 Nysalg VIEW Tax AS</label>
+            </value>
+            <value>
+                <fullName>2017-9008 - 2017 Nysalg VIEW Ledger Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9008 - 2017 Nysalg VIEW Ledger Bergen</label>
+            </value>
+            <value>
+                <fullName>2017-9012 - 2017 Nysalg VIEW Legder Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9012 - 2017 Nysalg VIEW Legder Haugaland</label>
+            </value>
+            <value>
+                <fullName>2017-9016 - 2017 Nysalg VIEW Ledger Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9016 - 2017 Nysalg VIEW Ledger Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2017-9017 - 2017 Nysalg VIEW Ledger Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9017 - 2017 Nysalg VIEW Ledger Stavanger</label>
+            </value>
+            <value>
+                <fullName>2017-9100 - 2017 Nysalg VIEW Ledger Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9100 - 2017 Nysalg VIEW Ledger Oslo</label>
+            </value>
+            <value>
+                <fullName>2017-9101 - 2017 Nysalg VIEW Ledger Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9101 - 2017 Nysalg VIEW Ledger Ålesund</label>
+            </value>
+            <value>
+                <fullName>2017-9105 - 2017 Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9105 - 2017 Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2017-9106 - 2017 Nysalg Netledger Proøk AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9106 - 2017 Nysalg Netledger Proøk AS</label>
+            </value>
+            <value>
+                <fullName>2017-9110 - 2017 Nysalg VIEW Ledger Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9110 - 2017 Nysalg VIEW Ledger Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2017-9118 - 2017 Nysalg VIEW Tax AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9118 - 2017 Nysalg VIEW Tax AS</label>
+            </value>
+            <value>
+                <fullName>2017-9300 - 2017 Nysalg VIEW Ledger AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2017-9300 - 2017 Nysalg VIEW Ledger AB</label>
+            </value>
+            <value>
+                <fullName>2018-9008 - Nysalg Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9008 - Nysalg Bergen</label>
+            </value>
+            <value>
+                <fullName>2018-9012 - Nysalg Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9012 - Nysalg Haugaland</label>
+            </value>
+            <value>
+                <fullName>2018-9016 - Nysalg Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9016 - Nysalg Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2018-9017 - Nysalg Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9017 - Nysalg Stavanger</label>
+            </value>
+            <value>
+                <fullName>2018-9100 - Nysalg Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9100 - Nysalg Oslo</label>
+            </value>
+            <value>
+                <fullName>2018-9101 - Nysalg Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9101 - Nysalg Ålesund</label>
+            </value>
+            <value>
+                <fullName>2018-9105 - Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9105 - Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2018-9106 - Nysalg Søgne</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9106 - Nysalg Søgne</label>
+            </value>
+            <value>
+                <fullName>2018-9110 - Nysalg VIEW Sandefjord AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9110 - Nysalg VIEW Sandefjord AS</label>
+            </value>
+            <value>
+                <fullName>2018-9118 - Nysalg VIEW Tax AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9118 - Nysalg VIEW Tax AS</label>
+            </value>
+            <value>
+                <fullName>2018-9200 - Fusjon VIEW Frilans</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9200 - Fusjon VIEW Frilans</label>
+            </value>
+            <value>
+                <fullName>2018-9300 - Nysalg VIEW Ledger AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2018-9300 - Nysalg VIEW Ledger AB</label>
+            </value>
+            <value>
+                <fullName>2019-9008 - Newbiz Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9008 - Newbiz Bergen</label>
+            </value>
+            <value>
+                <fullName>2019-9008-NY - Nysalg Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9008-NY - Nysalg Bergen</label>
+            </value>
+            <value>
+                <fullName>2019-9008 - Nysalg Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9008 - Nysalg Bergen</label>
+            </value>
+            <value>
+                <fullName>2019-9012-NY - Nysalg Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9012-NY - Nysalg Haugaland</label>
+            </value>
+            <value>
+                <fullName>2019-9012 - Nysalg Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9012 - Nysalg Haugaland</label>
+            </value>
+            <value>
+                <fullName>2019-9016-NY - Nysalg Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9016-NY - Nysalg Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2019-9016 - Nysalg Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9016 - Nysalg Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2019-9017-NY - Nysalg Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9017-NY - Nysalg Stavanger</label>
+            </value>
+            <value>
+                <fullName>2019-9017 - Nysalg Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9017 - Nysalg Stavanger</label>
+            </value>
+            <value>
+                <fullName>2019-9100 - Newbiz Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9100 - Newbiz Oslo</label>
+            </value>
+            <value>
+                <fullName>2019-9100-NY - Nysalg Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9100-NY - Nysalg Oslo</label>
+            </value>
+            <value>
+                <fullName>2019-9100 - Nysalg Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9100 - Nysalg Oslo</label>
+            </value>
+            <value>
+                <fullName>2019-9101 - Newbiz Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9101 - Newbiz Ålesund</label>
+            </value>
+            <value>
+                <fullName>2019-9101-NY - Nysalg Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9101-NY - Nysalg Ålesund</label>
+            </value>
+            <value>
+                <fullName>2019-9101 - Nysalg Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9101 - Nysalg Ålesund</label>
+            </value>
+            <value>
+                <fullName>2019-9105-NY - Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9105-NY - Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2019-9105 - Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9105 - Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2019-9106-NY - Nysalg Søgne</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9106-NY - Nysalg Søgne</label>
+            </value>
+            <value>
+                <fullName>2019-9106 - Nysalg Søgne</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9106 - Nysalg Søgne</label>
+            </value>
+            <value>
+                <fullName>2019-9110-NY - Nysalg VIEW Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9110-NY - Nysalg VIEW Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2019-9110 - Nysalg VIEW Sandefjord AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9110 - Nysalg VIEW Sandefjord AS</label>
+            </value>
+            <value>
+                <fullName>2019-9118 - Nysalg VIEW Tax AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9118 - Nysalg VIEW Tax AS</label>
+            </value>
+            <value>
+                <fullName>2019-9200-NY - Nysalg Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9200-NY - Nysalg Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2019-9200 - Nysalg Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9200 - Nysalg Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2019-9300 - Nysalg VIEW Ledger AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9300 - Nysalg VIEW Ledger AB</label>
+            </value>
+            <value>
+                <fullName>2019-9302 - Fusjon K10 Sweden AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2019-9302 - Fusjon K10 Sweden AB</label>
+            </value>
+            <value>
+                <fullName>2020-9008 - Nysalg Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9008 - Nysalg Bergen</label>
+            </value>
+            <value>
+                <fullName>2020-9012 - Nysalg Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9012 - Nysalg Haugaland</label>
+            </value>
+            <value>
+                <fullName>2020-9016 - Nysalg Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9016 - Nysalg Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2020-9017 - Nysalg Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9017 - Nysalg Stavanger</label>
+            </value>
+            <value>
+                <fullName>2020-9100 - Nysalg Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9100 - Nysalg Oslo</label>
+            </value>
+            <value>
+                <fullName>2020-9101 - Nysalg Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9101 - Nysalg Ålesund</label>
+            </value>
+            <value>
+                <fullName>2020-9105 - Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9105 - Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2020-9106 - Nysalg Søgne</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9106 - Nysalg Søgne</label>
+            </value>
+            <value>
+                <fullName>2020-9110 - Fusjon VIEW Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9110 - Fusjon VIEW Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2020-9112 - Fusjon Finero Regnskap AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9112 - Fusjon Finero Regnskap AS</label>
+            </value>
+            <value>
+                <fullName>2020-9118 - Nysalg VIEW Tax AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9118 - Nysalg VIEW Tax AS</label>
+            </value>
+            <value>
+                <fullName>2020-9200 - Nysalg Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9200 - Nysalg Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2020-9300 - Nysalg VIEW Ledger AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9300 - Nysalg VIEW Ledger AB</label>
+            </value>
+            <value>
+                <fullName>2020-9302 - Nysalg Kalmar Sweden AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2020-9302 - Nysalg Kalmar Sweden AB</label>
+            </value>
+            <value>
+                <fullName>2021-9008 - Nysalg Bergen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9008 - Nysalg Bergen</label>
+            </value>
+            <value>
+                <fullName>2021-9012 - Nysalg Haugaland</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9012 - Nysalg Haugaland</label>
+            </value>
+            <value>
+                <fullName>2021-9015 - Nysalg Stavanger Finero</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9015 - Nysalg Stavanger Finero</label>
+            </value>
+            <value>
+                <fullName>2021-9016 - Nysalg Lillehammer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9016 - Nysalg Lillehammer</label>
+            </value>
+            <value>
+                <fullName>2021-9017 - Nysalg Stavanger</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9017 - Nysalg Stavanger</label>
+            </value>
+            <value>
+                <fullName>2021-9100 - Nysalg Oslo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9100 - Nysalg Oslo</label>
+            </value>
+            <value>
+                <fullName>2021-9101 - Nysalg Ålesund</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9101 - Nysalg Ålesund</label>
+            </value>
+            <value>
+                <fullName>2021-9105 - Nysalg VIEW Maritime AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9105 - Nysalg VIEW Maritime AS</label>
+            </value>
+            <value>
+                <fullName>2021-9106 - Nysalg Søgne</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9106 - Nysalg Søgne</label>
+            </value>
+            <value>
+                <fullName>2021-9115 - Fusjon RC AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9115 - Fusjon RC AS</label>
+            </value>
+            <value>
+                <fullName>2021-9115 - Nysalg RC AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9115 - Nysalg RC AS</label>
+            </value>
+            <value>
+                <fullName>2021-9116 - Fusjon Consulatet AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9116 - Fusjon Consulatet AS</label>
+            </value>
+            <value>
+                <fullName>2021-9116 - Nysalg Consulatet AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9116 - Nysalg Consulatet AS</label>
+            </value>
+            <value>
+                <fullName>2021-9117 - Fusjon ØKR AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9117 - Fusjon ØKR AS</label>
+            </value>
+            <value>
+                <fullName>2021-9117 - Nysalg ØKR AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9117 - Nysalg ØKR AS</label>
+            </value>
+            <value>
+                <fullName>2021-9118 - Nysalg VIEW Tax AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9118 - Nysalg VIEW Tax AS</label>
+            </value>
+            <value>
+                <fullName>2021-9200 - Nysalg Sandefjord</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9200 - Nysalg Sandefjord</label>
+            </value>
+            <value>
+                <fullName>2021-9300 - Nysalg VIEW Ledger AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2021-9300 - Nysalg VIEW Ledger AB</label>
+            </value>
+            <value>
+                <fullName>2022-9122 - Nysalg Construct</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2022-9122 - Nysalg Construct</label>
+            </value>
+            <value>
+                <fullName>2022 - Nysalg 2022</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2022 - Nysalg 2022</label>
+            </value>
+            <value>
+                <fullName>2023 - Nysalg 2023</fullName>
+                <default>false</default>
+                <label>2023 - Nysalg 2023</label>
+            </value>
+            <value>
+                <fullName>70IHLBJØ - Bjørn Erik Ihlen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>70IHLBJØ - Bjørn Erik Ihlen</label>
+            </value>
+            <value>
+                <fullName>9012 - RegnskapsService Haugaland AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9012 - RegnskapsService Haugaland AS</label>
+            </value>
+            <value>
+                <fullName>9013 - Helland Rekneskap AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9013 - Helland Rekneskap AS</label>
+            </value>
+            <value>
+                <fullName>9016 - Mosveen Regnskap AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9016 - Mosveen Regnskap AS</label>
+            </value>
+            <value>
+                <fullName>9101 - NetLedger Ålesund AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9101 - NetLedger Ålesund AS</label>
+            </value>
+            <value>
+                <fullName>9106 - Netledger ProØk AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9106 - Netledger ProØk AS</label>
+            </value>
+            <value>
+                <fullName>9107 - Chimaera Regnskap Bergen AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9107 - Chimaera Regnskap Bergen AS</label>
+            </value>
+            <value>
+                <fullName>Bird AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Bird AS</label>
+            </value>
+            <value>
+                <fullName>Capex - CAPEX</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Capex - CAPEX</label>
+            </value>
+            <value>
+                <fullName>Fort - Fortnox</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fort - Fortnox</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9115 Fusjon RC AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon-9115 Fusjon RC AS</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9116 Fusjon Consulatet AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon-9116 Fusjon Consulatet AS</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9117 Fusjon ØKR AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon-9117 Fusjon ØKR AS</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9124 Fusjon NRP Procurator AS</fullName>
+                <default>false</default>
+                <label>Fusjon-9124 Fusjon NRP Procurator AS</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9125 Fusjon Pluss Økonomi AS Kristiansand</fullName>
+                <default>false</default>
+                <label>Fusjon-9125 Fusjon Pluss Økonomi AS Kristiansand</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9126 Fusjon Pluss Økonomi AS Mandal</fullName>
+                <default>false</default>
+                <label>Fusjon-9126 Fusjon Pluss Økonomi AS Mandal</label>
+            </value>
+            <value>
+                <fullName>Fusjon 9303 - Fusjon Q AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon 9303 - Fusjon Q AB</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9303 Fusjon Q AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon-9303 Fusjon Q AB</label>
+            </value>
+            <value>
+                <fullName>Fusjon 9304 - Fusjon Krona AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon 9304 - Fusjon Krona AB</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9304 Fusjon Krona AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fusjon-9304 Fusjon Krona AB</label>
+            </value>
+            <value>
+                <fullName>Fusjon-9305 Fusion Resursgruppen AB</fullName>
+                <default>false</default>
+                <label>Fusjon-9305 Fusion Resursgruppen AB</label>
+            </value>
+            <value>
+                <fullName>Luca Account AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Luca Account AS</label>
+            </value>
+            <value>
+                <fullName>Oppsigelse</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Oppsigelse</label>
+            </value>
+            <value>
+                <fullName>Sykkylven Rekneskapskontor AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sykkylven Rekneskapskontor AS</label>
+            </value>
+            <value>
+                <fullName>Vigra Regnskap AS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vigra Regnskap AS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pricelist_System__c</fullName>
+    <externalId>false</externalId>
+    <label>Price List (System)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Customer_Group__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Manuell</fullName>
+                <default>false</default>
+                <label>Manuell</label>
+            </value>
+            <value>
+                <fullName>2 Charity</fullName>
+                <default>false</default>
+                <label>2 Charity</label>
+            </value>
+            <value>
+                <fullName>S2F Charity - Stykkpris</fullName>
+                <default>false</default>
+                <label>S2F Charity - Stykkpris</label>
+            </value>
+            <value>
+                <fullName>3F Systemkunde Charity</fullName>
+                <default>false</default>
+                <label>3F Systemkunde Charity</label>
+            </value>
+            <value>
+                <fullName>1 Mini</fullName>
+                <default>false</default>
+                <label>1 Mini</label>
+            </value>
+            <value>
+                <fullName>S1 Mini - Stykkpris</fullName>
+                <default>false</default>
+                <label>S1 Mini - Stykkpris</label>
+            </value>
+            <value>
+                <fullName>2 Flex</fullName>
+                <default>false</default>
+                <label>2 Flex</label>
+            </value>
+            <value>
+                <fullName>S2 Flex Stykkpris</fullName>
+                <default>false</default>
+                <label>S2 Flex Stykkpris</label>
+            </value>
+            <value>
+                <fullName>3 Flex</fullName>
+                <default>false</default>
+                <label>3 Flex</label>
+            </value>
+            <value>
+                <fullName>2+ Premium</fullName>
+                <default>false</default>
+                <label>2+ Premium</label>
+            </value>
+            <value>
+                <fullName>S2+ Premium - Stykkpris</fullName>
+                <default>false</default>
+                <label>S2+ Premium - Stykkpris</label>
+            </value>
+            <value>
+                <fullName>3+ Systemkunde - Premium</fullName>
+                <default>false</default>
+                <label>3+ Systemkunde - Premium</label>
+            </value>
+            <value>
+                <fullName>S2X Premium Xtra - Stykkpris</fullName>
+                <default>false</default>
+                <label>S2X Premium Xtra - Stykkpris</label>
+            </value>
+            <value>
+                <fullName>3X Premium Xtra</fullName>
+                <default>false</default>
+                <label>3X Premium Xtra</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Premium Large</controllingFieldValue>
+            <valueName>S2X Premium Xtra - Stykkpris</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Large</controllingFieldValue>
+            <valueName>3X Premium Xtra</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <valueName>2 Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <valueName>S2 Flex Stykkpris</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Flex</controllingFieldValue>
+            <valueName>3 Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <valueName>2 Charity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <valueName>S2F Charity - Stykkpris</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Forening</controllingFieldValue>
+            <valueName>3F Systemkunde Charity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mini</controllingFieldValue>
+            <valueName>1 Mini</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mini</controllingFieldValue>
+            <valueName>S1 Mini - Stykkpris</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tripletex Basis</controllingFieldValue>
+            <controllingFieldValue>Tripletex Komplett</controllingFieldValue>
+            <controllingFieldValue>Tripletex Mikro</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Tripletex Smart</controllingFieldValue>
+            <valueName>None</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <valueName>2+ Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <valueName>S2+ Premium - Stykkpris</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <valueName>3+ Systemkunde - Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Årskunde</controllingFieldValue>
+            <valueName>Manuell</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

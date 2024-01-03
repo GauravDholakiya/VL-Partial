@@ -1,0 +1,16 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes">
+    
+    <!-- List of ProductItem records, this is kept up to date in the aura:iteration below -->
+    <aura:attribute name="projectTaskList" type="List"/>        
+
+    <ui:scrollerWrapper class="scrollerSize">
+ 
+     <aura:iteration items="{!v.projectTaskList}" var="p">
+         <!-- Everything in between these iteration tags is created for each list element. -->
+         <c:ProjectTaskItem projectTaskName="{!p.Name}" projectTaskId="{!p.Id}" isSelected="false"
+                            deactivated="{!p.Project__r.Account__r.Deactivated__c}" accountStatus="{!p.AccountStatus}"
+                            reasonForDeactivation="{!p.Project__r.Account__r.Reason_For_Deactivation__c}"
+                            defaultTimeType="{!p.Default_Time_Type__c}" lockTimeType="{!p.Lock_Time_Type__c}"/>
+     </aura:iteration>
+    </ui:scrollerWrapper>         
+</aura:component>

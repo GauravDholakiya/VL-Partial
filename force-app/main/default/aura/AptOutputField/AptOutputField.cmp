@@ -1,0 +1,30 @@
+<!--
+ - Created by Jozef on 3.6.2019.
+ -->
+
+<aura:component description="AptOutputField">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="sfObject" type="String" />
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="aType" type="String" default="String"/>
+
+    <span class="slds-form-element__label">{!v.sfObject}</span>
+    <div class="slds-form-element__control slds-form-element__static">
+        <aura:if isTrue="{!v.recordId != null}">
+            <a href="{!'/lightning/r/'+ v.recordId + '/view'}" target="_blank">
+                {!v.label}
+            </a>
+            <aura:set attribute="else">
+                <div class="slds-form-element__static " >
+                    <aura:if isTrue="{!v.aType == 'Date'}">
+                        <lightning:formattedDateTime value="{!v.label}"/>
+                        <aura:set attribute="else">
+                            <span>{!v.label}</span>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>

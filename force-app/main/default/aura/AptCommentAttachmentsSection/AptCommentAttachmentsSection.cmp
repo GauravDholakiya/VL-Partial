@@ -1,0 +1,69 @@
+<!--
+ - Created by Jozef on 24.1.2019.
+ -->
+
+<aura:component description="AptCommentAttachmentsRead" controller="AptActionPlanController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:handler event="c:AptTableReadRowSelectedEvt" action="{!c.handleSelectedRowsEvent}"/>
+    <!-- <aura:handler event="c:AptActionPlanTasksLoadedEvt" action="{!c.handleTasksLoadedEvent}"/> -->
+
+    <aura:attribute name="headerId" type="String" />
+    <aura:attribute name="attachments" type="AttachmentRow__c[]" />
+    <aura:attribute name="editMode" type="Boolean" default="false"/>
+    <aura:attribute name="apTasks" type="APTaskTemplate__c[]" />
+    <aura:attribute name="index" type="Integer" default="1" />
+    <aura:attribute name="apTask" type="APTaskTemplate__c" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <c:AptActionPlanUtil aura:id="utilId"/>
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="6" padding="around-small" >
+            <div>
+                <lightning:textarea name="textAreaComments" readonly="{!!v.editMode}"
+                                    value="{!v.apTask.Comments__c}" label="{!$Label.c.AptComments}" />
+            </div>
+            <div>
+                <lightning:textarea name="textAreaDescription" readonly="{!!v.editMode}"
+                                    value="{!v.apTask.Description__c}" label="{!$Label.c.AptDescription}" />
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6" padding="around-small">
+            <div >
+                <table id="taskTable" class="read-table">
+                    <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            {!$Label.c.AptFileName}
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            {!$Label.c.AptLinkToSharepoint}
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            {!$Label.c.AptStatus}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.attachments}" var="a">
+                        <tr class="slds-hint-parent">
+                            <td data-label="woot" scope="row" class="">
+                                {!a.File_Name__c}
+                            </td>
+                            <td data-label="woot" scope="row" class="">
+                                <a target="_blank" href="{!a.Sharepoint_Link__c}">{!$Label.c.AptLinkToSharepoint}</a>
+                            </td>
+                            <td data-label="woot" scope="row" class="">
+                                {!a.State__c}
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+
+</aura:component>

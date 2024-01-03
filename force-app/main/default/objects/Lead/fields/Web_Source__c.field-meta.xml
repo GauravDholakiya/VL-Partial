@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Web_Source__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is referenced to what form on the web this lead is coming from</inlineHelpText>
+    <label>Web Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Firm__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kontakt Oss</fullName>
+                <default>false</default>
+                <label>Kontakt Oss</label>
+            </value>
+            <value>
+                <fullName>Få et Tilbud</fullName>
+                <default>false</default>
+                <label>Få et Tilbud</label>
+            </value>
+            <value>
+                <fullName>Få en Gratis Demo</fullName>
+                <default>false</default>
+                <label>Få en Gratis Demo</label>
+            </value>
+            <value>
+                <fullName>Få en Gratis Demo av Tripletex</fullName>
+                <default>false</default>
+                <label>Få en Gratis Demo av Tripletex</label>
+            </value>
+            <value>
+                <fullName>Prøv Tripletex Gratis</fullName>
+                <default>false</default>
+                <label>Prøv Tripletex Gratis</label>
+            </value>
+            <value>
+                <fullName>Ebok</fullName>
+                <default>false</default>
+                <label>Ebok</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>VIEW Ledger AS</controllingFieldValue>
+            <valueName>Kontakt Oss</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VIEW Ledger AS</controllingFieldValue>
+            <valueName>Få et Tilbud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VIEW Ledger AS</controllingFieldValue>
+            <valueName>Få en Gratis Demo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VIEW Ledger AS</controllingFieldValue>
+            <valueName>Ebok</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

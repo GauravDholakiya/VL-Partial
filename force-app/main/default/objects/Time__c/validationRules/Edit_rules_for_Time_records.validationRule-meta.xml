@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_rules_for_Time_records</fullName>
+    <active>true</active>
+    <description>00e1t000001UNCv = System Administrator
+00e1t000000RpQL = Payroll Admin</description>
+    <errorConditionFormula>!ISNEW()
+&amp;&amp;
+Weekly_Approved_Hours_ID__r.User_Cannot_Edit__c  = TRUE
+&amp;&amp;
+$User.Id &lt;&gt; Incurred_By__r.ManagerId
+&amp;&amp;
+$Profile.Id &lt;&gt; &quot;00e1t000001UNCv&quot;
+&amp;&amp;
+$Profile.Id &lt;&gt; &quot;00e1t000000RpQL&quot;
+
+/*||
+
+($User.Id = Incurred_By__r.ManagerId
+&amp;&amp;
+!ISCHANGED( Status__c )*/</errorConditionFormula>
+    <errorMessage>You do not have the necessary permission to perform the operation you requested.</errorMessage>
+</ValidationRule>

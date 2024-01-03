@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DESKSCMT__Send_Notification_Emails__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Uncheck this box if you hit the email sending limit for your org.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Uncheck this box if you hit the email sending limit for your org.</inlineHelpText>
+    <label>Send Notification Emails</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,34 @@
+<!--
+ - Created by jozef on 4. 4. 2023.
+ -->
+
+<aura:component description="AptFirstPeriodDate">
+    <aura:attribute name="mode" type="String" default="VIEW"/>
+    <aura:attribute name="apTask" type="APTaskTemplate__c" default="null"/>
+    <aura:attribute name="taskIndex" type="Integer" />
+    <aura:attribute name="firstPeriodDate" type="Date"/>
+    <aura:attribute name="periodName" type="String"/>
+    <aura:attribute name="periodColumn" type="String"/>
+    <aura:handler event="c:AptEditPeriodsSavePressedEvt" action="{!c.editPeriodsSavePressed}"/>
+    <aura:registerEvent name="firstPeriodChangedEvent" type="c:AptFirstPeriodChangedEvt"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:method name="recalculateFirstPeriod" action="{!c.recalculateFirstPeriod}" access="PUBLIC">
+    </aura:method>
+
+    <aura:if isTrue="{!v.mode == 'EDIT'}">
+        <div class="slds-grid">
+            <div class="slds-col slds-no-flex slds-p-right_small slds-p-top_x-small">
+                <span>{!v.periodName}</span>
+            </div>
+            <div class="slds-col">
+                <lightning:input type="date" value="{!v.firstPeriodDate}" onchange="{!c.firstPeriodDateChanged}"
+                                 variant="label-hidden"/>
+            </div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.mode == 'VIEW'}">
+        <span>{!v.periodName} : </span>
+        <lightning:formattedDateTime value="{!v.firstPeriodDate}"/>
+    </aura:if>
+</aura:component>
