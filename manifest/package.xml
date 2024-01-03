@@ -12,7 +12,5 @@
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
-	<types>
-	</types>
 	<version>58.0</version>
 </Package>
